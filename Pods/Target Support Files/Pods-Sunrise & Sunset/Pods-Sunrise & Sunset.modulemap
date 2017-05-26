@@ -1,0 +1,6 @@
+framework module Pods_Sunrise___Sunset {
+  umbrella header "Pods-Sunrise & Sunset-umbrella.h"
+
+  export *
+  module * { export * }
+}

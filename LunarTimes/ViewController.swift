@@ -8,9 +8,12 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
+import SwiftyJSON
+import GoogleMobileAds
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate, AmazonAdViewDelegate{
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var daytimeLabel: UILabel!
     @IBOutlet weak var duskLabel: UILabel!
@@ -25,16 +28,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, AmazonAdViewD
     @IBOutlet weak var duskView: UIView!
     @IBOutlet weak var dawnView: UIView!
     
-    @IBOutlet var amazonAdView: AmazonAdView!
+    @IBOutlet weak var bannerView: GADBannerView!
     
-    @IBOutlet weak var uiBannerView: UIView!
+
     var locationManager = CLLocationManager();
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       
-        
         applyPlainShadow(sunsetView)
         applyPlainShadow(sunriseView)
         applyPlainShadow(daytimeView)
@@ -46,25 +48,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, AmazonAdViewD
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        let adFrame: CGRect = CGRect(x: 0, y: UIScreen.main.bounds.size.height-50, width: UIScreen.main.bounds.size.width, height: 50);
-        
-        amazonAdView = AmazonAdView.init(frame: adFrame)
-        //amazonAdView = AmazonAdView(adSize: AmazonAdSize_320x50)
-        //amazonAdView.autoresizingMask = [.FlexibleWidth, .FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleBottomMargin]
-        amazonAdView.setHorizontalAlignment(.Center)
-        amazonAdView.setVerticalAlignment(.Bottom)
-        
-        
-        // Register the ViewController with the delegate to receive callbacks.
-        amazonAdView.delegate = self
-        
-        // Load an ad
-        //loadAmazonAd()
-        //uiBannerView.addSubview(amazonAdView)
-
-        
-        //var timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "loadAmazonAd", userInfo: nil, repeats: true)
+        loadAd()
+    }
     
+    func loadAd(){
+        print("Google Mobile Ads SDK version: " + GADRequest.sdkVersion())
+    
+        
+        bannerView.adUnitID = "ca-app-pub-8223005482588566/7260467533"
+        bannerView.rootViewController = self
+        
+        let request = GADRequest()
+        //request.testDevices = ["a0059a5e61136be10d2e720167aa8c96"]
+        bannerView.load(request)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -76,7 +72,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, AmazonAdViewD
         let latitude = locationlast?.coordinate.latitude.description
         let long = locationlast?.coordinate.longitude.description
         
-        let url = "http://api.sunrise-sunset.org/json?lat=" + latitude! +
+        let url = "https://api.sunrise-sunset.org/json?lat=" + latitude! +
         "&lng=" + long! + "&formatted=0";
         
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
@@ -94,7 +90,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, AmazonAdViewD
             }
         })
 
-        pullData(url)
+        requestData(url: url)
         
 
     }
@@ -116,35 +112,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, AmazonAdViewD
         
     }
     
-    func pullData(_ url: String){
-        //Create NSURL Object
-        let myUrl = URL(string: url)
-        
-        //Create URL request
-        let request = NSMutableURLRequest(url: myUrl!)
-        request.httpMethod = "GET"
-        
-        let task = URLSession.shared.dataTask(with: request, completionHandler: {
-            data, response, error in
-            
-            if error != nil{
-                print("Error=\(error)")
-                return
-            }
-            
-            let responseString = NSString(data: data!, encoding: String.Encoding.utf8)
-            //print(responseString?.description)
-            
-            do{
-                let json: NSDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
-                
-                //print(json)
-                if(json["status"] as! String == "OK"){
+    func requestData(url: String){
+        Alamofire.request(url, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print("JSON: \(json)")
+                if(json["status"].stringValue == "OK"){
                     var times = json["results"]
-                    let dawnString: String = self.getDateTime(times!["civil_twilight_begin"] as! String)
-                    let duskString: String = self.getDateTime(times!["civil_twilight_end"] as! String)
-                    let sunriseString: String = self.getDateTime(times!["sunrise"] as! String)
-                    let sunsetString: String = self.getDateTime(times!["sunset"] as! String)
+                    
+                    let dawnString = self.getDateTime(times["civil_twilight_begin"].stringValue)
+                    let duskString = self.getDateTime(times["civil_twilight_end"].stringValue)
+                    let sunriseString = self.getDateTime(times["sunrise"].stringValue)
+                    let sunsetString = self.getDateTime(times["sunset"].stringValue)
                     
                     let sourceFormat = DateFormatter()
                     sourceFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -152,7 +132,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, AmazonAdViewD
                     
                     let destFormat = DateFormatter()
                     destFormat.dateFormat = "hh:mm:ss a"
-                    destFormat.timeZone = TimeZone()
+                    destFormat.timeZone = TimeZone.current
                     
                     let sunriseDate = sourceFormat.date(from: sunriseString)
                     let parsedSunrise  = destFormat.string(from: sunriseDate!)
@@ -168,7 +148,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, AmazonAdViewD
                     
                     let diff: TimeInterval = (sunsetDate?.timeIntervalSince(sunriseDate!))!
                     
-                
+                    
                     let timeDiff = self.stringFromTimeInterval(diff)
                     
                     
@@ -179,18 +159,90 @@ class ViewController: UIViewController, CLLocationManagerDelegate, AmazonAdViewD
                         self.dawnLabel.text = parsedDawn
                         self.duskLabel.text = parsedDusk
                         self.daytimeLabel.text = timeDiff
-                        
-
-                        
                     })
                 }
-            } catch{
                 
+            case .failure(let error):
+                print(error)
             }
-
-            
-        })
-        task.resume();
+        }
+    }
+    
+    func pullData(_ url: String){
+        //Create NSURL Object
+        let myUrl = URL(string: url)
+        
+        //Create URL request
+        let request = NSMutableURLRequest(url: myUrl!)
+        request.httpMethod = "GET"
+        
+//        let task = URLSession.shared.dataTask(with: request, completionHandler: {
+//            data, response, error in
+//            
+//            if error != nil{
+//                print("Error=\(error)")
+//                return
+//            }
+//            
+//            let responseString = NSString(data: data!, encoding: String.Encoding.utf8)
+//            //print(responseString?.description)
+//            
+//            do{
+//                let json: NSDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
+//                
+//                //print(json)
+//                if(json["status"] as! String == "OK"){
+//                    var times = json["results"]
+//                    let dawnString: String = self.getDateTime(times!["civil_twilight_begin"] as! String)
+//                    let duskString: String = self.getDateTime(times!["civil_twilight_end"] as! String)
+//                    let sunriseString: String = self.getDateTime(times!["sunrise"] as! String)
+//                    let sunsetString: String = self.getDateTime(times!["sunset"] as! String)
+//                    
+//                    let sourceFormat = DateFormatter()
+//                    sourceFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                    sourceFormat.timeZone = TimeZone(identifier: "UTC")
+//                    
+//                    let destFormat = DateFormatter()
+//                    destFormat.dateFormat = "hh:mm:ss a"
+//                    destFormat.timeZone = TimeZone()
+//                    
+//                    let sunriseDate = sourceFormat.date(from: sunriseString)
+//                    let parsedSunrise  = destFormat.string(from: sunriseDate!)
+//                    
+//                    let sunsetDate = sourceFormat.date(from: sunsetString)
+//                    let parsedSunset = destFormat.string(from: sunsetDate!)
+//                    
+//                    let dawnDate = sourceFormat.date(from: dawnString)
+//                    let parsedDawn = destFormat.string(from: dawnDate!)
+//                    
+//                    let duskDate = sourceFormat.date(from: duskString)
+//                    let parsedDusk = destFormat.string(from: duskDate!)
+//                    
+//                    let diff: TimeInterval = (sunsetDate?.timeIntervalSince(sunriseDate!))!
+//                    
+//                
+//                    let timeDiff = self.stringFromTimeInterval(diff)
+//                    
+//                    
+//                    DispatchQueue.main.async(execute: {
+//                        //self.tableView.reloadData()
+//                        self.sunriseLabel.text = parsedSunrise
+//                        self.sunsetLabel.text = parsedSunset
+//                        self.dawnLabel.text = parsedDawn
+//                        self.duskLabel.text = parsedDusk
+//                        self.daytimeLabel.text = timeDiff
+//                        
+//
+//                        
+//                    })
+//                }
+//            } catch{
+//                
+//            }
+//
+//            
+//        })
+//        task.resume();
     }
     
     func stringFromTimeInterval(_ interval: TimeInterval) -> String {
@@ -219,49 +271,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, AmazonAdViewD
     }
 
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-//    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-//        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-//        coordinator.animateAlongsideTransition(nil, completion: { (context) -> Void in
-//            // Reload Amazon Ad upon rotation.
-//            // Important: Amazon expandable rich media ads target landscape and portrait mode separately.
-//            // If your app supports device rotation events, your app must reload the ad when rotating between portrait and landscape mode.
-//            self.loadAmazonAd();
-//        });
-//    }
-    
-    func loadAmazonAd(){
-        let options = AmazonAdOptions()
-        options.isTestRequest = true
-        amazonAdView.loadAd(options)
-        
-    }
-    
-    // MARK: AmazonAdViewDelegate
-    func viewControllerForPresentingModalView() -> UIViewController {
-        return self
-    }
-    
-    func adViewDidLoad(_ view: AmazonAdView!) -> Void {
-        self.view.addSubview(amazonAdView)
-    }
-    
-    func adViewDidFailToLoad(_ view: AmazonAdView!, withError: AmazonAdError!) -> Void {
-        Swift.print("Ad Failed to load. Error code \(withError.errorCode): \(withError.errorDescription)")
-    }
-    
-    func adViewWillExpand(_ view: AmazonAdView!) -> Void {
-        Swift.print("Ad will expand")
-    }
-    
-    func adViewDidCollapse(_ view: AmazonAdView!) -> Void {
-        Swift.print("Ad has collapsed")
-    }
+
 
 
 

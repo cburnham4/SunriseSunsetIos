@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GoogleMobileAds
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,13 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        AmazonAdRegistration.sharedRegistration().setAppKey("426e7c38e6da484fb8e8f7a355b1c83a")
         UINavigationBar.appearance().barTintColor = UIColor(red: 76/255, green: 175/255, blue: 80/255, alpha: 1)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         
         
+        FirebaseApp.configure()
         
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-8223005482588566~5783734330")
         
         return true
     }

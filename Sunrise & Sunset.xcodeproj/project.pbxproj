@@ -7,24 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4401C58F1D156A0700700CE3 /* AmazonAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4401C58E1D156A0700700CE3 /* AmazonAd.framework */; };
 		4401C5941D156D8800700CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4401C5921D156D8800700CE3 /* Main.storyboard */; };
-		4424E6201D0F7A91000FC4ED /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E61F1D0F7A91000FC4ED /* AdSupport.framework */; };
-		4424E6221D0F7A9B000FC4ED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E6211D0F7A9B000FC4ED /* CoreLocation.framework */; };
-		4424E6241D0F7AB0000FC4ED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E6231D0F7AB0000FC4ED /* SystemConfiguration.framework */; };
-		4424E6261D0F7ABD000FC4ED /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E6251D0F7ABD000FC4ED /* CoreTelephony.framework */; };
-		4424E6281D0F7ACB000FC4ED /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E6271D0F7ACB000FC4ED /* MediaPlayer.framework */; };
-		4424E62B1D0F7AD5000FC4ED /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E6291D0F7AD5000FC4ED /* EventKit.framework */; };
-		4424E62C1D0F7AD5000FC4ED /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E62A1D0F7AD5000FC4ED /* EventKitUI.framework */; };
-		4424E62E1D0F7ADD000FC4ED /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E62D1D0F7ADD000FC4ED /* StoreKit.framework */; };
-		4424E6301D0F7AEC000FC4ED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E62F1D0F7AEC000FC4ED /* QuartzCore.framework */; };
 		443B8DD41D09FE2F00F5CDBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B8DD31D09FE2F00F5CDBB /* AppDelegate.swift */; };
 		443B8DD61D09FE2F00F5CDBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B8DD51D09FE2F00F5CDBB /* ViewController.swift */; };
 		443B8DDB1D09FE2F00F5CDBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443B8DDA1D09FE2F00F5CDBB /* Assets.xcassets */; };
 		443B8DDE1D09FE2F00F5CDBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443B8DDC1D09FE2F00F5CDBB /* LaunchScreen.storyboard */; };
 		443B8DE91D09FE2F00F5CDBB /* LunarTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B8DE81D09FE2F00F5CDBB /* LunarTimesTests.swift */; };
-		44A993EE1D108ACC005E7793 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A993ED1D108ACC005E7793 /* CoreGraphics.framework */; };
-		44A993F01D108AE5005E7793 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A993EF1D108AE5005E7793 /* Foundation.framework */; };
+		50F76D16C96E258C66CECA8F /* Pods_Sunrise___Sunset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */; };
+		6F5B2FD234A3F3EB7BB6CCE8 /* Pods_Sunrise___SunsetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */; };
+		E07534781ED89BED007D372B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07534771ED89BED007D372B /* GoogleService-Info.plist */; };
+		E07534791ED89BED007D372B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07534771ED89BED007D372B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,17 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4401C58E1D156A0700700CE3 /* AmazonAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AmazonAd.framework; path = "../Amazon-iOS-SDKs/AmazonMobileAds/AmazonAd.framework"; sourceTree = "<group>"; };
+		0F8C1B319C80B4DC413629E8 /* Pods-Sunrise & Sunset.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunrise & Sunset.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sunrise & Sunset/Pods-Sunrise & Sunset.release.xcconfig"; sourceTree = "<group>"; };
+		3D429924C83A5D7C2911287E /* Pods-Sunrise & SunsetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunrise & SunsetTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sunrise & SunsetTests/Pods-Sunrise & SunsetTests.release.xcconfig"; sourceTree = "<group>"; };
 		4401C5931D156D8800700CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4424E61F1D0F7A91000FC4ED /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		4424E6211D0F7A9B000FC4ED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		4424E6231D0F7AB0000FC4ED /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		4424E6251D0F7ABD000FC4ED /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		4424E6271D0F7ACB000FC4ED /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		4424E6291D0F7AD5000FC4ED /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
-		4424E62A1D0F7AD5000FC4ED /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
-		4424E62D1D0F7ADD000FC4ED /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		4424E62F1D0F7AEC000FC4ED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		443B8DD01D09FE2F00F5CDBB /* Sunrise & Sunset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sunrise & Sunset.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		443B8DD31D09FE2F00F5CDBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		443B8DD51D09FE2F00F5CDBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,9 +42,11 @@
 		443B8DE41D09FE2F00F5CDBB /* Sunrise & Sunset.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sunrise & Sunset.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		443B8DE81D09FE2F00F5CDBB /* LunarTimesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarTimesTests.swift; sourceTree = "<group>"; };
 		443B8DEA1D09FE2F00F5CDBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		44A993EA1D107A7E005E7793 /* LunarTimes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "LunarTimes-Bridging-Header.h"; path = "LunarTimes/LunarTimes-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		44A993ED1D108ACC005E7793 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		44A993EF1D108AE5005E7793 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6881CB6B1648E82B9C529D51 /* Pods-Sunrise & Sunset.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunrise & Sunset.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sunrise & Sunset/Pods-Sunrise & Sunset.debug.xcconfig"; sourceTree = "<group>"; };
+		6A7BF18696D579D51D285EEB /* Pods-Sunrise & SunsetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunrise & SunsetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sunrise & SunsetTests/Pods-Sunrise & SunsetTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Sunrise___Sunset.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Sunrise___SunsetTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E07534771ED89BED007D372B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,18 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4401C58F1D156A0700700CE3 /* AmazonAd.framework in Frameworks */,
-				44A993F01D108AE5005E7793 /* Foundation.framework in Frameworks */,
-				44A993EE1D108ACC005E7793 /* CoreGraphics.framework in Frameworks */,
-				4424E6301D0F7AEC000FC4ED /* QuartzCore.framework in Frameworks */,
-				4424E62E1D0F7ADD000FC4ED /* StoreKit.framework in Frameworks */,
-				4424E62B1D0F7AD5000FC4ED /* EventKit.framework in Frameworks */,
-				4424E62C1D0F7AD5000FC4ED /* EventKitUI.framework in Frameworks */,
-				4424E6281D0F7ACB000FC4ED /* MediaPlayer.framework in Frameworks */,
-				4424E6261D0F7ABD000FC4ED /* CoreTelephony.framework in Frameworks */,
-				4424E6241D0F7AB0000FC4ED /* SystemConfiguration.framework in Frameworks */,
-				4424E6221D0F7A9B000FC4ED /* CoreLocation.framework in Frameworks */,
-				4424E6201D0F7A91000FC4ED /* AdSupport.framework in Frameworks */,
+				50F76D16C96E258C66CECA8F /* Pods_Sunrise___Sunset.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F5B2FD234A3F3EB7BB6CCE8 /* Pods_Sunrise___SunsetTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,21 +72,11 @@
 		443B8DC71D09FE2F00F5CDBB = {
 			isa = PBXGroup;
 			children = (
-				4401C58E1D156A0700700CE3 /* AmazonAd.framework */,
-				44A993EF1D108AE5005E7793 /* Foundation.framework */,
-				44A993ED1D108ACC005E7793 /* CoreGraphics.framework */,
-				4424E62F1D0F7AEC000FC4ED /* QuartzCore.framework */,
-				4424E62D1D0F7ADD000FC4ED /* StoreKit.framework */,
-				4424E6291D0F7AD5000FC4ED /* EventKit.framework */,
-				4424E62A1D0F7AD5000FC4ED /* EventKitUI.framework */,
-				4424E6271D0F7ACB000FC4ED /* MediaPlayer.framework */,
-				4424E6251D0F7ABD000FC4ED /* CoreTelephony.framework */,
-				4424E6231D0F7AB0000FC4ED /* SystemConfiguration.framework */,
-				4424E6211D0F7A9B000FC4ED /* CoreLocation.framework */,
-				4424E61F1D0F7A91000FC4ED /* AdSupport.framework */,
 				443B8DD21D09FE2F00F5CDBB /* LunarTimes */,
 				443B8DE71D09FE2F00F5CDBB /* LunarTimesTests */,
 				443B8DD11D09FE2F00F5CDBB /* Products */,
+				EA69EB1D9D7A746A5439CA2A /* Pods */,
+				B9F4A9892EE750D200B75F04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,13 +92,10 @@
 		443B8DD21D09FE2F00F5CDBB /* LunarTimes */ = {
 			isa = PBXGroup;
 			children = (
-				443B8DD31D09FE2F00F5CDBB /* AppDelegate.swift */,
+				E075347A1ED89BFF007D372B /* Extras */,
 				443B8DD51D09FE2F00F5CDBB /* ViewController.swift */,
 				4401C5921D156D8800700CE3 /* Main.storyboard */,
 				443B8DDA1D09FE2F00F5CDBB /* Assets.xcassets */,
-				443B8DDC1D09FE2F00F5CDBB /* LaunchScreen.storyboard */,
-				443B8DDF1D09FE2F00F5CDBB /* Info.plist */,
-				44A993EA1D107A7E005E7793 /* LunarTimes-Bridging-Header.h */,
 			);
 			path = LunarTimes;
 			sourceTree = "<group>";
@@ -146,6 +109,37 @@
 			path = LunarTimesTests;
 			sourceTree = "<group>";
 		};
+		B9F4A9892EE750D200B75F04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */,
+				C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E075347A1ED89BFF007D372B /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				443B8DD31D09FE2F00F5CDBB /* AppDelegate.swift */,
+				E07534771ED89BED007D372B /* GoogleService-Info.plist */,
+				443B8DDC1D09FE2F00F5CDBB /* LaunchScreen.storyboard */,
+				443B8DDF1D09FE2F00F5CDBB /* Info.plist */,
+			);
+			name = Extras;
+			sourceTree = "<group>";
+		};
+		EA69EB1D9D7A746A5439CA2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6881CB6B1648E82B9C529D51 /* Pods-Sunrise & Sunset.debug.xcconfig */,
+				0F8C1B319C80B4DC413629E8 /* Pods-Sunrise & Sunset.release.xcconfig */,
+				6A7BF18696D579D51D285EEB /* Pods-Sunrise & SunsetTests.debug.xcconfig */,
+				3D429924C83A5D7C2911287E /* Pods-Sunrise & SunsetTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 443B8DED1D09FE2F00F5CDBB /* Build configuration list for PBXNativeTarget "Sunrise & Sunset" */;
 			buildPhases = (
+				526DF8C7E103C7F97926EA40 /* [CP] Check Pods Manifest.lock */,
 				443B8DCC1D09FE2F00F5CDBB /* Sources */,
 				443B8DCD1D09FE2F00F5CDBB /* Frameworks */,
 				443B8DCE1D09FE2F00F5CDBB /* Resources */,
+				F7EBE2F61B691125800802E9 /* [CP] Embed Pods Frameworks */,
+				3B45FEEBAF7B74171E132031 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 443B8DF01D09FE2F00F5CDBB /* Build configuration list for PBXNativeTarget "Sunrise & SunsetTests" */;
 			buildPhases = (
+				411A6622A06B249CE058B117 /* [CP] Check Pods Manifest.lock */,
 				443B8DE01D09FE2F00F5CDBB /* Sources */,
 				443B8DE11D09FE2F00F5CDBB /* Frameworks */,
 				443B8DE21D09FE2F00F5CDBB /* Resources */,
+				89E33277B75A3053904BBB8A /* [CP] Embed Pods Frameworks */,
+				8E83D364E1708BC3DE1802D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4401C5941D156D8800700CE3 /* Main.storyboard in Resources */,
+				E07534781ED89BED007D372B /* GoogleService-Info.plist in Resources */,
 				443B8DDE1D09FE2F00F5CDBB /* LaunchScreen.storyboard in Resources */,
 				443B8DDB1D09FE2F00F5CDBB /* Assets.xcassets in Resources */,
 			);
@@ -240,10 +241,104 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E07534791ED89BED007D372B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B45FEEBAF7B74171E132031 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sunrise & Sunset/Pods-Sunrise & Sunset-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		411A6622A06B249CE058B117 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		526DF8C7E103C7F97926EA40 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		89E33277B75A3053904BBB8A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sunrise & SunsetTests/Pods-Sunrise & SunsetTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E83D364E1708BC3DE1802D0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sunrise & SunsetTests/Pods-Sunrise & SunsetTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7EBE2F61B691125800802E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sunrise & Sunset/Pods-Sunrise & Sunset-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		443B8DCC1D09FE2F00F5CDBB /* Sources */ = {
@@ -380,56 +475,43 @@
 		};
 		443B8DEE1D09FE2F00F5CDBB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6881CB6B1648E82B9C529D51 /* Pods-Sunrise & Sunset.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)/**",
-					"$(SRCROOT)/**",
-					"~Documents/AmazonMobileAds",
-					"${TARGET_BUILD_DIR}/AmazonAd.framework",
-					"\"$(SRCROOT)/../AmazonMobileAds\"",
-					"/Users/cburnham/Documents/IosApplications/Amazon-iOS-SDKs/AmazonMobileAds",
-					"/Users/cburnham/Documents/IosApplications/Amazon-iOS-SDKs/AmazonMobileAds/AmazonAds",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = LunarTimes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.lunartimes;
 				PRODUCT_NAME = "Sunrise & Sunset";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/cburnham/Documents/IosApplications/LunarTimes/LunarTimes/LunarTimes-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		443B8DEF1D09FE2F00F5CDBB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F8C1B319C80B4DC413629E8 /* Pods-Sunrise & Sunset.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)/**",
-					"$(SRCROOT)/**",
-					"~Documents/AmazonMobileAds",
-					"${TARGET_BUILD_DIR}/AmazonAd.framework",
-					"\"$(SRCROOT)/../AmazonMobileAds\"",
-					"/Users/cburnham/Documents/IosApplications/Amazon-iOS-SDKs/AmazonMobileAds",
-					"/Users/cburnham/Documents/IosApplications/Amazon-iOS-SDKs/AmazonMobileAds/AmazonAds",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = LunarTimes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.lunartimes;
 				PRODUCT_NAME = "Sunrise & Sunset";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/cburnham/Documents/IosApplications/LunarTimes/LunarTimes/LunarTimes-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		443B8DF11D09FE2F00F5CDBB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A7BF18696D579D51D285EEB /* Pods-Sunrise & SunsetTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = LunarTimesTests/Info.plist;
@@ -443,6 +525,7 @@
 		};
 		443B8DF21D09FE2F00F5CDBB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D429924C83A5D7C2911287E /* Pods-Sunrise & SunsetTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = LunarTimesTests/Info.plist;
