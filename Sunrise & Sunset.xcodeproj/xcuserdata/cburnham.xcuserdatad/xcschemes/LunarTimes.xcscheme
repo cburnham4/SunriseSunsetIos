@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "443B8DCF1D09FE2F00F5CDBB"
-               BuildableName = "LunarTimes.app"
-               BlueprintName = "LunarTimes"
-               ReferencedContainer = "container:LunarTimes.xcodeproj">
+               BuildableName = "Sunrise &amp; Sunset.app"
+               BlueprintName = "Sunrise &amp; Sunset"
+               ReferencedContainer = "container:Sunrise &amp; Sunset.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "443B8DE31D09FE2F00F5CDBB"
-               BuildableName = "LunarTimesTests.xctest"
-               BlueprintName = "LunarTimesTests"
-               ReferencedContainer = "container:LunarTimes.xcodeproj">
+               BuildableName = "Sunrise &amp; Sunset.xctest"
+               BlueprintName = "Sunrise &amp; SunsetTests"
+               ReferencedContainer = "container:Sunrise &amp; Sunset.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "443B8DCF1D09FE2F00F5CDBB"
-            BuildableName = "LunarTimes.app"
-            BlueprintName = "LunarTimes"
-            ReferencedContainer = "container:LunarTimes.xcodeproj">
+            BuildableName = "Sunrise &amp; Sunset.app"
+            BlueprintName = "Sunrise &amp; Sunset"
+            ReferencedContainer = "container:Sunrise &amp; Sunset.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "443B8DCF1D09FE2F00F5CDBB"
-            BuildableName = "LunarTimes.app"
-            BlueprintName = "LunarTimes"
-            ReferencedContainer = "container:LunarTimes.xcodeproj">
+            BuildableName = "Sunrise &amp; Sunset.app"
+            BlueprintName = "Sunrise &amp; Sunset"
+            ReferencedContainer = "container:Sunrise &amp; Sunset.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "443B8DCF1D09FE2F00F5CDBB"
-            BuildableName = "LunarTimes.app"
-            BlueprintName = "LunarTimes"
-            ReferencedContainer = "container:LunarTimes.xcodeproj">
+            BuildableName = "Sunrise &amp; Sunset.app"
+            BlueprintName = "Sunrise &amp; Sunset"
+            ReferencedContainer = "container:Sunrise &amp; Sunset.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

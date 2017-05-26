@@ -7,12 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4401C58F1D156A0700700CE3 /* AmazonAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4401C58E1D156A0700700CE3 /* AmazonAd.framework */; };
+		4401C5941D156D8800700CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4401C5921D156D8800700CE3 /* Main.storyboard */; };
+		4424E6201D0F7A91000FC4ED /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E61F1D0F7A91000FC4ED /* AdSupport.framework */; };
+		4424E6221D0F7A9B000FC4ED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E6211D0F7A9B000FC4ED /* CoreLocation.framework */; };
+		4424E6241D0F7AB0000FC4ED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E6231D0F7AB0000FC4ED /* SystemConfiguration.framework */; };
+		4424E6261D0F7ABD000FC4ED /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E6251D0F7ABD000FC4ED /* CoreTelephony.framework */; };
+		4424E6281D0F7ACB000FC4ED /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E6271D0F7ACB000FC4ED /* MediaPlayer.framework */; };
+		4424E62B1D0F7AD5000FC4ED /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E6291D0F7AD5000FC4ED /* EventKit.framework */; };
+		4424E62C1D0F7AD5000FC4ED /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E62A1D0F7AD5000FC4ED /* EventKitUI.framework */; };
+		4424E62E1D0F7ADD000FC4ED /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E62D1D0F7ADD000FC4ED /* StoreKit.framework */; };
+		4424E6301D0F7AEC000FC4ED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4424E62F1D0F7AEC000FC4ED /* QuartzCore.framework */; };
 		443B8DD41D09FE2F00F5CDBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B8DD31D09FE2F00F5CDBB /* AppDelegate.swift */; };
 		443B8DD61D09FE2F00F5CDBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B8DD51D09FE2F00F5CDBB /* ViewController.swift */; };
-		443B8DD91D09FE2F00F5CDBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443B8DD71D09FE2F00F5CDBB /* Main.storyboard */; };
 		443B8DDB1D09FE2F00F5CDBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443B8DDA1D09FE2F00F5CDBB /* Assets.xcassets */; };
 		443B8DDE1D09FE2F00F5CDBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443B8DDC1D09FE2F00F5CDBB /* LaunchScreen.storyboard */; };
 		443B8DE91D09FE2F00F5CDBB /* LunarTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B8DE81D09FE2F00F5CDBB /* LunarTimesTests.swift */; };
+		44A993EE1D108ACC005E7793 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A993ED1D108ACC005E7793 /* CoreGraphics.framework */; };
+		44A993F01D108AE5005E7793 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A993EF1D108AE5005E7793 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +38,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		443B8DD01D09FE2F00F5CDBB /* LunarTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunarTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4401C58E1D156A0700700CE3 /* AmazonAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AmazonAd.framework; path = "../Amazon-iOS-SDKs/AmazonMobileAds/AmazonAd.framework"; sourceTree = "<group>"; };
+		4401C5931D156D8800700CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4424E61F1D0F7A91000FC4ED /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		4424E6211D0F7A9B000FC4ED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4424E6231D0F7AB0000FC4ED /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4424E6251D0F7ABD000FC4ED /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		4424E6271D0F7ACB000FC4ED /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		4424E6291D0F7AD5000FC4ED /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		4424E62A1D0F7AD5000FC4ED /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		4424E62D1D0F7ADD000FC4ED /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		4424E62F1D0F7AEC000FC4ED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		443B8DD01D09FE2F00F5CDBB /* Sunrise & Sunset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sunrise & Sunset.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		443B8DD31D09FE2F00F5CDBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		443B8DD51D09FE2F00F5CDBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		443B8DD81D09FE2F00F5CDBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		443B8DDA1D09FE2F00F5CDBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		443B8DDD1D09FE2F00F5CDBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		443B8DDF1D09FE2F00F5CDBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		443B8DE41D09FE2F00F5CDBB /* LunarTimesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LunarTimesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		443B8DE41D09FE2F00F5CDBB /* Sunrise & Sunset.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sunrise & Sunset.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		443B8DE81D09FE2F00F5CDBB /* LunarTimesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarTimesTests.swift; sourceTree = "<group>"; };
 		443B8DEA1D09FE2F00F5CDBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44A993EA1D107A7E005E7793 /* LunarTimes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "LunarTimes-Bridging-Header.h"; path = "LunarTimes/LunarTimes-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		44A993ED1D108ACC005E7793 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		44A993EF1D108AE5005E7793 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +68,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4401C58F1D156A0700700CE3 /* AmazonAd.framework in Frameworks */,
+				44A993F01D108AE5005E7793 /* Foundation.framework in Frameworks */,
+				44A993EE1D108ACC005E7793 /* CoreGraphics.framework in Frameworks */,
+				4424E6301D0F7AEC000FC4ED /* QuartzCore.framework in Frameworks */,
+				4424E62E1D0F7ADD000FC4ED /* StoreKit.framework in Frameworks */,
+				4424E62B1D0F7AD5000FC4ED /* EventKit.framework in Frameworks */,
+				4424E62C1D0F7AD5000FC4ED /* EventKitUI.framework in Frameworks */,
+				4424E6281D0F7ACB000FC4ED /* MediaPlayer.framework in Frameworks */,
+				4424E6261D0F7ABD000FC4ED /* CoreTelephony.framework in Frameworks */,
+				4424E6241D0F7AB0000FC4ED /* SystemConfiguration.framework in Frameworks */,
+				4424E6221D0F7A9B000FC4ED /* CoreLocation.framework in Frameworks */,
+				4424E6201D0F7A91000FC4ED /* AdSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +96,18 @@
 		443B8DC71D09FE2F00F5CDBB = {
 			isa = PBXGroup;
 			children = (
+				4401C58E1D156A0700700CE3 /* AmazonAd.framework */,
+				44A993EF1D108AE5005E7793 /* Foundation.framework */,
+				44A993ED1D108ACC005E7793 /* CoreGraphics.framework */,
+				4424E62F1D0F7AEC000FC4ED /* QuartzCore.framework */,
+				4424E62D1D0F7ADD000FC4ED /* StoreKit.framework */,
+				4424E6291D0F7AD5000FC4ED /* EventKit.framework */,
+				4424E62A1D0F7AD5000FC4ED /* EventKitUI.framework */,
+				4424E6271D0F7ACB000FC4ED /* MediaPlayer.framework */,
+				4424E6251D0F7ABD000FC4ED /* CoreTelephony.framework */,
+				4424E6231D0F7AB0000FC4ED /* SystemConfiguration.framework */,
+				4424E6211D0F7A9B000FC4ED /* CoreLocation.framework */,
+				4424E61F1D0F7A91000FC4ED /* AdSupport.framework */,
 				443B8DD21D09FE2F00F5CDBB /* LunarTimes */,
 				443B8DE71D09FE2F00F5CDBB /* LunarTimesTests */,
 				443B8DD11D09FE2F00F5CDBB /* Products */,
@@ -68,8 +117,8 @@
 		443B8DD11D09FE2F00F5CDBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				443B8DD01D09FE2F00F5CDBB /* LunarTimes.app */,
-				443B8DE41D09FE2F00F5CDBB /* LunarTimesTests.xctest */,
+				443B8DD01D09FE2F00F5CDBB /* Sunrise & Sunset.app */,
+				443B8DE41D09FE2F00F5CDBB /* Sunrise & Sunset.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,10 +128,11 @@
 			children = (
 				443B8DD31D09FE2F00F5CDBB /* AppDelegate.swift */,
 				443B8DD51D09FE2F00F5CDBB /* ViewController.swift */,
-				443B8DD71D09FE2F00F5CDBB /* Main.storyboard */,
+				4401C5921D156D8800700CE3 /* Main.storyboard */,
 				443B8DDA1D09FE2F00F5CDBB /* Assets.xcassets */,
 				443B8DDC1D09FE2F00F5CDBB /* LaunchScreen.storyboard */,
 				443B8DDF1D09FE2F00F5CDBB /* Info.plist */,
+				44A993EA1D107A7E005E7793 /* LunarTimes-Bridging-Header.h */,
 			);
 			path = LunarTimes;
 			sourceTree = "<group>";
@@ -99,9 +149,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		443B8DCF1D09FE2F00F5CDBB /* LunarTimes */ = {
+		443B8DCF1D09FE2F00F5CDBB /* Sunrise & Sunset */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 443B8DED1D09FE2F00F5CDBB /* Build configuration list for PBXNativeTarget "LunarTimes" */;
+			buildConfigurationList = 443B8DED1D09FE2F00F5CDBB /* Build configuration list for PBXNativeTarget "Sunrise & Sunset" */;
 			buildPhases = (
 				443B8DCC1D09FE2F00F5CDBB /* Sources */,
 				443B8DCD1D09FE2F00F5CDBB /* Frameworks */,
@@ -111,14 +161,14 @@
 			);
 			dependencies = (
 			);
-			name = LunarTimes;
+			name = "Sunrise & Sunset";
 			productName = LunarTimes;
-			productReference = 443B8DD01D09FE2F00F5CDBB /* LunarTimes.app */;
+			productReference = 443B8DD01D09FE2F00F5CDBB /* Sunrise & Sunset.app */;
 			productType = "com.apple.product-type.application";
 		};
-		443B8DE31D09FE2F00F5CDBB /* LunarTimesTests */ = {
+		443B8DE31D09FE2F00F5CDBB /* Sunrise & SunsetTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 443B8DF01D09FE2F00F5CDBB /* Build configuration list for PBXNativeTarget "LunarTimesTests" */;
+			buildConfigurationList = 443B8DF01D09FE2F00F5CDBB /* Build configuration list for PBXNativeTarget "Sunrise & SunsetTests" */;
 			buildPhases = (
 				443B8DE01D09FE2F00F5CDBB /* Sources */,
 				443B8DE11D09FE2F00F5CDBB /* Frameworks */,
@@ -129,9 +179,9 @@
 			dependencies = (
 				443B8DE61D09FE2F00F5CDBB /* PBXTargetDependency */,
 			);
-			name = LunarTimesTests;
+			name = "Sunrise & SunsetTests";
 			productName = LunarTimesTests;
-			productReference = 443B8DE41D09FE2F00F5CDBB /* LunarTimesTests.xctest */;
+			productReference = 443B8DE41D09FE2F00F5CDBB /* Sunrise & Sunset.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -146,14 +196,17 @@
 				TargetAttributes = {
 					443B8DCF1D09FE2F00F5CDBB = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 56NQ7Z9L75;
+						LastSwiftMigration = 0830;
 					};
 					443B8DE31D09FE2F00F5CDBB = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = 443B8DCF1D09FE2F00F5CDBB;
 					};
 				};
 			};
-			buildConfigurationList = 443B8DCB1D09FE2F00F5CDBB /* Build configuration list for PBXProject "LunarTimes" */;
+			buildConfigurationList = 443B8DCB1D09FE2F00F5CDBB /* Build configuration list for PBXProject "Sunrise & Sunset" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -166,8 +219,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				443B8DCF1D09FE2F00F5CDBB /* LunarTimes */,
-				443B8DE31D09FE2F00F5CDBB /* LunarTimesTests */,
+				443B8DCF1D09FE2F00F5CDBB /* Sunrise & Sunset */,
+				443B8DE31D09FE2F00F5CDBB /* Sunrise & SunsetTests */,
 			);
 		};
 /* End PBXProject section */
@@ -177,9 +230,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4401C5941D156D8800700CE3 /* Main.storyboard in Resources */,
 				443B8DDE1D09FE2F00F5CDBB /* LaunchScreen.storyboard in Resources */,
 				443B8DDB1D09FE2F00F5CDBB /* Assets.xcassets in Resources */,
-				443B8DD91D09FE2F00F5CDBB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,16 +268,16 @@
 /* Begin PBXTargetDependency section */
 		443B8DE61D09FE2F00F5CDBB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 443B8DCF1D09FE2F00F5CDBB /* LunarTimes */;
+			target = 443B8DCF1D09FE2F00F5CDBB /* Sunrise & Sunset */;
 			targetProxy = 443B8DE51D09FE2F00F5CDBB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		443B8DD71D09FE2F00F5CDBB /* Main.storyboard */ = {
+		4401C5921D156D8800700CE3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				443B8DD81D09FE2F00F5CDBB /* Base */,
+				4401C5931D156D8800700CE3 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -329,10 +382,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"$(SRCROOT)/**",
+					"~Documents/AmazonMobileAds",
+					"${TARGET_BUILD_DIR}/AmazonAd.framework",
+					"\"$(SRCROOT)/../AmazonMobileAds\"",
+					"/Users/cburnham/Documents/IosApplications/Amazon-iOS-SDKs/AmazonMobileAds",
+					"/Users/cburnham/Documents/IosApplications/Amazon-iOS-SDKs/AmazonMobileAds/AmazonAds",
+				);
 				INFOPLIST_FILE = LunarTimes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.LunarTimes;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.lunartimes;
+				PRODUCT_NAME = "Sunrise & Sunset";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/cburnham/Documents/IosApplications/LunarTimes/LunarTimes/LunarTimes-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -340,10 +407,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"$(SRCROOT)/**",
+					"~Documents/AmazonMobileAds",
+					"${TARGET_BUILD_DIR}/AmazonAd.framework",
+					"\"$(SRCROOT)/../AmazonMobileAds\"",
+					"/Users/cburnham/Documents/IosApplications/Amazon-iOS-SDKs/AmazonMobileAds",
+					"/Users/cburnham/Documents/IosApplications/Amazon-iOS-SDKs/AmazonMobileAds/AmazonAds",
+				);
 				INFOPLIST_FILE = LunarTimes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.LunarTimes;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.lunartimes;
+				PRODUCT_NAME = "Sunrise & Sunset";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/cburnham/Documents/IosApplications/LunarTimes/LunarTimes/LunarTimes-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -354,8 +435,9 @@
 				INFOPLIST_FILE = LunarTimesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.LunarTimesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LunarTimes.app/LunarTimes";
+				PRODUCT_NAME = "Sunrise & Sunset";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sunrise & Sunset.app/Sunrise & Sunset";
 			};
 			name = Debug;
 		};
@@ -366,15 +448,16 @@
 				INFOPLIST_FILE = LunarTimesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.LunarTimesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LunarTimes.app/LunarTimes";
+				PRODUCT_NAME = "Sunrise & Sunset";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sunrise & Sunset.app/Sunrise & Sunset";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		443B8DCB1D09FE2F00F5CDBB /* Build configuration list for PBXProject "LunarTimes" */ = {
+		443B8DCB1D09FE2F00F5CDBB /* Build configuration list for PBXProject "Sunrise & Sunset" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				443B8DEB1D09FE2F00F5CDBB /* Debug */,
@@ -383,21 +466,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		443B8DED1D09FE2F00F5CDBB /* Build configuration list for PBXNativeTarget "LunarTimes" */ = {
+		443B8DED1D09FE2F00F5CDBB /* Build configuration list for PBXNativeTarget "Sunrise & Sunset" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				443B8DEE1D09FE2F00F5CDBB /* Debug */,
 				443B8DEF1D09FE2F00F5CDBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		443B8DF01D09FE2F00F5CDBB /* Build configuration list for PBXNativeTarget "LunarTimesTests" */ = {
+		443B8DF01D09FE2F00F5CDBB /* Build configuration list for PBXNativeTarget "Sunrise & SunsetTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				443B8DF11D09FE2F00F5CDBB /* Debug */,
 				443B8DF21D09FE2F00F5CDBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
