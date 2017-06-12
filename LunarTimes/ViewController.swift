@@ -15,6 +15,7 @@ import GoogleMobileAds
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
+    /* Views */
     @IBOutlet weak var daytimeLabel: UILabel!
     @IBOutlet weak var duskLabel: UILabel!
     @IBOutlet weak var sunsetLabel: UILabel!
@@ -27,21 +28,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var daytimeView: UIView!
     @IBOutlet weak var duskView: UIView!
     @IBOutlet weak var dawnView: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var bannerView: GADBannerView!
     
-
+    /* Model Variables */
     var locationManager = CLLocationManager();
-
+    var calendar = NSCalendar.current;
+    var dateAdd = 0;
+    var latitude = "70";
+    var longitude = "70";
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        applyPlainShadow(sunsetView)
-        applyPlainShadow(sunriseView)
-        applyPlainShadow(daytimeView)
-        applyPlainShadow(duskView)
-        applyPlainShadow(dawnView)
+        dateLabel.text = getFormattedDate();
        
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
@@ -69,11 +70,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
         let locationlast = locations.last
         
-        let latitude = locationlast?.coordinate.latitude.description
-        let long = locationlast?.coordinate.longitude.description
-        
-        let url = "https://api.sunrise-sunset.org/json?lat=" + latitude! +
-        "&lng=" + long! + "&formatted=0";
+        self.latitude = (locationlast?.coordinate.latitude.description)!
+        self.longitude = (locationlast?.coordinate.longitude.description)!
         
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
             
@@ -83,33 +81,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
             
             if placemarks!.count > 0 {
-                let pm = placemarks![0] 
+                let pm = placemarks![0]
                 self.displayLocationInfo(pm)
             } else {
                 print("Problem with the data received from geocoder")
             }
         })
-
-        requestData(url: url)
         
-
+        createRequest();
     }
     
-    func displayLocationInfo(_ placemark: CLPlacemark?) {
-        if let containsPlacemark = placemark {
-            //stop updating location to save battery life
-            locationManager.stopUpdatingLocation()
-            let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
-            let postalCode = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
-            let administrativeArea = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : ""
-            
-            
-            let address = locality! + ", " + administrativeArea! + " " + postalCode!;
-            self.locationLabel.text = "Location: " + address
-            print(address)
-            
-        }
+    func createRequest(){
+        let destFormat = DateFormatter()
+        destFormat.dateFormat = "yyyy-MM-dd";
+        destFormat.timeZone = TimeZone.current
         
+        let date = Calendar.current.date(byAdding: .day, value: dateAdd, to: Date())
+        let dateString  = destFormat.string(from: date!);
+        
+        let url = "https://api.sunrise-sunset.org/json?lat=" + latitude +
+            "&lng=" + longitude + "&formatted=0" + "&date=" + dateString;
+        
+        print(url)
+    
+        requestData(url: url)
     }
     
     func requestData(url: String){
@@ -168,81 +163,51 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func pullData(_ url: String){
-        //Create NSURL Object
-        let myUrl = URL(string: url)
+    // MARK: Extra functions
+    func getFormattedDate() -> String{
+        let destFormat = DateFormatter()
+        destFormat.dateFormat = "EEE, MMM dd, yyyy";
+        destFormat.timeZone = TimeZone.current
+        let date = Calendar.current.date(byAdding: .day, value: dateAdd, to: Date())
+        let dateString  = destFormat.string(from: date!);
         
-        //Create URL request
-        let request = NSMutableURLRequest(url: myUrl!)
-        request.httpMethod = "GET"
+        return dateString;
+    }
+    
+    
+    
+    
+    func displayLocationInfo(_ placemark: CLPlacemark?) {
+        if let containsPlacemark = placemark {
+            //stop updating location to save battery life
+            locationManager.stopUpdatingLocation()
+            let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
+            let postalCode = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
+            let administrativeArea = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : ""
+            
+            
+            let address = locality! + ", " + administrativeArea! + " " + postalCode!;
+            self.locationLabel.text = "Location: " + address
+            print(address)
+            
+        }
         
-//        let task = URLSession.shared.dataTask(with: request, completionHandler: {
-//            data, response, error in
-//            
-//            if error != nil{
-//                print("Error=\(error)")
-//                return
-//            }
-//            
-//            let responseString = NSString(data: data!, encoding: String.Encoding.utf8)
-//            //print(responseString?.description)
-//            
-//            do{
-//                let json: NSDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
-//                
-//                //print(json)
-//                if(json["status"] as! String == "OK"){
-//                    var times = json["results"]
-//                    let dawnString: String = self.getDateTime(times!["civil_twilight_begin"] as! String)
-//                    let duskString: String = self.getDateTime(times!["civil_twilight_end"] as! String)
-//                    let sunriseString: String = self.getDateTime(times!["sunrise"] as! String)
-//                    let sunsetString: String = self.getDateTime(times!["sunset"] as! String)
-//                    
-//                    let sourceFormat = DateFormatter()
-//                    sourceFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//                    sourceFormat.timeZone = TimeZone(identifier: "UTC")
-//                    
-//                    let destFormat = DateFormatter()
-//                    destFormat.dateFormat = "hh:mm:ss a"
-//                    destFormat.timeZone = TimeZone()
-//                    
-//                    let sunriseDate = sourceFormat.date(from: sunriseString)
-//                    let parsedSunrise  = destFormat.string(from: sunriseDate!)
-//                    
-//                    let sunsetDate = sourceFormat.date(from: sunsetString)
-//                    let parsedSunset = destFormat.string(from: sunsetDate!)
-//                    
-//                    let dawnDate = sourceFormat.date(from: dawnString)
-//                    let parsedDawn = destFormat.string(from: dawnDate!)
-//                    
-//                    let duskDate = sourceFormat.date(from: duskString)
-//                    let parsedDusk = destFormat.string(from: duskDate!)
-//                    
-//                    let diff: TimeInterval = (sunsetDate?.timeIntervalSince(sunriseDate!))!
-//                    
-//                
-//                    let timeDiff = self.stringFromTimeInterval(diff)
-//                    
-//                    
-//                    DispatchQueue.main.async(execute: {
-//                        //self.tableView.reloadData()
-//                        self.sunriseLabel.text = parsedSunrise
-//                        self.sunsetLabel.text = parsedSunset
-//                        self.dawnLabel.text = parsedDawn
-//                        self.duskLabel.text = parsedDusk
-//                        self.daytimeLabel.text = timeDiff
-//                        
-//
-//                        
-//                    })
-//                }
-//            } catch{
-//                
-//            }
-//
-//            
-//        })
-//        task.resume();
+    }
+    
+
+    @IBAction func prevDayOnClick(_ sender: UIButton) {
+        print("Prev day Pressed");
+        dateAdd -= 1;
+        createRequest();
+        dateLabel.text = getFormattedDate();
+        
+    }
+    
+    @IBAction func nextDayOnClick(_ sender: UIButton) {
+        print("Next day Pressed");
+        dateAdd += 1;
+        createRequest();
+        dateLabel.text = getFormattedDate();
     }
     
     func stringFromTimeInterval(_ interval: TimeInterval) -> String {
