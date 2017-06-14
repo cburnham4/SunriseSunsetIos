@@ -22,14 +22,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var sunriseLabel: UILabel!
     @IBOutlet weak var dawnLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-
-    @IBOutlet weak var sunsetView: UIView!
-    @IBOutlet weak var sunriseView: UIView!
-    @IBOutlet weak var daytimeView: UIView!
-    @IBOutlet weak var duskView: UIView!
-    @IBOutlet weak var dawnView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var bannerView: GADBannerView!
     
     /* Model Variables */
@@ -41,40 +34,42 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        /* Set the date to today's date */
         dateLabel.text = getFormattedDate();
        
+        /* Get the location of the user */
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
+        /* Load the google admob ad */
         loadAd()
     }
     
     func loadAd(){
         print("Google Mobile Ads SDK version: " + GADRequest.sdkVersion())
     
-        
+        /* Setup the bannerview */
         bannerView.adUnitID = "ca-app-pub-8223005482588566/7260467533"
         bannerView.rootViewController = self
         
+        /* Request the new ad */
         let request = GADRequest()
-        //request.testDevices = ["a0059a5e61136be10d2e720167aa8c96"]
         bannerView.load(request)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        /* Stop getting user location once the first location is recieved */
         self.locationManager.stopUpdatingLocation();
-        //Do for screenshots
 
+        /* get the longitude and latitude of the user */
         let locationlast = locations.last
-        
         self.latitude = (locationlast?.coordinate.latitude.description)!
         self.longitude = (locationlast?.coordinate.longitude.description)!
         
+        /* Get the address from the long and lat */
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
-            
             if (error != nil) {
                 print("Reverse geocoder failed with error" + error!.localizedDescription)
                 return
@@ -92,18 +87,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func createRequest(){
+        /* Get the formatted date */
         let destFormat = DateFormatter()
         destFormat.dateFormat = "yyyy-MM-dd";
         destFormat.timeZone = TimeZone.current
-        
         let date = Calendar.current.date(byAdding: .day, value: dateAdd, to: Date())
         let dateString  = destFormat.string(from: date!);
         
+        /* Create the request url */
         let url = "https://api.sunrise-sunset.org/json?lat=" + latitude +
             "&lng=" + longitude + "&formatted=0" + "&date=" + dateString;
         
         print(url)
     
+        /* Request the data */
         requestData(url: url)
     }
     
@@ -113,6 +110,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             case .success(let value):
                 let json = JSON(value)
                 print("JSON: \(json)")
+                
+                /* If the request is successful then parse the daylight times */
                 if(json["status"].stringValue == "OK"){
                     var times = json["results"]
                     
@@ -176,7 +175,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     
     
-    
+    /* Show the location address */
     func displayLocationInfo(_ placemark: CLPlacemark?) {
         if let containsPlacemark = placemark {
             //stop updating location to save battery life
@@ -189,7 +188,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let address = locality! + ", " + administrativeArea! + " " + postalCode!;
             self.locationLabel.text = "Location: " + address
             print(address)
-            
         }
         
     }
@@ -224,21 +222,5 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let time  = dateTime.substring(with: NSRange(location: 11,length: 8))
         return date + " " + time
     }
-    
-    func applyPlainShadow(_ view: UIView){
-        let layer = view.layer
-        
-        layer.shadowColor = UIColor(red: 76/255, green: 175/255, blue: 80/255, alpha: 1).cgColor
-
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowOpacity = 0.4
-        layer.shadowRadius = 3
-    }
-
-
-
-
-
-
 }
 
