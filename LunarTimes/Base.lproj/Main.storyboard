@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="88e-Zi-zxZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="88e-Zi-zxZ">
     <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -135,7 +135,7 @@
                                             <constraint firstItem="FVc-iT-2DL" firstAttribute="centerY" secondItem="FGf-we-R7U" secondAttribute="centerY" id="uUu-Yu-LNe"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jN3-Zd-1eK">
+                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jN3-Zd-1eK" userLabel="Dusk View">
                                         <rect key="frame" x="0.0" y="224" width="984" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dusk:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZ1-aO-3qS">
@@ -160,7 +160,7 @@
                                             <constraint firstAttribute="trailing" secondItem="1ko-zg-aUe" secondAttribute="trailing" constant="48" id="heO-fj-Naf"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leX-vA-6Qs">
+                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leX-vA-6Qs" userLabel="Daytime View">
                                         <rect key="frame" x="0.0" y="280" width="984" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Daytime:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcR-WA-teS">
@@ -223,16 +223,11 @@
                         <outlet property="bannerView" destination="D4Y-sT-1jc" id="dK7-lo-WNs"/>
                         <outlet property="dateLabel" destination="PMq-Yb-Loj" id="2te-fT-NMs"/>
                         <outlet property="dawnLabel" destination="hcg-iQ-GYf" id="217-3v-OMt"/>
-                        <outlet property="dawnView" destination="3bO-er-4Gh" id="Ukj-8w-Rc6"/>
                         <outlet property="daytimeLabel" destination="FWo-tC-XgR" id="8Pk-0b-M4z"/>
-                        <outlet property="daytimeView" destination="leX-vA-6Qs" id="QaS-nh-yB2"/>
                         <outlet property="duskLabel" destination="1ko-zg-aUe" id="9pe-3i-dKT"/>
-                        <outlet property="duskView" destination="jN3-Zd-1eK" id="xLR-kQ-9za"/>
                         <outlet property="locationLabel" destination="Bik-YH-iMQ" id="bdO-kf-FWl"/>
                         <outlet property="sunriseLabel" destination="D7z-so-Pga" id="lU5-CV-IOQ"/>
-                        <outlet property="sunriseView" destination="5Ns-5S-Tki" id="qh7-CU-Tzv"/>
                         <outlet property="sunsetLabel" destination="FVc-iT-2DL" id="j8H-zw-G8G"/>
-                        <outlet property="sunsetView" destination="FGf-we-R7U" id="flQ-8A-Dte"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
