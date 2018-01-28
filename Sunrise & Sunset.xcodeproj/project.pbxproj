@@ -197,7 +197,7 @@
 					443B8DCF1D09FE2F00F5CDBB = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 56NQ7Z9L75;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0920;
 					};
 					443B8DE31D09FE2F00F5CDBB = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -503,7 +503,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.lunartimes;
 				PRODUCT_NAME = "Sunrise & Sunset";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -521,7 +522,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.lunartimes;
 				PRODUCT_NAME = "Sunrise & Sunset";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

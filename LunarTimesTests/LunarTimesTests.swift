@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import LunarTimes
 
 class LunarTimesTests: XCTestCase {
     

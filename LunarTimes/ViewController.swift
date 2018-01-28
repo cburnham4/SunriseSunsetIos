@@ -217,13 +217,33 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func changeLocationClicked(_ sender: UIButton) {
+        if CLLocationManager.locationServicesEnabled() {
+            switch CLLocationManager.authorizationStatus() {
+            case .notDetermined, .restricted, .denied:
+                let alert = UIAlertController(title: "Location Permission Disabled", message: "Please Enable Location Services for this App", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: false, completion: nil)
+            case .authorizedAlways, .authorizedWhenInUse:
+                openLocationPicker()
+            }
+        } else {
+            let alert = UIAlertController(title: "Location Disabled", message: "Please Enable Location Services", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: false, completion: nil)
+        }
+    }
+    
+    func openLocationPicker(){
         let locationPicker = LocationPickerViewController()
         
         // you can optionally set initial location
         let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
+        if(placemark == nil) {
+            //location.placemark
+        }
         
         let initialLocation = Location(name: "Current Location", location: location, placemark: self.placemark!)
-    
+        
         
         locationPicker.location = initialLocation
         
