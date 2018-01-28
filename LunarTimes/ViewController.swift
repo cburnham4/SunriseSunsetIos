@@ -11,6 +11,7 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 import GoogleMobileAds
+import LocationPicker
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
@@ -28,9 +29,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     /* Model Variables */
     var locationManager = CLLocationManager();
     var calendar = NSCalendar.current;
+    var placemark: CLPlacemark?
     var dateAdd = 0;
-    var latitude = "70";
-    var longitude = "70";
+    var latitude = 70.0;
+    var longitude = 70.0;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +67,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
         /* get the longitude and latitude of the user */
         let locationlast = locations.last
-        self.latitude = (locationlast?.coordinate.latitude.description)!
-        self.longitude = (locationlast?.coordinate.longitude.description)!
+        self.latitude = (locationlast?.coordinate.latitude)!
+        self.longitude = (locationlast?.coordinate.longitude)!
         
         /* Get the address from the long and lat */
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
@@ -77,6 +79,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             if placemarks!.count > 0 {
                 let pm = placemarks![0]
+                self.placemark = pm
                 self.displayLocationInfo(pm)
             } else {
                 print("Problem with the data received from geocoder")
@@ -95,8 +98,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let dateString  = destFormat.string(from: date!);
         
         /* Create the request url */
-        let url = "https://api.sunrise-sunset.org/json?lat=" + latitude +
-            "&lng=" + longitude + "&formatted=0" + "&date=" + dateString;
+        let url = "https://api.sunrise-sunset.org/json?lat=" + latitude.description +
+            "&lng=" + longitude.description + "&formatted=0" + "&date=" + dateString;
         
         print(url)
     
@@ -105,6 +108,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func requestData(url: String){
+        
         Alamofire.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -142,7 +146,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     
                     let diff: TimeInterval = (sunsetDate?.timeIntervalSince(sunriseDate!))!
                     
-                    
+                    let timeUntil = 0//
                     let timeDiff = self.stringFromTimeInterval(diff)
                     
                     
@@ -184,6 +188,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let postalCode = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
             let administrativeArea = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : ""
             
+            let cordinates = containsPlacemark.location?.coordinate
+            self.latitude = (cordinates?.latitude)!
+            self.longitude = (cordinates?.longitude)!
             
             let address = locality! + ", " + administrativeArea! + " " + postalCode!;
             self.locationLabel.text = "Location: " + address
@@ -192,6 +199,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    /* MARK: Actions */
 
     @IBAction func prevDayOnClick(_ sender: UIButton) {
         print("Prev day Pressed");
@@ -206,6 +214,50 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         dateAdd += 1;
         createRequest();
         dateLabel.text = getFormattedDate();
+    }
+    
+    @IBAction func changeLocationClicked(_ sender: UIButton) {
+        let locationPicker = LocationPickerViewController()
+        
+        // you can optionally set initial location
+        let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
+        
+        let initialLocation = Location(name: "Current Location", location: location, placemark: self.placemark!)
+    
+        
+        locationPicker.location = initialLocation
+        
+        
+        // button placed on right bottom corner
+        locationPicker.showCurrentLocationButton = true // default: true
+        
+        // default: navigation bar's `barTintColor` or `.whiteColor()`
+        locationPicker.currentLocationButtonBackground = .blue
+        
+        // ignored if initial location is given, shows that location instead
+        locationPicker.showCurrentLocationInitially = true // default: true
+        
+        locationPicker.mapType = .standard // default: .Hybrid
+        
+        // for searching, see `MKLocalSearchRequest`'s `region` property
+        locationPicker.useCurrentLocationAsHint = true // default: false
+        
+        locationPicker.searchBarPlaceholder = "Search places" // default: "Search or enter an address"
+        
+        locationPicker.searchHistoryLabel = "Previously searched" // default: "Search History"
+        
+        // optional region distance to be used for creation region when user selects place from search results
+        locationPicker.resultRegionDistance = 500 // default: 600
+        
+        locationPicker.completion = { location in
+            // do some awesome stuff with location
+            print(location?.placemark)
+            self.placemark = location?.placemark
+            self.displayLocationInfo(self.placemark)
+            self.createRequest()
+        }
+        
+        navigationController?.pushViewController(locationPicker, animated: true)
     }
     
     func stringFromTimeInterval(_ interval: TimeInterval) -> String {

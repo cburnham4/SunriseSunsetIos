@@ -10,6 +10,7 @@ target 'Sunrise & Sunset' do
   pod 'SwiftyJSON'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
+  pod 'LocationPicker'
 
   target 'Sunrise & SunsetTests' do
     inherit! :search_paths

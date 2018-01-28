@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LocationPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Sunrise &amp; Sunset.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,6 +42,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>157F543D829646AC9E902FC35FF89A3F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6270B7E559D4DAE3057E9BC530994201</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>75D1D4841BA6598998431E4CA74D6F1A</key>
 		<dict>
 			<key>primary</key>
@@ -47,12 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C4D5C3CFE412418A39889F796EB7DA2C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DAAB25A141891A4036121979355981C5</key>
+		<key>B75757DEF4214807ED4AD736BD8E2077</key>
 		<dict>
 			<key>primary</key>
 			<true/>
