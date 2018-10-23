@@ -44,8 +44,8 @@
 		443B8DEA1D09FE2F00F5CDBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6881CB6B1648E82B9C529D51 /* Pods-Sunrise & Sunset.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunrise & Sunset.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sunrise & Sunset/Pods-Sunrise & Sunset.debug.xcconfig"; sourceTree = "<group>"; };
 		6A7BF18696D579D51D285EEB /* Pods-Sunrise & SunsetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunrise & SunsetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sunrise & SunsetTests/Pods-Sunrise & SunsetTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Sunrise___Sunset.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Sunrise___SunsetTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunrise___Sunset.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunrise___SunsetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07534771ED89BED007D372B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -152,7 +152,6 @@
 				443B8DCD1D09FE2F00F5CDBB /* Frameworks */,
 				443B8DCE1D09FE2F00F5CDBB /* Resources */,
 				F7EBE2F61B691125800802E9 /* [CP] Embed Pods Frameworks */,
-				3B45FEEBAF7B74171E132031 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,8 +170,6 @@
 				443B8DE01D09FE2F00F5CDBB /* Sources */,
 				443B8DE11D09FE2F00F5CDBB /* Frameworks */,
 				443B8DE21D09FE2F00F5CDBB /* Resources */,
-				89E33277B75A3053904BBB8A /* [CP] Embed Pods Frameworks */,
-				8E83D364E1708BC3DE1802D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -248,21 +245,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3B45FEEBAF7B74171E132031 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sunrise & Sunset/Pods-Sunrise & Sunset-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		411A6622A06B249CE058B117 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -299,36 +281,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		89E33277B75A3053904BBB8A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sunrise & SunsetTests/Pods-Sunrise & SunsetTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8E83D364E1708BC3DE1802D0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sunrise & SunsetTests/Pods-Sunrise & SunsetTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F7EBE2F61B691125800802E9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -337,6 +289,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Sunrise & Sunset/Pods-Sunrise & Sunset-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CVCalendar/CVCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LocationPicker/LocationPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -344,6 +297,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CVCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
