@@ -23,7 +23,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var sunriseLabel: UILabel!
     @IBOutlet weak var dawnLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var bannerView: GADBannerView!
     
     /* Model Variables */
@@ -37,7 +37,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         /* Set the date to today's date */
-        dateLabel.text = getFormattedDate();
+        dateButton.titleLabel?.text = getFormattedDate();
        
         /* Get the location of the user */
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -145,10 +145,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     let parsedDusk = destFormat.string(from: duskDate!)
                     
                     let diff: TimeInterval = (sunsetDate?.timeIntervalSince(sunriseDate!))!
-                    
-                    let timeUntil = 0//
                     let timeDiff = self.stringFromTimeInterval(diff)
-                    
                     
                     DispatchQueue.main.async(execute: {
                         //self.tableView.reloadData()
@@ -205,7 +202,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         print("Prev day Pressed");
         dateAdd -= 1;
         createRequest();
-        dateLabel.text = getFormattedDate();
+        dateButton.titleLabel?.text = getFormattedDate();
         
     }
     
@@ -213,7 +210,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         print("Next day Pressed");
         dateAdd += 1;
         createRequest();
-        dateLabel.text = getFormattedDate();
+        dateButton.titleLabel?.text = getFormattedDate();
     }
     
     @IBAction func changeLocationClicked(_ sender: UIButton) {
@@ -231,6 +228,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: false, completion: nil)
         }
+    }
+    
+    @IBAction func dateButtonClicked(_ sender: UIButton) {
+        let calendarVC = DatePickerViewController();
+        navigationController?.pushViewController(calendarVC, animated: true)
     }
     
     func openLocationPicker(){

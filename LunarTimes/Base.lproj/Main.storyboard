@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="88e-Zi-zxZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="88e-Zi-zxZ">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utp-gP-UUL">
-                                                <rect key="frame" x="0.0" y="10" width="63.333333333333329" height="30"/>
+                                                <rect key="frame" x="0.0" y="10" width="58" height="30"/>
                                                 <state key="normal" title="Prev">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -40,14 +39,18 @@
                                                     <action selector="prevDayOnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wlv-iQ-613"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="June 6th, 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMq-Yb-Loj">
-                                                <rect key="frame" x="66.333333333333314" y="15" width="233" height="20.333333333333329"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AON-I3-N6A">
+                                                <rect key="frame" x="61" y="10" width="245" height="30"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="January 15th, 2001">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="dateButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IGz-EU-OiE"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlp-Br-oso">
-                                                <rect key="frame" x="302.33333333333326" y="10" width="71.666666666666686" height="30"/>
+                                                <rect key="frame" x="309" y="10" width="65" height="30"/>
                                                 <state key="normal" title="Next">
                                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </state>
@@ -71,7 +74,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcg-iQ-GYf">
-                                                <rect key="frame" x="254" y="15" width="72" height="20.333333333333343"/>
+                                                <rect key="frame" x="254" y="14.999999999999998" width="72" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -96,7 +99,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7z-so-Pga">
-                                                <rect key="frame" x="254" y="15" width="72" height="20.333333333333343"/>
+                                                <rect key="frame" x="254" y="14.999999999999998" width="72" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -121,7 +124,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVc-iT-2DL">
-                                                <rect key="frame" x="254" y="15" width="72" height="20.333333333333314"/>
+                                                <rect key="frame" x="254" y="14.999999999999998" width="72" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -146,7 +149,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ko-zg-aUe">
-                                                <rect key="frame" x="254" y="15" width="72" height="20.333333333333314"/>
+                                                <rect key="frame" x="254" y="14.999999999999998" width="72" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -171,7 +174,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWo-tC-XgR">
-                                                <rect key="frame" x="254" y="15.666666666666686" width="72" height="20.333333333333314"/>
+                                                <rect key="frame" x="254" y="14.999999999999998" width="72" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -232,7 +235,7 @@
                     <navigationItem key="navigationItem" title="Sunrise &amp; Sunset" id="Kus-0w-M62"/>
                     <connections>
                         <outlet property="bannerView" destination="D4Y-sT-1jc" id="dK7-lo-WNs"/>
-                        <outlet property="dateLabel" destination="PMq-Yb-Loj" id="2te-fT-NMs"/>
+                        <outlet property="dateButton" destination="AON-I3-N6A" id="vAF-kw-BEb"/>
                         <outlet property="dawnLabel" destination="hcg-iQ-GYf" id="217-3v-OMt"/>
                         <outlet property="daytimeLabel" destination="FWo-tC-XgR" id="8Pk-0b-M4z"/>
                         <outlet property="duskLabel" destination="1ko-zg-aUe" id="9pe-3i-dKT"/>
@@ -245,13 +248,59 @@
             </objects>
             <point key="canvasLocation" x="1763.671875" y="398.82869692532938"/>
         </scene>
+        <!--Date Picker View Controller-->
+        <scene sceneID="GUE-JW-0cE">
+            <objects>
+                <viewController storyboardIdentifier="DatePickerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QGv-bo-qug" customClass="DatePickerViewController" customModule="Sunrise___Sunset" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gDu-rl-9Qi"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cku-Bd-df2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wmU-83-yas">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ClQ-KK-Y0c" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                                <rect key="frame" x="20" y="20" width="374" height="15"/>
+                                <color key="backgroundColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="o2A-hX-yt3"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uM0-gB-mPZ" customClass="CVCalendarView" customModule="CVCalendar">
+                                <rect key="frame" x="20" y="41" width="374" height="450"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="KUQ-gz-soJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uM0-gB-mPZ" firstAttribute="leading" secondItem="wmU-83-yas" secondAttribute="leadingMargin" id="3cX-Mr-hGD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uM0-gB-mPZ" secondAttribute="trailing" id="8Vl-Q4-dSj"/>
+                            <constraint firstItem="ClQ-KK-Y0c" firstAttribute="top" secondItem="gDu-rl-9Qi" secondAttribute="bottom" id="9nE-GT-PC8"/>
+                            <constraint firstItem="ClQ-KK-Y0c" firstAttribute="leading" secondItem="wmU-83-yas" secondAttribute="leadingMargin" id="G12-vj-CXy"/>
+                            <constraint firstItem="ClQ-KK-Y0c" firstAttribute="trailing" secondItem="wmU-83-yas" secondAttribute="trailingMargin" id="QSf-Rn-gpo"/>
+                            <constraint firstItem="uM0-gB-mPZ" firstAttribute="top" secondItem="ClQ-KK-Y0c" secondAttribute="bottom" constant="6" id="keF-lj-tVQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calendarView" destination="uM0-gB-mPZ" id="W4O-8Q-ODa"/>
+                        <outlet property="menuView" destination="ClQ-KK-Y0c" id="RD5-x8-KFT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KL2-Ms-brh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2516" y="400"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mst-Gy-HxW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="88e-Zi-zxZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fcV-wl-EKF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

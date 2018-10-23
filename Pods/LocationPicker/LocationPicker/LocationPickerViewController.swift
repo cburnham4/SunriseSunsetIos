@@ -26,6 +26,10 @@ open class LocationPickerViewController: UIViewController {
 	
 	/// default: true
 	public var showCurrentLocationInitially = true
+
+    /// default: false
+    /// Select current location only if `location` property is nil.
+    public var selectCurrentLocationInitially = false
 	
 	/// see `region` property of `MKLocalSearchRequest`
 	/// default: false
@@ -145,7 +149,11 @@ open class LocationPickerViewController: UIViewController {
 		mapView.addGestureRecognizer(locationSelectGesture)
 
 		// search
-		navigationItem.titleView = searchBar
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+        } else {
+            navigationItem.titleView = searchBar
+        }
 		definesPresentationContext = true
 		
 		// user location
@@ -184,7 +192,16 @@ open class LocationPickerViewController: UIViewController {
 			// present initial location if any
 			self.location = location
 			showCoordinates(location.coordinate, animated: false)
-		} else if showCurrentLocationInitially {
+            return
+		} else if showCurrentLocationInitially || selectCurrentLocationInitially {
+            if selectCurrentLocationInitially {
+                let listener = CurrentLocationListener(once: true) { [weak self] location in
+                    if self?.location == nil { // user hasn't selected location still
+                        self?.selectLocation(location: location)
+                    }
+                }
+                currentLocationListeners.append(listener)
+            }
 			showCurrentLocation(false)
 		}
 	}
@@ -194,7 +211,7 @@ open class LocationPickerViewController: UIViewController {
 		locationManager.startUpdatingLocation()
 	}
 	
-	func currentLocationPressed() {
+    @objc func currentLocationPressed() {
 		showCurrentLocation()
 	}
 	
@@ -203,7 +220,7 @@ open class LocationPickerViewController: UIViewController {
 			self?.showCoordinates(location.coordinate, animated: animated)
 		}
 		currentLocationListeners.append(listener)
-		getCurrentLocation()
+        getCurrentLocation()
 	}
 	
 	func updateAnnotation() {
@@ -218,6 +235,31 @@ open class LocationPickerViewController: UIViewController {
 		let region = MKCoordinateRegionMakeWithDistance(coordinate, resultRegionDistance, resultRegionDistance)
 		mapView.setRegion(region, animated: animated)
 	}
+
+    func selectLocation(location: CLLocation) {
+        // add point annotation to map
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location.coordinate
+        mapView.addAnnotation(annotation)
+
+        geocoder.cancelGeocode()
+        geocoder.reverseGeocodeLocation(location) { response, error in
+            if let error = error as NSError?, error.code != 10 { // ignore cancelGeocode errors
+                // show error and remove annotation
+                let alert = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in }))
+                self.present(alert, animated: true) {
+                    self.mapView.removeAnnotation(annotation)
+                }
+            } else if let placemark = response?.first {
+                // get POI name from placemark if any
+                let name = placemark.areasOfInterest?.first
+
+                // pass user selected location too
+                self.location = Location(name: name, location: location, placemark: placemark)
+            }
+        }
+    }
 }
 
 extension LocationPickerViewController: CLLocationManagerDelegate {
@@ -254,7 +296,7 @@ extension LocationPickerViewController: UISearchResultsUpdating {
 		}
 	}
 	
-	func searchFromTimer(_ timer: Timer) {
+    @objc func searchFromTimer(_ timer: Timer) {
 		guard let userInfo = timer.userInfo as? [String: AnyObject],
 			let term = userInfo[LocationPickerViewController.SearchTermKey] as? String
 			else { return }
@@ -295,7 +337,7 @@ extension LocationPickerViewController: UISearchResultsUpdating {
 // MARK: Selecting location with gesture
 
 extension LocationPickerViewController {
-	func addLocation(_ gestureRecognizer: UIGestureRecognizer) {
+    @objc func addLocation(_ gestureRecognizer: UIGestureRecognizer) {
 		if gestureRecognizer.state == .began {
 			let point = gestureRecognizer.location(in: mapView)
 			let coordinates = mapView.convert(point, toCoordinateFrom: mapView)
@@ -303,29 +345,7 @@ extension LocationPickerViewController {
 			
 			// clean location, cleans out old annotation too
 			self.location = nil
-			
-			// add point annotation to map
-			let annotation = MKPointAnnotation()
-			annotation.coordinate = coordinates
-			mapView.addAnnotation(annotation)
-			
-			geocoder.cancelGeocode()
-			geocoder.reverseGeocodeLocation(location) { response, error in
-				if let error = error as? NSError, error.code != 10 { // ignore cancelGeocode errors
-					// show error and remove annotation
-					let alert = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert)
-					alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in }))
-					self.present(alert, animated: true) {
-						self.mapView.removeAnnotation(annotation)
-					}
-				} else if let placemark = response?.first {
-					// get POI name from placemark if any
-					let name = placemark.areasOfInterest?.first
-					
-					// pass user selected location too
-					self.location = Location(name: name, location: location, placemark: placemark)
-				}
-			}
+            selectLocation(location: location)
 		}
 	}
 }
