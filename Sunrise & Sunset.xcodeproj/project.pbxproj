@@ -15,7 +15,6 @@
 		443B8DE91D09FE2F00F5CDBB /* LunarTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B8DE81D09FE2F00F5CDBB /* LunarTimesTests.swift */; };
 		50F76D16C96E258C66CECA8F /* Pods_Sunrise___Sunset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */; };
 		6F5B2FD234A3F3EB7BB6CCE8 /* Pods_Sunrise___SunsetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */; };
-		E048EB34217FE924008A4807 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048EB33217FE924008A4807 /* DatePickerViewController.swift */; };
 		E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048EB35217FF017008A4807 /* ColorsConfig.swift */; };
 		E07534781ED89BED007D372B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07534771ED89BED007D372B /* GoogleService-Info.plist */; };
 		E07534791ED89BED007D372B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07534771ED89BED007D372B /* GoogleService-Info.plist */; };
@@ -46,9 +45,8 @@
 		443B8DEA1D09FE2F00F5CDBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6881CB6B1648E82B9C529D51 /* Pods-Sunrise & Sunset.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunrise & Sunset.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sunrise & Sunset/Pods-Sunrise & Sunset.debug.xcconfig"; sourceTree = "<group>"; };
 		6A7BF18696D579D51D285EEB /* Pods-Sunrise & SunsetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunrise & SunsetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sunrise & SunsetTests/Pods-Sunrise & SunsetTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunrise___Sunset.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunrise___SunsetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E048EB33217FE924008A4807 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Sunrise___Sunset.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Sunrise___SunsetTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E048EB35217FF017008A4807 /* ColorsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsConfig.swift; sourceTree = "<group>"; };
 		E07534771ED89BED007D372B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -100,7 +98,6 @@
 				443B8DD51D09FE2F00F5CDBB /* ViewController.swift */,
 				4401C5921D156D8800700CE3 /* Main.storyboard */,
 				443B8DDA1D09FE2F00F5CDBB /* Assets.xcassets */,
-				E048EB33217FE924008A4807 /* DatePickerViewController.swift */,
 				E048EB35217FF017008A4807 /* ColorsConfig.swift */,
 			);
 			path = LunarTimes;
@@ -327,7 +324,6 @@
 				443B8DD61D09FE2F00F5CDBB /* ViewController.swift in Sources */,
 				E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */,
 				443B8DD41D09FE2F00F5CDBB /* AppDelegate.swift in Sources */,
-				E048EB34217FE924008A4807 /* DatePickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
