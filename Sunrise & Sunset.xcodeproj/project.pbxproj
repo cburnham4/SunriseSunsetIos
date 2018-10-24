@@ -16,6 +16,7 @@
 		50F76D16C96E258C66CECA8F /* Pods_Sunrise___Sunset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */; };
 		6F5B2FD234A3F3EB7BB6CCE8 /* Pods_Sunrise___SunsetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */; };
 		E048EB34217FE924008A4807 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048EB33217FE924008A4807 /* DatePickerViewController.swift */; };
+		E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048EB35217FF017008A4807 /* ColorsConfig.swift */; };
 		E07534781ED89BED007D372B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07534771ED89BED007D372B /* GoogleService-Info.plist */; };
 		E07534791ED89BED007D372B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07534771ED89BED007D372B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunrise___Sunset.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunrise___SunsetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E048EB33217FE924008A4807 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		E048EB35217FF017008A4807 /* ColorsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsConfig.swift; sourceTree = "<group>"; };
 		E07534771ED89BED007D372B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 				4401C5921D156D8800700CE3 /* Main.storyboard */,
 				443B8DDA1D09FE2F00F5CDBB /* Assets.xcassets */,
 				E048EB33217FE924008A4807 /* DatePickerViewController.swift */,
+				E048EB35217FF017008A4807 /* ColorsConfig.swift */,
 			);
 			path = LunarTimes;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Sunrise & Sunset/Pods-Sunrise & Sunset-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CVCalendar/CVCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/LocationPicker/LocationPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -302,6 +306,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CVCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -320,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				443B8DD61D09FE2F00F5CDBB /* ViewController.swift in Sources */,
+				E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */,
 				443B8DD41D09FE2F00F5CDBB /* AppDelegate.swift in Sources */,
 				E048EB34217FE924008A4807 /* DatePickerViewController.swift in Sources */,
 			);

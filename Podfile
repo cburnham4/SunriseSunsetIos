@@ -12,6 +12,7 @@ target 'Sunrise & Sunset' do
   pod 'Firebase/AdMob'
   pod 'LocationPicker'
   pod 'CVCalendar'
+  pod 'DatePickerDialog'
 
   target 'Sunrise & SunsetTests' do
     inherit! :search_paths

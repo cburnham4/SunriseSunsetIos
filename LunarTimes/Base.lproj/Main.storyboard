@@ -248,7 +248,7 @@
             </objects>
             <point key="canvasLocation" x="1763.671875" y="398.82869692532938"/>
         </scene>
-        <!--Date Picker View Controller-->
+        <!--Calendar Appearance Delegate-->
         <scene sceneID="GUE-JW-0cE">
             <objects>
                 <viewController storyboardIdentifier="DatePickerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QGv-bo-qug" customClass="DatePickerViewController" customModule="Sunrise___Sunset" customModuleProvider="target" sceneMemberID="viewController">
@@ -269,10 +269,14 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uM0-gB-mPZ" customClass="CVCalendarView" customModule="CVCalendar">
                                 <rect key="frame" x="20" y="41" width="374" height="450"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="KUQ-gz-soJ"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="calendarAppearanceDelegate" destination="QGv-bo-qug" id="Gn1-qA-mkl"/>
+                                    <outlet property="calendarDelegate" destination="QGv-bo-qug" id="WS7-co-Tug"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

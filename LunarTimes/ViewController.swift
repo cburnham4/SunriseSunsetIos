@@ -12,7 +12,7 @@ import Alamofire
 import SwiftyJSON
 import GoogleMobileAds
 import LocationPicker
-
+import DatePickerDialog
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -30,14 +30,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager = CLLocationManager();
     var calendar = NSCalendar.current;
     var placemark: CLPlacemark?
-    var dateAdd = 0;
+    var date: Date = Date()
     var latitude = 70.0;
     var longitude = 70.0;
 
     override func viewDidLoad() {
         super.viewDidLoad()
         /* Set the date to today's date */
-        dateButton.titleLabel?.text = getFormattedDate();
+        dateButton.setTitle(getFormattedDate(), for: .normal)
        
         /* Get the location of the user */
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -94,8 +94,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let destFormat = DateFormatter()
         destFormat.dateFormat = "yyyy-MM-dd";
         destFormat.timeZone = TimeZone.current
-        let date = Calendar.current.date(byAdding: .day, value: dateAdd, to: Date())
-        let dateString  = destFormat.string(from: date!);
+        
+        let dateString  = destFormat.string(from: date);
         
         /* Create the request url */
         let url = "https://api.sunrise-sunset.org/json?lat=" + latitude.description +
@@ -168,13 +168,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let destFormat = DateFormatter()
         destFormat.dateFormat = "EEE, MMM dd, yyyy";
         destFormat.timeZone = TimeZone.current
-        let date = Calendar.current.date(byAdding: .day, value: dateAdd, to: Date())
-        let dateString  = destFormat.string(from: date!);
+        let dateString  = destFormat.string(from: date);
         
         return dateString;
     }
-    
-    
     
     /* Show the location address */
     func displayLocationInfo(_ placemark: CLPlacemark?) {
@@ -200,17 +197,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBAction func prevDayOnClick(_ sender: UIButton) {
         print("Prev day Pressed");
-        dateAdd -= 1;
+        
+        date = Calendar.current.date(byAdding: .day, value: -1, to: date) ?? date
         createRequest();
-        dateButton.titleLabel?.text = getFormattedDate();
+        dateButton.setTitle(getFormattedDate(), for: .normal)
         
     }
     
     @IBAction func nextDayOnClick(_ sender: UIButton) {
         print("Next day Pressed");
-        dateAdd += 1;
+
+        date = Calendar.current.date(byAdding: .day, value: 1, to: date) ?? date
         createRequest();
-        dateButton.titleLabel?.text = getFormattedDate();
+        dateButton.setTitle(getFormattedDate(), for: .normal)
     }
     
     @IBAction func changeLocationClicked(_ sender: UIButton) {
@@ -231,8 +230,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func dateButtonClicked(_ sender: UIButton) {
-        let calendarVC = DatePickerViewController();
-        navigationController?.pushViewController(calendarVC, animated: true)
+        DatePickerDialog().show("Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", defaultDate: date, datePickerMode: .date) {
+            [weak self] (date) ->  Void in
+            if let dt = date, let strongSelf = self {
+                strongSelf.date = dt
+                strongSelf.dateButton.setTitle(strongSelf.getFormattedDate(), for: .normal)
+                strongSelf.createRequest()
+            }
+        }
     }
     
     func openLocationPicker(){
