@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F6204A345A37C6CEE4D4E8E67F6A48C5"
-               BlueprintName = "CVCalendar"
+               BlueprintIdentifier = "184A1650DC0B648BD756068E60BF2C59"
+               BlueprintName = "DatePickerDialog"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "CVCalendar.framework">
+               BuildableName = "DatePickerDialog.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

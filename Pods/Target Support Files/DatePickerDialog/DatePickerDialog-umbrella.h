@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double CVCalendarVersionNumber;
-FOUNDATION_EXPORT const unsigned char CVCalendarVersionString[];
+FOUNDATION_EXPORT double DatePickerDialogVersionNumber;
+FOUNDATION_EXPORT const unsigned char DatePickerDialogVersionString[];
 
