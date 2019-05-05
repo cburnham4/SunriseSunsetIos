@@ -14,7 +14,7 @@ import GoogleMobileAds
 import LocationPicker
 import DatePickerDialog
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController {
 
     /* Views */
     @IBOutlet weak var daytimeLabel: UILabel!
@@ -59,34 +59,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         /* Request the new ad */
         let request = GADRequest()
         bannerView.load(request)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        /* Stop getting user location once the first location is recieved */
-        self.locationManager.stopUpdatingLocation();
-
-        /* get the longitude and latitude of the user */
-        let locationlast = locations.last
-        self.latitude = (locationlast?.coordinate.latitude)!
-        self.longitude = (locationlast?.coordinate.longitude)!
-        
-        /* Get the address from the long and lat */
-        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
-            if (error != nil) {
-                print("Reverse geocoder failed with error" + error!.localizedDescription)
-                return
-            }
-            
-            if placemarks!.count > 0 {
-                let pm = placemarks![0]
-                self.placemark = pm
-                self.displayLocationInfo(pm)
-            } else {
-                print("Problem with the data received from geocoder")
-            }
-        })
-        
-        createRequest();
     }
     
     func createRequest(){
@@ -300,6 +272,37 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let date = dateTime.substring(with: NSRange(location: 0,length: 10))
         let time  = dateTime.substring(with: NSRange(location: 11,length: 8))
         return date + " " + time
+    }
+}
+
+extension ViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        /* Stop getting user location once the first location is recieved */
+        self.locationManager.stopUpdatingLocation();
+        
+        /* get the longitude and latitude of the user */
+        let locationlast = locations.last
+        self.latitude = (locationlast?.coordinate.latitude)!
+        self.longitude = (locationlast?.coordinate.longitude)!
+        
+        /* Get the address from the long and lat */
+        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
+            if (error != nil) {
+                print("Reverse geocoder failed with error" + error!.localizedDescription)
+                return
+            }
+            
+            if placemarks!.count > 0 {
+                let pm = placemarks![0]
+                self.placemark = pm
+                self.displayLocationInfo(pm)
+            } else {
+                print("Problem with the data received from geocoder")
+            }
+        })
+        
+        createRequest();
     }
 }
 
