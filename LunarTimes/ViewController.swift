@@ -162,7 +162,6 @@ class ViewController: UIViewController {
             self.locationLabel.text = "Location: " + address
             print(address)
         }
-        
     }
     
     /* MARK: Actions */

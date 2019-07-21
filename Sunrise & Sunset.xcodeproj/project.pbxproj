@@ -201,7 +201,7 @@
 					};
 					443B8DE31D09FE2F00F5CDBB = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0930;
 						TestTargetID = 443B8DCF1D09FE2F00F5CDBB;
 					};
 				};
@@ -519,7 +519,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.LunarTimesTests;
 				PRODUCT_NAME = "Sunrise & Sunset";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sunrise & Sunset.app/Sunrise & Sunset";
 			};
 			name = Debug;
@@ -533,7 +534,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.LunarTimesTests;
 				PRODUCT_NAME = "Sunrise & Sunset";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sunrise & Sunset.app/Sunrise & Sunset";
 			};
 			name = Release;
