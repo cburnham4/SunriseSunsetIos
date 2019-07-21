@@ -1,4 +1,4 @@
-# DatePickerDialog 1.1 - iOS - Swift
+# DatePickerDialog 3.0- iOS - Swift
 
 DatePickerDialog is an iOS drop-in classe that displays an UIDatePicker within an UIAlertView.
 
@@ -6,13 +6,15 @@ DatePickerDialog is an iOS drop-in classe that displays an UIDatePicker within a
 
 ## Requirements
 
-DatePickerDialog works on iOS 7, 8 and 9. It depends on the following Apple frameworks, which should already be included with most Xcode templates:
+DatePickerDialog works on iOS 7, 8 and 9, 10, 11 and 12. It depends on the following Apple frameworks, which should already be included with most Xcode templates:
 
 * Foundation
 * UIKit
 
 #### Swift Versions
-- Swift 3 (master)
+- Swift 5.0 (Current)
+- Swift 4.2 (```2.1``` tag)
+- Swift 4.2 (```2.0``` tag)
 - Swift 2.3 (```swift_2.3``` branch)
 
 ## Installation

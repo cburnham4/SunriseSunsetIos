@@ -6,12 +6,12 @@ target 'Sunrise & Sunset' do
   use_frameworks!
 
   # Pods for Sunrise & Sunset
-  pod 'Alamofire', '~> 4.4'
+  pod 'Alamofire', '~> 5.0.0-beta.5'
   pod 'SwiftyJSON'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
-  pod 'LocationPicker'
-  pod 'DatePickerDialog'
+  pod 'LocationPicker', :git => 'https://github.com/weakfl/LocationPicker', :branch => 'swift5'
+  pod 'DatePickerDialog', :git => 'https://github.com/squimer/DatePickerDialog-iOS-Swift', :branch => 'master'
 
   target 'Sunrise & SunsetTests' do
     inherit! :search_paths

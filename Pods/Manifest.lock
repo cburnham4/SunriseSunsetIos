@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.7.3)
+  - Alamofire (5.0.0-beta.6)
   - DatePickerDialog (2.0)
   - Firebase/AdMob (5.10.0):
     - Firebase/Core
@@ -49,7 +49,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.3.4):
     - GoogleUtilities/Logger
-  - LocationPicker (1.2.0)
+  - LocationPicker (1.4.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -58,17 +58,16 @@ PODS:
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.4)
-  - DatePickerDialog
+  - Alamofire (~> 5.0.0-beta.5)
+  - DatePickerDialog (from `https://github.com/squimer/DatePickerDialog-iOS-Swift`, branch `master`)
   - Firebase/AdMob
   - Firebase/Core
-  - LocationPicker
+  - LocationPicker (from `https://github.com/weakfl/LocationPicker`, branch `swift5`)
   - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - DatePickerDialog
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -76,13 +75,28 @@ SPEC REPOS:
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleUtilities
-    - LocationPicker
     - nanopb
     - SwiftyJSON
 
+EXTERNAL SOURCES:
+  DatePickerDialog:
+    :branch: master
+    :git: https://github.com/squimer/DatePickerDialog-iOS-Swift
+  LocationPicker:
+    :branch: swift5
+    :git: https://github.com/weakfl/LocationPicker
+
+CHECKOUT OPTIONS:
+  DatePickerDialog:
+    :commit: 0a8dab5a3c97878f1fb66fc7d62ed2c58efcf115
+    :git: https://github.com/squimer/DatePickerDialog-iOS-Swift
+  LocationPicker:
+    :commit: 4149b6ac712eec60fdcd6955c65dc1115a5ce596
+    :git: https://github.com/weakfl/LocationPicker
+
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  DatePickerDialog: 5e1c24d9fe6506cd45dbc573eed7b0a251b1c09d
+  Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
+  DatePickerDialog: 18b12e3aba09b28dc6146bdf8573a9834d8ea2ab
   Firebase: 6691d47562a780c26281ce8464518faafc90c610
   FirebaseAnalytics: 831f1f127f4a75698e9875a87bf7e2668730d953
   FirebaseCore: c6079de64c1a87000e52e9b408dddcadc901177f
@@ -90,10 +104,10 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 151d5e87b4a0ae6d7d07e2cd8d55d1b41ea2e61e
   GoogleAppMeasurement: 2b3a023a61239c8d002e6e4fcf4abce8eddce0e0
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
-  LocationPicker: d91f9fe50493d8058391fe1408aa2a8db49a584d
+  LocationPicker: 0569608932843bc7686aaec4192d6fc83f8f2b7d
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 150109c3187736c08ee4a389f5bc463f0521b5d2
+PODFILE CHECKSUM: c844a0e35315d56e92a94a5d28df7dbb790a9d1e
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

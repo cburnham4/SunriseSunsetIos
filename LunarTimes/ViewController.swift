@@ -80,8 +80,7 @@ class ViewController: UIViewController {
     }
     
     func requestData(url: String){
-        
-        Alamofire.request(url, method: .get).validate().responseJSON { response in
+        AF.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -184,20 +183,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func changeLocationClicked(_ sender: UIButton) {
-        if CLLocationManager.locationServicesEnabled() {
-            switch CLLocationManager.authorizationStatus() {
-            case .notDetermined, .restricted, .denied:
-                let alert = UIAlertController(title: "Location Permission Disabled", message: "Please Enable Location Services for this App", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: false, completion: nil)
-            case .authorizedAlways, .authorizedWhenInUse:
-                openLocationPicker()
-            }
-        } else {
-            let alert = UIAlertController(title: "Location Disabled", message: "Please Enable Location Services", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: false, completion: nil)
-        }
+        openLocationPicker()
     }
     
     @IBAction func dateButtonClicked(_ sender: UIButton) {
@@ -216,18 +202,13 @@ class ViewController: UIViewController {
         
         // you can optionally set initial location
         let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
-        if(placemark == nil) {
-            //location.placemark
+        if let placemark = placemark {
+            let initialLocation = Location(name: "Current Location", location: location, placemark: placemark)
+            
+            locationPicker.location = initialLocation
+        } else {
+            locationPicker.showCurrentLocationButton = false
         }
-        
-        let initialLocation = Location(name: "Current Location", location: location, placemark: self.placemark!)
-        
-        
-        locationPicker.location = initialLocation
-        
-        
-        // button placed on right bottom corner
-        locationPicker.showCurrentLocationButton = true // default: true
         
         // default: navigation bar's `barTintColor` or `.whiteColor()`
         locationPicker.currentLocationButtonBackground = .blue
