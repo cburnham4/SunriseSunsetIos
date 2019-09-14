@@ -49,7 +49,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.3.4):
     - GoogleUtilities/Logger
-  - LhHelpers (1.4.4)
+  - LhHelpers (2.0.0)
   - LocationPicker (1.4.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -63,7 +63,7 @@ DEPENDENCIES:
   - DatePickerDialog (from `https://github.com/squimer/DatePickerDialog-iOS-Swift`, branch `master`)
   - Firebase/AdMob
   - Firebase/Core
-  - LhHelpers (from `../lh-helpers`)
+  - LhHelpers (~> 2.0.0)
   - LocationPicker (from `https://github.com/weakfl/LocationPicker`, branch `swift5`)
   - SwiftyJSON
 
@@ -77,6 +77,7 @@ SPEC REPOS:
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleUtilities
+    - LhHelpers
     - nanopb
     - SwiftyJSON
 
@@ -84,8 +85,6 @@ EXTERNAL SOURCES:
   DatePickerDialog:
     :branch: master
     :git: https://github.com/squimer/DatePickerDialog-iOS-Swift
-  LhHelpers:
-    :path: "../lh-helpers"
   LocationPicker:
     :branch: swift5
     :git: https://github.com/weakfl/LocationPicker
@@ -108,11 +107,11 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 151d5e87b4a0ae6d7d07e2cd8d55d1b41ea2e61e
   GoogleAppMeasurement: 2b3a023a61239c8d002e6e4fcf4abce8eddce0e0
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
-  LhHelpers: 5617ef4140ea025c25811bfca14d3ce503bae27e
+  LhHelpers: acc22d432a7d61f2eec4b16fafab0b0d16f61813
   LocationPicker: 0569608932843bc7686aaec4192d6fc83f8f2b7d
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 8d8a107403be559f60efae38691926b525f6c6fa
+PODFILE CHECKSUM: 86e862623b41aeeb1c8ef6b85807d6e55e50964c
 
 COCOAPODS: 1.6.1
