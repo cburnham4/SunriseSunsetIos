@@ -12,6 +12,7 @@ import Alamofire
 import SwiftyJSON
 import GoogleMobileAds
 import LocationPicker
+import LhHelpers
 import DatePickerDialog
 
 class ViewController: UIViewController {
@@ -69,69 +70,68 @@ class ViewController: UIViewController {
         
         let dateString  = destFormat.string(from: date);
         
-        /* Create the request url */
-        let url = "https://api.sunrise-sunset.org/json?lat=" + latitude.description +
-            "&lng=" + longitude.description + "&formatted=0" + "&date=" + dateString;
-        
-        print(url)
+        let request = SunriseSunsetRequest(lat: latitude, long: longitude, dateString: dateString)
+        request.makeRequest { [weak self] response in
+            switch response {
+            case .failure:
+                AlertUtils.createAlert(view: self!, title: "Error Recieving Data", message: "Sunrise Sunset data is currently unavailable")
+            case .success(let sunsriseSunset):
+                self?.parseResult(sunriseSunset: sunsriseSunset)
+            }
+        }
+    }
     
-        /* Request the data */
-        requestData(url: url)
+    func parseResult(sunriseSunset: SunriseSunsetResponse) {
+        let result = sunriseSunset.results
+        let sourceFormat = DateFormatter()
+        sourceFormat.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        sourceFormat.timeZone = TimeZone(identifier: "UTC")
+        
+        let destFormat = DateFormatter()
+        destFormat.dateFormat = "hh:mm:ss a"
+        destFormat.timeZone = TimeZone.current
+        
+        let sunriseDate = sourceFormat.date(from: result.sunriseString)
+        let parsedSunrise  = destFormat.string(from: sunriseDate!)
+        
+        let sunsetDate = sourceFormat.date(from: result.sunsetString)
+        let parsedSunset = destFormat.string(from: sunsetDate!)
+        
+        let dawnDate = sourceFormat.date(from: result.dawnString)
+        let parsedDawn = destFormat.string(from: dawnDate!)
+        
+        let duskDate = sourceFormat.date(from: result.duskString)
+        let parsedDusk = destFormat.string(from: duskDate!)
+        
+        let diff: TimeInterval = (sunsetDate?.timeIntervalSince(sunriseDate!))!
+        let timeDiff = stringFromTimeInterval(diff)
+        
+        DispatchQueue.main.async(execute: {
+            //self.tableView.reloadData()
+            self.sunriseLabel.text = parsedSunrise
+            self.sunsetLabel.text = parsedSunset
+            self.dawnLabel.text = parsedDawn
+            self.duskLabel.text = parsedDusk
+            self.daytimeLabel.text = timeDiff
+        })
     }
     
     func requestData(url: String){
-        AF.request(url, method: .get).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                
-                /* If the request is successful then parse the daylight times */
-                if(json["status"].stringValue == "OK"){
-                    var times = json["results"]
-                    
-                    let dawnString = self.getDateTime(times["civil_twilight_begin"].stringValue)
-                    let duskString = self.getDateTime(times["civil_twilight_end"].stringValue)
-                    let sunriseString = self.getDateTime(times["sunrise"].stringValue)
-                    let sunsetString = self.getDateTime(times["sunset"].stringValue)
-                    
-                    let sourceFormat = DateFormatter()
-                    sourceFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                    sourceFormat.timeZone = TimeZone(identifier: "UTC")
-                    
-                    let destFormat = DateFormatter()
-                    destFormat.dateFormat = "hh:mm:ss a"
-                    destFormat.timeZone = TimeZone.current
-                    
-                    let sunriseDate = sourceFormat.date(from: sunriseString)
-                    let parsedSunrise  = destFormat.string(from: sunriseDate!)
-                    
-                    let sunsetDate = sourceFormat.date(from: sunsetString)
-                    let parsedSunset = destFormat.string(from: sunsetDate!)
-                    
-                    let dawnDate = sourceFormat.date(from: dawnString)
-                    let parsedDawn = destFormat.string(from: dawnDate!)
-                    
-                    let duskDate = sourceFormat.date(from: duskString)
-                    let parsedDusk = destFormat.string(from: duskDate!)
-                    
-                    let diff: TimeInterval = (sunsetDate?.timeIntervalSince(sunriseDate!))!
-                    let timeDiff = self.stringFromTimeInterval(diff)
-                    
-                    DispatchQueue.main.async(execute: {
-                        //self.tableView.reloadData()
-                        self.sunriseLabel.text = parsedSunrise
-                        self.sunsetLabel.text = parsedSunset
-                        self.dawnLabel.text = parsedDawn
-                        self.duskLabel.text = parsedDusk
-                        self.daytimeLabel.text = timeDiff
-                    })
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        AF.request(url, method: .get).validate().responseJSON { response in
+//            switch response.result {
+//            case .success(let value):
+//                let json = JSON(value)
+//                print("JSON: \(json)")
+//                
+//                /* If the request is successful then parse the daylight times */
+//                if(json["status"].stringValue == "OK"){
+//
+//                    
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
     
     // MARK: Extra functions
