@@ -12,6 +12,7 @@ target 'Sunrise & Sunset' do
   pod 'Firebase/AdMob'
   pod 'LocationPicker', :git => 'https://github.com/weakfl/LocationPicker', :branch => 'swift5'
   pod 'DatePickerDialog', :git => 'https://github.com/squimer/DatePickerDialog-iOS-Swift', :branch => 'master'
+  pod 'LhHelpers', '~> 2.0.0'
 
   target 'Sunrise & SunsetTests' do
     inherit! :search_paths
