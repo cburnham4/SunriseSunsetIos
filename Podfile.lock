@@ -64,7 +64,7 @@ DEPENDENCIES:
   - Firebase/AdMob
   - Firebase/Core
   - LhHelpers (~> 2.0.0)
-  - LocationPicker (from `https://github.com/weakfl/LocationPicker`, branch `swift5`)
+  - LocationPicker (from `https://github.com/almassapargali/LocationPicker`, branch `master`)
   - SwiftyJSON
 
 SPEC REPOS:
@@ -86,16 +86,16 @@ EXTERNAL SOURCES:
     :branch: master
     :git: https://github.com/squimer/DatePickerDialog-iOS-Swift
   LocationPicker:
-    :branch: swift5
-    :git: https://github.com/weakfl/LocationPicker
+    :branch: master
+    :git: https://github.com/almassapargali/LocationPicker
 
 CHECKOUT OPTIONS:
   DatePickerDialog:
     :commit: 0a8dab5a3c97878f1fb66fc7d62ed2c58efcf115
     :git: https://github.com/squimer/DatePickerDialog-iOS-Swift
   LocationPicker:
-    :commit: 4149b6ac712eec60fdcd6955c65dc1115a5ce596
-    :git: https://github.com/weakfl/LocationPicker
+    :commit: 907f51465d7511b7c7661977d7e5bbd162c50f4f
+    :git: https://github.com/almassapargali/LocationPicker
 
 SPEC CHECKSUMS:
   Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
@@ -112,6 +112,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 86e862623b41aeeb1c8ef6b85807d6e55e50964c
+PODFILE CHECKSUM: d0cea3733717db16e27b3d225ca14b1c1739de98
 
 COCOAPODS: 1.6.1

@@ -10,7 +10,7 @@ target 'Sunrise & Sunset' do
   pod 'SwiftyJSON'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
-  pod 'LocationPicker', :git => 'https://github.com/weakfl/LocationPicker', :branch => 'swift5'
+  pod 'LocationPicker', :git => 'https://github.com/almassapargali/LocationPicker', :branch => 'master'
   pod 'DatePickerDialog', :git => 'https://github.com/squimer/DatePickerDialog-iOS-Swift', :branch => 'master'
   pod 'LhHelpers', '~> 2.0.0'
 
