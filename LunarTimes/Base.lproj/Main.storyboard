@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="bHi-Ej-Dm8">
-                                <rect key="frame" x="20" y="78" width="374" height="426"/>
+                                <rect key="frame" x="20" y="78" width="374" height="706"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Kwm-Ci-S23">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -188,8 +188,128 @@
                                             <constraint firstAttribute="trailing" secondItem="FWo-tC-XgR" secondAttribute="trailing" constant="48" id="x6P-zp-aMn"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bik-YH-iMQ">
+                                    <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzq-gV-d4r" userLabel="Solar Noon View">
                                         <rect key="frame" x="0.0" y="336" width="374" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Solar Noon:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUV-MC-EZk">
+                                                <rect key="frame" x="8" y="15" width="90" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVS-Kb-sOA">
+                                                <rect key="frame" x="254" y="14.999999999999998" width="72" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="QVS-Kb-sOA" secondAttribute="trailing" constant="48" id="6Gi-Uh-dFa"/>
+                                            <constraint firstAttribute="height" constant="50" id="ECZ-Ry-42d"/>
+                                            <constraint firstItem="QVS-Kb-sOA" firstAttribute="centerY" secondItem="qzq-gV-d4r" secondAttribute="centerY" id="t0X-dn-j9o"/>
+                                        </constraints>
+                                    </view>
+                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7p-tt-fxV" userLabel="nauticalDawn View">
+                                        <rect key="frame" x="0.0" y="392" width="374" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nautical Dawn:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55M-01-M98">
+                                                <rect key="frame" x="8" y="15" width="115" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kda-Xf-BaI">
+                                                <rect key="frame" x="254" y="14.999999999999998" width="72" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Bgt-ui-dDz"/>
+                                            <constraint firstItem="Kda-Xf-BaI" firstAttribute="centerY" secondItem="B7p-tt-fxV" secondAttribute="centerY" id="OgC-zc-wTb"/>
+                                            <constraint firstAttribute="trailing" secondItem="Kda-Xf-BaI" secondAttribute="trailing" constant="48" id="hLT-0y-J2n"/>
+                                        </constraints>
+                                    </view>
+                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-F9-fjq" userLabel="nauticalDusk View">
+                                        <rect key="frame" x="0.0" y="448" width="374" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nautical Dusk:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYM-qY-AuK">
+                                                <rect key="frame" x="8" y="15" width="111" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-8d-ZB2">
+                                                <rect key="frame" x="254" y="14.999999999999998" width="72" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="5wP-vW-vtC"/>
+                                            <constraint firstItem="eGy-8d-ZB2" firstAttribute="centerY" secondItem="jZj-F9-fjq" secondAttribute="centerY" id="EwS-vY-8H1"/>
+                                            <constraint firstAttribute="trailing" secondItem="eGy-8d-ZB2" secondAttribute="trailing" constant="48" id="W9g-Jw-ceW"/>
+                                        </constraints>
+                                    </view>
+                                    <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9q-wc-D7r" userLabel="AstroDusk View">
+                                        <rect key="frame" x="0.0" y="504" width="374" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Astronomical Dusk:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmY-Kz-JuQ">
+                                                <rect key="frame" x="8" y="15" width="148" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCs-Xh-VO7">
+                                                <rect key="frame" x="254" y="14.999999999999998" width="72" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2PK-u8-bzj"/>
+                                            <constraint firstAttribute="trailing" secondItem="OCs-Xh-VO7" secondAttribute="trailing" constant="48" id="Deh-NP-yKF"/>
+                                            <constraint firstItem="OCs-Xh-VO7" firstAttribute="centerY" secondItem="C9q-wc-D7r" secondAttribute="centerY" id="Pmv-kK-ysB"/>
+                                        </constraints>
+                                    </view>
+                                    <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L13-gC-CzP" userLabel="AstroDawn View">
+                                        <rect key="frame" x="0.0" y="560" width="374" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Astronomical Dawn:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygj-vt-wrp">
+                                                <rect key="frame" x="8" y="15" width="152" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPC-PJ-jr6">
+                                                <rect key="frame" x="254" y="14.999999999999998" width="72" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="LPC-PJ-jr6" firstAttribute="centerY" secondItem="L13-gC-CzP" secondAttribute="centerY" id="ABr-pQ-tgL"/>
+                                            <constraint firstAttribute="height" constant="50" id="FDZ-br-MQs"/>
+                                            <constraint firstAttribute="trailing" secondItem="LPC-PJ-jr6" secondAttribute="trailing" constant="48" id="Nfd-3C-3kV"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bik-YH-iMQ">
+                                        <rect key="frame" x="0.0" y="616" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Vy7-71-ssk"/>
                                         </constraints>
@@ -198,7 +318,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKW-Ye-bkz">
-                                        <rect key="frame" x="0.0" y="392" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="672" width="374" height="34"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Change Location">
@@ -234,19 +354,24 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sunrise &amp; Sunset" id="Kus-0w-M62"/>
                     <connections>
+                        <outlet property="astroDawnLabel" destination="LPC-PJ-jr6" id="dh8-KY-6sr"/>
+                        <outlet property="astroDuskLabel" destination="OCs-Xh-VO7" id="0mn-IG-p9R"/>
                         <outlet property="bannerView" destination="D4Y-sT-1jc" id="dK7-lo-WNs"/>
                         <outlet property="dateButton" destination="AON-I3-N6A" id="vAF-kw-BEb"/>
                         <outlet property="dawnLabel" destination="hcg-iQ-GYf" id="217-3v-OMt"/>
                         <outlet property="daytimeLabel" destination="FWo-tC-XgR" id="8Pk-0b-M4z"/>
                         <outlet property="duskLabel" destination="1ko-zg-aUe" id="9pe-3i-dKT"/>
                         <outlet property="locationLabel" destination="Bik-YH-iMQ" id="bdO-kf-FWl"/>
+                        <outlet property="nauticalDawnLabel" destination="Kda-Xf-BaI" id="AiM-mM-FtI"/>
+                        <outlet property="nauticalDuskLabel" destination="eGy-8d-ZB2" id="bsn-OD-3CO"/>
+                        <outlet property="solarNoonLabel" destination="QVS-Kb-sOA" id="RNg-Ea-uGR"/>
                         <outlet property="sunriseLabel" destination="D7z-so-Pga" id="lU5-CV-IOQ"/>
                         <outlet property="sunsetLabel" destination="FVc-iT-2DL" id="j8H-zw-G8G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1763.671875" y="398.82869692532938"/>
+            <point key="canvasLocation" x="1762.3188405797102" y="398.64130434782612"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RMK-EA-sxg">

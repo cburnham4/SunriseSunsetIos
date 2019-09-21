@@ -46,8 +46,8 @@
 		443B8DEA1D09FE2F00F5CDBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6881CB6B1648E82B9C529D51 /* Pods-Sunrise & Sunset.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunrise & Sunset.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sunrise & Sunset/Pods-Sunrise & Sunset.debug.xcconfig"; sourceTree = "<group>"; };
 		6A7BF18696D579D51D285EEB /* Pods-Sunrise & SunsetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunrise & SunsetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sunrise & SunsetTests/Pods-Sunrise & SunsetTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunrise___Sunset.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunrise___SunsetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Sunrise___Sunset.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Sunrise___SunsetTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E048EB35217FF017008A4807 /* ColorsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsConfig.swift; sourceTree = "<group>"; };
 		E07534771ED89BED007D372B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunsetRequest.swift; sourceTree = "<group>"; };
@@ -199,7 +199,6 @@
 				TargetAttributes = {
 					443B8DCF1D09FE2F00F5CDBB = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 56NQ7Z9L75;
 						LastSwiftMigration = 0920;
 					};
 					443B8DE31D09FE2F00F5CDBB = {
@@ -485,6 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = LunarTimes/Info.plist;
@@ -504,6 +504,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = LunarTimes/Info.plist;
