@@ -108,10 +108,10 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 2b3a023a61239c8d002e6e4fcf4abce8eddce0e0
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
   LhHelpers: acc22d432a7d61f2eec4b16fafab0b0d16f61813
-  LocationPicker: 2f08085ca87c17da89370b1968cb884d677c5e4e
+  LocationPicker: 0569608932843bc7686aaec4192d6fc83f8f2b7d
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
 PODFILE CHECKSUM: d0cea3733717db16e27b3d225ca14b1c1739de98
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.6.1

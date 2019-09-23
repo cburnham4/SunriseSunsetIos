@@ -30,7 +30,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var nauticalDuskLabel: UILabel!
     @IBOutlet weak var astroDuskLabel: UILabel!
     @IBOutlet weak var astroDawnLabel: UILabel!
-    @IBOutlet weak var solarNoonLabel: UILabel!
     
     /* Model Variables */
     var locationManager = CLLocationManager();
@@ -111,9 +110,6 @@ class ViewController: UIViewController {
         let diff: TimeInterval = (sunsetDate?.timeIntervalSince(sunriseDate!))!
         let timeDiff = stringFromTimeInterval(diff)
         
-        let solarNoonDate = sourceFormat.date(from: result.solarNoonString)
-        let parsedSolarNoon = destFormat.string(from: solarNoonDate!)
-        
         let nauticalDawnDate = sourceFormat.date(from: result.nauticalDawn)
         let parsedNauticalDawn = destFormat.string(from: nauticalDawnDate!)
         
@@ -138,8 +134,6 @@ class ViewController: UIViewController {
             self.nauticalDuskLabel.text = parsedNauticalDusk
             self.astroDawnLabel.text = parsedAstronomicalDawn
             self.astroDuskLabel.text = parsedAstronomicalDusk
-            self.solarNoonLabel.text = parsedSolarNoon
-            
         })
     }
     
