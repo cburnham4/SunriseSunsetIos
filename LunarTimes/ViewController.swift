@@ -26,6 +26,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var nauticalDawnLabel: UILabel!
+    @IBOutlet weak var nauticalDuskLabel: UILabel!
+    @IBOutlet weak var astroDuskLabel: UILabel!
+    @IBOutlet weak var astroDawnLabel: UILabel!
+    @IBOutlet weak var solarNoonLabel: UILabel!
     
     /* Model Variables */
     var locationManager = CLLocationManager();
@@ -106,6 +111,22 @@ class ViewController: UIViewController {
         let diff: TimeInterval = (sunsetDate?.timeIntervalSince(sunriseDate!))!
         let timeDiff = stringFromTimeInterval(diff)
         
+        let solarNoonDate = sourceFormat.date(from: result.solarNoonString)
+        let parsedSolarNoon = destFormat.string(from: solarNoonDate!)
+        
+        let nauticalDawnDate = sourceFormat.date(from: result.nauticalDawn)
+        let parsedNauticalDawn = destFormat.string(from: nauticalDawnDate!)
+        
+        let nauticalDuskDate = sourceFormat.date(from: result.nauticalDusk)
+        let parsedNauticalDusk = destFormat.string(from: nauticalDuskDate!)
+        
+        let astronomicalDawnDate = sourceFormat.date(from: result.astronomicalDawn)
+        let parsedAstronomicalDawn = destFormat.string(from: astronomicalDawnDate!)
+        
+        let astronomicalDuskDate = sourceFormat.date(from: result.astronomicalDusk)
+        let parsedAstronomicalDusk = destFormat.string(from: astronomicalDuskDate!)
+        
+        
         DispatchQueue.main.async(execute: {
             //self.tableView.reloadData()
             self.sunriseLabel.text = parsedSunrise
@@ -113,6 +134,12 @@ class ViewController: UIViewController {
             self.dawnLabel.text = parsedDawn
             self.duskLabel.text = parsedDusk
             self.daytimeLabel.text = timeDiff
+            self.nauticalDawnLabel.text = parsedNauticalDawn
+            self.nauticalDuskLabel.text = parsedNauticalDusk
+            self.astroDawnLabel.text = parsedAstronomicalDawn
+            self.astroDuskLabel.text = parsedAstronomicalDusk
+            self.solarNoonLabel.text = parsedSolarNoon
+            
         })
     }
     
