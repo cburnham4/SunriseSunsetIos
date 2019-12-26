@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4401C5941D156D8800700CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4401C5921D156D8800700CE3 /* Main.storyboard */; };
 		443B8DD41D09FE2F00F5CDBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B8DD31D09FE2F00F5CDBB /* AppDelegate.swift */; };
-		443B8DD61D09FE2F00F5CDBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B8DD51D09FE2F00F5CDBB /* ViewController.swift */; };
+		443B8DD61D09FE2F00F5CDBB /* SunriseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B8DD51D09FE2F00F5CDBB /* SunriseViewController.swift */; };
 		443B8DDB1D09FE2F00F5CDBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443B8DDA1D09FE2F00F5CDBB /* Assets.xcassets */; };
 		443B8DDE1D09FE2F00F5CDBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443B8DDC1D09FE2F00F5CDBB /* LaunchScreen.storyboard */; };
 		443B8DE91D09FE2F00F5CDBB /* LunarTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B8DE81D09FE2F00F5CDBB /* LunarTimesTests.swift */; };
@@ -18,6 +18,9 @@
 		E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048EB35217FF017008A4807 /* ColorsConfig.swift */; };
 		E07534781ED89BED007D372B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07534771ED89BED007D372B /* GoogleService-Info.plist */; };
 		E07534791ED89BED007D372B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07534771ED89BED007D372B /* GoogleService-Info.plist */; };
+		E094B75423B29B08002AACA6 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75323B29B08002AACA6 /* WeatherViewController.swift */; };
+		E094B75623B29B64002AACA6 /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75523B29B64002AACA6 /* WeatherRequest.swift */; };
+		E094B75823B29EF2002AACA6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75723B29EF2002AACA6 /* TabBarViewController.swift */; };
 		E0D5A44A232D191A00E10FE0 /* SunriseSunsetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +40,7 @@
 		4401C5931D156D8800700CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		443B8DD01D09FE2F00F5CDBB /* Sunrise & Sunset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sunrise & Sunset.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		443B8DD31D09FE2F00F5CDBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		443B8DD51D09FE2F00F5CDBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		443B8DD51D09FE2F00F5CDBB /* SunriseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseViewController.swift; sourceTree = "<group>"; };
 		443B8DDA1D09FE2F00F5CDBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		443B8DDD1D09FE2F00F5CDBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		443B8DDF1D09FE2F00F5CDBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +53,9 @@
 		C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Sunrise___SunsetTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E048EB35217FF017008A4807 /* ColorsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsConfig.swift; sourceTree = "<group>"; };
 		E07534771ED89BED007D372B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E094B75323B29B08002AACA6 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		E094B75523B29B64002AACA6 /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
+		E094B75723B29EF2002AACA6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunsetRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,11 +103,14 @@
 			isa = PBXGroup;
 			children = (
 				E075347A1ED89BFF007D372B /* Extras */,
-				443B8DD51D09FE2F00F5CDBB /* ViewController.swift */,
+				443B8DD51D09FE2F00F5CDBB /* SunriseViewController.swift */,
 				4401C5921D156D8800700CE3 /* Main.storyboard */,
 				443B8DDA1D09FE2F00F5CDBB /* Assets.xcassets */,
 				E048EB35217FF017008A4807 /* ColorsConfig.swift */,
 				E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */,
+				E094B75323B29B08002AACA6 /* WeatherViewController.swift */,
+				E094B75523B29B64002AACA6 /* WeatherRequest.swift */,
+				E094B75723B29EF2002AACA6 /* TabBarViewController.swift */,
 			);
 			path = LunarTimes;
 			sourceTree = "<group>";
@@ -324,8 +333,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				443B8DD61D09FE2F00F5CDBB /* ViewController.swift in Sources */,
+				E094B75623B29B64002AACA6 /* WeatherRequest.swift in Sources */,
+				443B8DD61D09FE2F00F5CDBB /* SunriseViewController.swift in Sources */,
+				E094B75423B29B08002AACA6 /* WeatherViewController.swift in Sources */,
 				E0D5A44A232D191A00E10FE0 /* SunriseSunsetRequest.swift in Sources */,
+				E094B75823B29EF2002AACA6 /* TabBarViewController.swift in Sources */,
 				E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */,
 				443B8DD41D09FE2F00F5CDBB /* AppDelegate.swift in Sources */,
 			);

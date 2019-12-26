@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SunriseViewController.swift
 //  LunarTimes
 //
 //  Created by Chase on 6/9/16.
@@ -15,7 +15,7 @@ import LocationPicker
 import LhHelpers
 import DatePickerDialog
 
-class ViewController: UIViewController {
+class SunriseViewController: UIViewController {
 
     /* Views */
     @IBOutlet weak var daytimeLabel: UILabel!
@@ -32,7 +32,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var astroDawnLabel: UILabel!
     
     /* Model Variables */
-    var locationManager = CLLocationManager();
     var calendar = NSCalendar.current;
     var placemark: CLPlacemark?
     var date: Date = Date()
@@ -43,12 +42,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         /* Set the date to today's date */
         dateButton.setTitle(getFormattedDate(), for: .normal)
-       
-        /* Get the location of the user */
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
         
         /* Load the google admob ad */
         loadAd()
@@ -137,24 +130,6 @@ class ViewController: UIViewController {
         })
     }
     
-    func requestData(url: String){
-//        AF.request(url, method: .get).validate().responseJSON { response in
-//            switch response.result {
-//            case .success(let value):
-//                let json = JSON(value)
-//                print("JSON: \(json)")
-//                
-//                /* If the request is successful then parse the daylight times */
-//                if(json["status"].stringValue == "OK"){
-//
-//                    
-//
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-    }
-    
     // MARK: Extra functions
     func getFormattedDate() -> String{
         let destFormat = DateFormatter()
@@ -169,7 +144,6 @@ class ViewController: UIViewController {
     func displayLocationInfo(_ placemark: CLPlacemark?) {
         if let containsPlacemark = placemark {
             //stop updating location to save battery life
-            locationManager.stopUpdatingLocation()
             let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
             let postalCode = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
             let administrativeArea = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : ""
@@ -250,8 +224,6 @@ class ViewController: UIViewController {
         locationPicker.resultRegionDistance = 500 // default: 600
         
         locationPicker.completion = { location in
-            // do some awesome stuff with location
-            print(location?.placemark)
             self.placemark = location?.placemark
             self.displayLocationInfo(self.placemark)
             self.createRequest()
@@ -276,34 +248,12 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        /* Stop getting user location once the first location is recieved */
-        self.locationManager.stopUpdatingLocation();
-        
-        /* get the longitude and latitude of the user */
-        let locationlast = locations.last
-        self.latitude = (locationlast?.coordinate.latitude)!
-        self.longitude = (locationlast?.coordinate.longitude)!
-        
-        /* Get the address from the long and lat */
-        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
-            if (error != nil) {
-                print("Reverse geocoder failed with error" + error!.localizedDescription)
-                return
-            }
-            
-            if placemarks!.count > 0 {
-                let pm = placemarks![0]
-                self.placemark = pm
-                self.displayLocationInfo(pm)
-            } else {
-                print("Problem with the data received from geocoder")
-            }
-        })
-        
-        createRequest();
+extension SunriseViewController: LocationChangedDelegate {
+    func locationUpdated(longitude: Double, latitude: Double, placemark: CLPlacemark?) {
+        self.longitude = longitude
+        self.latitude = latitude
+        self.placemark = placemark
+        displayLocationInfo(placemark)
+        createRequest()
     }
 }
-
