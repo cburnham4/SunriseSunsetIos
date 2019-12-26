@@ -632,6 +632,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Weather" id="6Yc-0A-o9f"/>
                     <connections>
+                        <outlet property="bannerView" destination="3Og-ib-75o" id="hj6-vy-8qK"/>
                         <outlet property="cloudCoverLabel" destination="PGH-bh-yqi" id="kbg-n9-GK3"/>
                         <outlet property="precipIntensityLabel" destination="zqu-1t-pNa" id="pZ1-Sv-PT8"/>
                         <outlet property="precipProbLabel" destination="3Lh-pp-ZQ2" id="vE9-OU-LwH"/>
@@ -650,7 +651,7 @@
         <scene sceneID="Mst-Gy-HxW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="88e-Zi-zxZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sunrise" id="hPs-4X-om4"/>
+                    <tabBarItem key="tabBarItem" title="Sunrise" image="sun.min" catalog="system" id="hPs-4X-om4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fcV-wl-EKF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -688,7 +689,7 @@
         <scene sceneID="LPI-4h-O6L">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P0H-OX-Ar4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Weather" id="UHI-O8-pfo"/>
+                    <tabBarItem key="tabBarItem" title="Weather" image="cloud.heavyrain" catalog="system" id="UHI-O8-pfo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5vY-KE-JRp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -705,6 +706,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cloud.heavyrain" catalog="system" width="64" height="62"/>
         <image name="pexels-photo-106132" width="504.5" height="630.5"/>
+        <image name="sun.min" catalog="system" width="64" height="60"/>
     </resources>
 </document>

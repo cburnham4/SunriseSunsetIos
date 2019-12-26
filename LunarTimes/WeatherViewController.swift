@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import GoogleMobileAds
 
 class WeatherViewController: UIViewController {
 
@@ -19,10 +20,21 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var uvIndexLabel: UILabel!
     @IBOutlet weak var visibilityLabel: UILabel!
     @IBOutlet weak var cloudCoverLabel: UILabel!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     var savedWeather: WeatherResponse?
 
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        /* Setup the bannerview */
+        bannerView.adUnitID = "ca-app-pub-8223005482588566/3396819721"
+        bannerView.rootViewController = self
+        
+        /* Request the new ad */
+        let request = GADRequest()
+        bannerView.load(request)
+    }
     override func viewDidAppear(_ animated: Bool) {
         if let weather = savedWeather {
             parseResult(weather: weather)
