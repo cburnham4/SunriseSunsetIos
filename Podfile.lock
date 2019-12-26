@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (5.0.0-beta.6)
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
   - DatePickerDialog (2.0)
+  - Fabric (1.10.2)
   - Firebase/AdMob (5.10.0):
     - Firebase/Core
     - Google-Mobile-Ads-SDK (~> 7.34)
@@ -60,7 +63,9 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-beta.5)
+  - Crashlytics (~> 3.14.0)
   - DatePickerDialog (from `https://github.com/squimer/DatePickerDialog-iOS-Swift`, branch `master`)
+  - Fabric (~> 1.10.2)
   - Firebase/AdMob
   - Firebase/Core
   - LhHelpers (~> 2.0.0)
@@ -68,7 +73,7 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Firebase
     - FirebaseAnalytics
@@ -80,6 +85,9 @@ SPEC REPOS:
     - LhHelpers
     - nanopb
     - SwiftyJSON
+  trunk:
+    - Crashlytics
+    - Fabric
 
 EXTERNAL SOURCES:
   DatePickerDialog:
@@ -99,7 +107,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   DatePickerDialog: 18b12e3aba09b28dc6146bdf8573a9834d8ea2ab
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Firebase: 6691d47562a780c26281ce8464518faafc90c610
   FirebaseAnalytics: 831f1f127f4a75698e9875a87bf7e2668730d953
   FirebaseCore: c6079de64c1a87000e52e9b408dddcadc901177f
@@ -112,6 +122,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: d0cea3733717db16e27b3d225ca14b1c1739de98
+PODFILE CHECKSUM: 55b98c2a40c13f06df2cb0fd7a971308c36e5501
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.4

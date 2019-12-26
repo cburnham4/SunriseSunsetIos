@@ -59,14 +59,13 @@ class TabBarViewController: UITabBarController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        
     }
     
     func updateChildren(longitude: Double, latitude: Double, placemark: CLPlacemark?) {
         guard let viewControllers = viewControllers else { return }
         for viewController in viewControllers {
             if let navController = viewController as? UINavigationController,
-                let viewController = navController.topViewController as? LocationChangedDelegate {
+                let viewController = navController.viewControllers.first as? LocationChangedDelegate {
                 viewController.locationUpdated(longitude: longitude, latitude: latitude, placemark: placemark)
             }
         }
@@ -75,7 +74,11 @@ class TabBarViewController: UITabBarController {
 
 extension TabBarViewController: LocationSelectedDelegate {
     func locationSelected(location: Location) {
-        updateChildren(longitude: location.location.l, latitude: <#T##Double#>, placemark: <#T##CLPlacemark?#>)
+        guard let coordinates = location.placemark.location?.coordinate else {
+            return
+        }
+        
+        updateChildren(longitude: coordinates.longitude, latitude: coordinates.latitude, placemark: location.placemark)
     }
 }
 

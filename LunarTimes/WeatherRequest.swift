@@ -21,6 +21,7 @@ struct WeatherDataSet: Codable {
     var temperature: Double
     var windSpeed: Double
     var uvIndex: Double
+    var cloudCover: Double
     var visibility: Double
 }
 

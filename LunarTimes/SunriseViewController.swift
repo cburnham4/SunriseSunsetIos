@@ -224,9 +224,9 @@ class SunriseViewController: UIViewController {
         locationPicker.resultRegionDistance = 500 // default: 600
         
         locationPicker.completion = { location in
-            self.placemark = location?.placemark
-            self.displayLocationInfo(self.placemark)
-            self.createRequest()
+            guard let location = location else { return }
+            self.placemark = location.placemark
+            (self.tabBarController as? LocationSelectedDelegate)?.locationSelected(location: location)
         }
         
         navigationController?.pushViewController(locationPicker, animated: true)
