@@ -48,7 +48,9 @@ class WeatherViewController: UIViewController {
             case .failure:
                 print("Failure")
             case .success(let weather):
-                self?.parseResult(weather: weather)
+                DispatchQueue.main.async {
+                    self?.parseResult(weather: weather)
+                }
             }
         }
     }
