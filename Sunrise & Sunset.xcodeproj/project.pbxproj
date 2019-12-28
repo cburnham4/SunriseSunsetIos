@@ -16,6 +16,7 @@
 		50F76D16C96E258C66CECA8F /* Pods_Sunrise___Sunset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */; };
 		6F5B2FD234A3F3EB7BB6CCE8 /* Pods_Sunrise___SunsetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */; };
 		E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048EB35217FF017008A4807 /* ColorsConfig.swift */; };
+		E0660B0523B5883400A19E07 /* HourlyWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0660B0423B5883400A19E07 /* HourlyWeatherViewController.swift */; };
 		E07534781ED89BED007D372B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07534771ED89BED007D372B /* GoogleService-Info.plist */; };
 		E07534791ED89BED007D372B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07534771ED89BED007D372B /* GoogleService-Info.plist */; };
 		E094B75423B29B08002AACA6 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75323B29B08002AACA6 /* WeatherViewController.swift */; };
@@ -52,6 +53,7 @@
 		7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Sunrise___Sunset.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Sunrise___SunsetTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E048EB35217FF017008A4807 /* ColorsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsConfig.swift; sourceTree = "<group>"; };
+		E0660B0423B5883400A19E07 /* HourlyWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherViewController.swift; sourceTree = "<group>"; };
 		E07534771ED89BED007D372B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E094B75323B29B08002AACA6 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		E094B75523B29B64002AACA6 /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
@@ -102,14 +104,13 @@
 		443B8DD21D09FE2F00F5CDBB /* LunarTimes */ = {
 			isa = PBXGroup;
 			children = (
+				E0660B0323B5881200A19E07 /* Weather */,
 				E075347A1ED89BFF007D372B /* Extras */,
 				443B8DD51D09FE2F00F5CDBB /* SunriseViewController.swift */,
 				4401C5921D156D8800700CE3 /* Main.storyboard */,
 				443B8DDA1D09FE2F00F5CDBB /* Assets.xcassets */,
 				E048EB35217FF017008A4807 /* ColorsConfig.swift */,
 				E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */,
-				E094B75323B29B08002AACA6 /* WeatherViewController.swift */,
-				E094B75523B29B64002AACA6 /* WeatherRequest.swift */,
 				E094B75723B29EF2002AACA6 /* TabBarViewController.swift */,
 			);
 			path = LunarTimes;
@@ -131,6 +132,16 @@
 				C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E0660B0323B5881200A19E07 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				E094B75323B29B08002AACA6 /* WeatherViewController.swift */,
+				E094B75523B29B64002AACA6 /* WeatherRequest.swift */,
+				E0660B0423B5883400A19E07 /* HourlyWeatherViewController.swift */,
+			);
+			name = Weather;
 			sourceTree = "<group>";
 		};
 		E075347A1ED89BFF007D372B /* Extras */ = {
@@ -353,6 +364,7 @@
 			files = (
 				E094B75623B29B64002AACA6 /* WeatherRequest.swift in Sources */,
 				443B8DD61D09FE2F00F5CDBB /* SunriseViewController.swift in Sources */,
+				E0660B0523B5883400A19E07 /* HourlyWeatherViewController.swift in Sources */,
 				E094B75423B29B08002AACA6 /* WeatherViewController.swift in Sources */,
 				E0D5A44A232D191A00E10FE0 /* SunriseSunsetRequest.swift in Sources */,
 				E094B75823B29EF2002AACA6 /* TabBarViewController.swift in Sources */,

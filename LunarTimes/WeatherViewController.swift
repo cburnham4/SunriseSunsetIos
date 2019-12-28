@@ -69,6 +69,10 @@ class WeatherViewController: UIViewController {
         let cloudCoverString = String(format: "%.1f%@", currentWeather.cloudCover * 100.0, "%")
         cloudCoverLabel.text = cloudCoverString
         visibilityLabel.text = "\(currentWeather.visibility) miles"
+        
+        if let hourlyViewController = children[0] as? HourlyWeatherViewController {
+            hourlyViewController.hourlyWeathers = weather.hourlyWeathers
+        }
     }
 }
 

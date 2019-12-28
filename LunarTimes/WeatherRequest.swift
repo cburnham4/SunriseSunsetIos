@@ -11,6 +11,21 @@ import LhHelpers
 
 struct WeatherResponse: Codable {
     var currently: WeatherDataSet
+    var hourly: HourlyWeatherResponse
+}
+
+extension WeatherResponse {
+    var hourlyWeathers: [HourlyWeather] {
+        return hourly.data.compactMap {
+            let date = Date(timeIntervalSince1970: TimeInterval($0.time))
+            let hour = date.getDateString(dateFormat: "ha")
+            return HourlyWeather(time: hour, temp: $0.temperature)
+        }
+    }
+}
+
+struct HourlyWeatherResponse: Codable {
+    var data: [WeatherDataSet]
 }
 
 struct WeatherDataSet: Codable {
