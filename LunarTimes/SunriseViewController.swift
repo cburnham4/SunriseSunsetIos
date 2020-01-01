@@ -71,7 +71,9 @@ class SunriseViewController: UIViewController {
         request.makeRequest { [weak self] response in
             switch response {
             case .failure:
-                AlertUtils.createAlert(view: self!, title: "Error Recieving Data", message: "Sunrise Sunset data is currently unavailable")
+                DispatchQueue.main.async {
+                    AlertUtils.createAlert(view: self!, title: "Error Recieving Data", message: "Sunrise Sunset data is currently unavailable")
+                }
             case .success(let sunsriseSunset):
                 self?.parseResult(sunriseSunset: sunsriseSunset)
             }
