@@ -12,15 +12,9 @@ import GoogleMobileAds
 
 class WeatherViewController: UIViewController {
 
-    @IBOutlet weak var summary: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
-    @IBOutlet weak var precipProbLabel: UILabel!
-    @IBOutlet weak var precipIntensityLabel: UILabel!
-    @IBOutlet weak var windSpeedLabel: UILabel!
-    @IBOutlet weak var uvIndexLabel: UILabel!
-    @IBOutlet weak var visibilityLabel: UILabel!
-    @IBOutlet weak var cloudCoverLabel: UILabel!
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var weatherInfoContentHeight: NSLayoutConstraint!
     
     var savedWeather: WeatherResponse?
 
@@ -60,20 +54,16 @@ class WeatherViewController: UIViewController {
         guard isViewLoaded else {
             return
         }
-        let currentWeather = weather.currently
-        summary.text = currentWeather.summary
-        temperatureLabel.text = "\(currentWeather.temperature) °F"
-        let precipProbabilityString = String(format: "%.1f%@", currentWeather.precipProbability * 100.0, "%")
-        precipProbLabel.text = precipProbabilityString
-        precipIntensityLabel.text = "\(currentWeather.precipIntensity) in/hr"
-        windSpeedLabel.text = "\(currentWeather.windSpeed) mph"
-        uvIndexLabel.text = "\(currentWeather.uvIndex)"
-        let cloudCoverString = String(format: "%.1f%@", currentWeather.cloudCover * 100.0, "%")
-        cloudCoverLabel.text = cloudCoverString
-        visibilityLabel.text = "\(currentWeather.visibility) miles"
         
+        temperatureLabel.text = "\(weather.currently.temperature) °F"
         if let hourlyViewController = children[0] as? HourlyWeatherViewController {
             hourlyViewController.hourlyWeathers = weather.hourlyWeathers
+        }
+        if let weatherInfoViewController = children[1] as? WeatherInfoViewController {
+            weatherInfoViewController.weatherInfoItems = weather.weatherInfoItems
+            weatherInfoContentHeight.constant =
+                ceil(CGFloat(weather.weatherInfoItems.count) / 2.0) *
+                (TwoColumnCollectionFlow.height + TwoColumnCollectionFlow.verticalSpacing)
         }
     }
 }

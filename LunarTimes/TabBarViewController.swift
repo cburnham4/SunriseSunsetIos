@@ -8,6 +8,7 @@
 
 import UIKit
 import LocationPicker
+import LhHelpers
 import CoreLocation
 
 extension UIViewController {
@@ -54,11 +55,17 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(onAppear), name: UIApplication.willEnterForegroundNotification, object: nil)
 
         /* Get the location of the user */
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+    }
+    
+    @objc func onAppear() {
+        locationManager.startUpdatingLocation()
     }
     
     func updateChildren(longitude: Double, latitude: Double, placemark: CLPlacemark?) {
@@ -69,6 +76,10 @@ class TabBarViewController: UITabBarController {
                 viewController.locationUpdated(longitude: longitude, latitude: latitude, placemark: placemark)
             }
         }
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -90,7 +101,7 @@ extension TabBarViewController: CLLocationManagerDelegate {
             activityIndicatorView = showActivityIndicator()
             locationManager.startUpdatingLocation()
         default:
-            return
+            AlertUtils.createAlert(view: self, title: "Location Permissions", message: "Enable location permissions to view data for current location")
         }
     }
     
