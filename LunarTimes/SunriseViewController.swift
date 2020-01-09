@@ -90,33 +90,28 @@ class SunriseViewController: UIViewController {
         destFormat.dateFormat = "hh:mm:ss a"
         destFormat.timeZone = TimeZone.current
         
-        let sunriseDate = sourceFormat.date(from: result.sunriseString)
-        let parsedSunrise  = destFormat.string(from: sunriseDate!)
+        guard let sunriseDate = sourceFormat.date(from: result.sunriseString),
+            let sunsetDate = sourceFormat.date(from: result.sunsetString),
+            let dawnDate = sourceFormat.date(from: result.dawnString),
+            let duskDate = sourceFormat.date(from: result.duskString),
+            let nauticalDawnDate = sourceFormat.date(from: result.nauticalDawn),
+            let nauticalDuskDate = sourceFormat.date(from: result.nauticalDusk),
+            let astronomicalDawnDate = sourceFormat.date(from: result.astronomicalDawn),
+            let astronomicalDuskDate = sourceFormat.date(from: result.astronomicalDusk) else {
+            return
+        }
         
-        let sunsetDate = sourceFormat.date(from: result.sunsetString)
-        let parsedSunset = destFormat.string(from: sunsetDate!)
+        let parsedSunrise  = destFormat.string(from: sunriseDate)
+        let parsedSunset = destFormat.string(from: sunsetDate)
+        let parsedDawn = destFormat.string(from: dawnDate)
+        let parsedDusk = destFormat.string(from: duskDate)
         
-        let dawnDate = sourceFormat.date(from: result.dawnString)
-        let parsedDawn = destFormat.string(from: dawnDate!)
-        
-        let duskDate = sourceFormat.date(from: result.duskString)
-        let parsedDusk = destFormat.string(from: duskDate!)
-        
-        let diff: TimeInterval = (sunsetDate?.timeIntervalSince(sunriseDate!))!
+        let diff: TimeInterval = sunsetDate.timeIntervalSince(sunriseDate)
         let timeDiff = stringFromTimeInterval(diff)
-        
-        let nauticalDawnDate = sourceFormat.date(from: result.nauticalDawn)
-        let parsedNauticalDawn = destFormat.string(from: nauticalDawnDate!)
-        
-        let nauticalDuskDate = sourceFormat.date(from: result.nauticalDusk)
-        let parsedNauticalDusk = destFormat.string(from: nauticalDuskDate!)
-        
-        let astronomicalDawnDate = sourceFormat.date(from: result.astronomicalDawn)
-        let parsedAstronomicalDawn = destFormat.string(from: astronomicalDawnDate!)
-        
-        let astronomicalDuskDate = sourceFormat.date(from: result.astronomicalDusk)
-        let parsedAstronomicalDusk = destFormat.string(from: astronomicalDuskDate!)
-        
+        let parsedNauticalDawn = destFormat.string(from: nauticalDawnDate)
+        let parsedNauticalDusk = destFormat.string(from: nauticalDuskDate)
+        let parsedAstronomicalDawn = destFormat.string(from: astronomicalDawnDate)
+        let parsedAstronomicalDusk = destFormat.string(from: astronomicalDuskDate)
         
         DispatchQueue.main.async(execute: {
             //self.tableView.reloadData()

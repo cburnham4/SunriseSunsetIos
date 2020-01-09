@@ -110,12 +110,14 @@ extension TabBarViewController: CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation();
         
         /* get the longitude and latitude of the user */
-        let locationlast = locations.last
-        let latitude = (locationlast?.coordinate.latitude)!
-        let longitude = (locationlast?.coordinate.longitude)!
- 
+        guard let locationlast = locations.last else {
+            return
+        }
+        let latitude = locationlast.coordinate.latitude
+        let longitude = locationlast.coordinate.longitude
+        
         /* Get the address from the long and lat */
-        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: { [weak self] (placemarks, error) -> Void in
+        CLGeocoder().reverseGeocodeLocation(locationlast, completionHandler: { [weak self] (placemarks, error) -> Void in
             if let error = error {
                 print("Reverse geocoder failed with error" + error.localizedDescription)
                 return
