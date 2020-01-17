@@ -25,6 +25,7 @@
 		E094B75623B29B64002AACA6 /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75523B29B64002AACA6 /* WeatherRequest.swift */; };
 		E094B75823B29EF2002AACA6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75723B29EF2002AACA6 /* TabBarViewController.swift */; };
 		E0D5A44A232D191A00E10FE0 /* SunriseSunsetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */; };
+		E0D60DD723D1E6A500911765 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D60DD623D1E6A500911765 /* NumberExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		E094B75523B29B64002AACA6 /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 		E094B75723B29EF2002AACA6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunsetRequest.swift; sourceTree = "<group>"; };
+		E0D60DD623D1E6A500911765 /* NumberExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				E07534771ED89BED007D372B /* GoogleService-Info.plist */,
 				443B8DDC1D09FE2F00F5CDBB /* LaunchScreen.storyboard */,
 				443B8DDF1D09FE2F00F5CDBB /* Info.plist */,
+				E0D60DD623D1E6A500911765 /* NumberExtensions.swift */,
 			);
 			name = Extras;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				E0D5A44A232D191A00E10FE0 /* SunriseSunsetRequest.swift in Sources */,
 				E094B75823B29EF2002AACA6 /* TabBarViewController.swift in Sources */,
 				E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */,
+				E0D60DD723D1E6A500911765 /* NumberExtensions.swift in Sources */,
 				443B8DD41D09FE2F00F5CDBB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
