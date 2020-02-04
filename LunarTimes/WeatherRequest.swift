@@ -19,7 +19,7 @@ extension WeatherResponse {
         return hourly.data.compactMap {
             let date = Date(timeIntervalSince1970: TimeInterval($0.time))
             let hour = date.getDateString(dateFormat: "ha")
-            return HourlyWeather(time: hour, temp: $0.temperature)
+            return HourlyWeather(time: hour, temp: $0.temperature, imageName: $0.icon)
         }
     }
     
@@ -58,6 +58,7 @@ struct WeatherDataSet: Codable {
     var cloudCover: Double
     var visibility: Double
     var nearestStormDistance: Double?
+    var icon: String?
 }
 
 
