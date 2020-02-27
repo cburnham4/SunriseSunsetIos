@@ -11,7 +11,8 @@ import LhHelpers
 
 struct WeatherResponse: Codable {
     var currently: WeatherDataSet
-    var hourly: HourlyWeatherResponse
+    var hourly: WeatherDataSetResponse
+    var daily: WeatherDataSetResponse
 }
 
 extension WeatherResponse {
@@ -27,22 +28,29 @@ extension WeatherResponse {
         let precipProbabilityString = (currently.precipProbability * 100.0).percentString(to: 1)
         let cloudCoverString = (currently.cloudCover * 100.0).percentString(to: 1)
         let stormDistance = currently.nearestStormDistance != nil ? "\(currently.nearestStormDistance!) miles" : "N/A"
+        let temp = currently.temperature == nil ? "N/A" : "\(currently.temperature!) °F"
         return [
             WeatherInfoItem(name: "Summary", info: currently.summary),
-            WeatherInfoItem(name: "Temperature", info:  "\(currently.temperature) °F"),
+            WeatherInfoItem(name: "Temperature", info: temp),
             WeatherInfoItem(name: "Precipitation Probability", info: precipProbabilityString),
             WeatherInfoItem(name: "Precipitation Intensity", info:  "\(currently.precipIntensity) in/hr"),
             WeatherInfoItem(name: "Wind Speed", info: "\(currently.windSpeed) mph"),
-            WeatherInfoItem(name: "Wind Gusts", info: "\(currently.windGust) mph"),
+            WeatherInfoItem(name: "Wind Gust", info: "\(currently.windGust) mph"),
             WeatherInfoItem(name: "UV Index", info: "\(currently.uvIndex)"),
             WeatherInfoItem(name: "Cloud Cover", info: cloudCoverString),
             WeatherInfoItem(name: "Visibility", info: "\(currently.visibility) miles"),
             WeatherInfoItem(name: "Distance to Nearest Storm", info: stormDistance)
         ]
     }
+    
+    var dailyWeather: [DailyWeather] {
+        return daily.data.map {
+            DailyWeather(time: $0.time, tempHigh: $0.temperatureHigh, tempLow: $0.temperatureLow, imageName: $0.icon)
+        }
+    }
 }
 
-struct HourlyWeatherResponse: Codable {
+struct WeatherDataSetResponse: Codable {
     var data: [WeatherDataSet]
 }
 
@@ -51,7 +59,9 @@ struct WeatherDataSet: Codable {
     var summary: String
     var precipIntensity: Double
     var precipProbability: Double
-    var temperature: Double
+    var temperature: Double?
+    var temperatureHigh: Double?
+    var temperatureLow: Double?
     var windSpeed: Double
     var windGust: Double
     var uvIndex: Double

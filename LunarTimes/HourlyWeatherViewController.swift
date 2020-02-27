@@ -10,7 +10,7 @@ import UIKit
 
 struct HourlyWeather {
     let time: String
-    let temp: Double
+    let temp: Double?
     let imageName: String?
 }
 
@@ -22,7 +22,7 @@ class HourlyWeatherCollectionCell: UICollectionViewCell {
     
     func setContent(hourlyWeather: HourlyWeather) {
         timeLabel.text = hourlyWeather.time
-        let tempString = String(format: "%.1f%@", hourlyWeather.temp, "°F")
+        let tempString = String(format: "%.1f%@", hourlyWeather.temp ?? 0.0, "°F")
         tempLabel.text = tempString
         if let imageName = hourlyWeather.imageName {
             weatherIcon.image = UIImage(named: imageName)

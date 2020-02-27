@@ -15,6 +15,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var weatherInfoContentHeight: NSLayoutConstraint!
+    @IBOutlet weak var dailyWeatherHeight: NSLayoutConstraint!
     
     var savedWeather: WeatherResponse?
 
@@ -55,7 +56,7 @@ class WeatherViewController: UIViewController {
             return
         }
         
-        temperatureLabel.text = "\(weather.currently.temperature) °F"
+        temperatureLabel.text = "\(weather.currently.temperature!) °F"
         if let hourlyViewController = children[0] as? HourlyWeatherViewController {
             hourlyViewController.hourlyWeathers = weather.hourlyWeathers
         }
@@ -64,6 +65,10 @@ class WeatherViewController: UIViewController {
             weatherInfoContentHeight.constant =
                 ceil(CGFloat(weather.weatherInfoItems.count) / 2.0) *
                 (TwoColumnCollectionFlow.height + TwoColumnCollectionFlow.verticalSpacing)
+        }
+        if let weatherInfoViewController = children[2] as? DailyWeatherViewController {
+            weatherInfoViewController.weatherInfoItems = weather.dailyWeather
+            dailyWeatherHeight.constant = CGFloat(weather.dailyWeather.count * DailyWeatherViewController.rowHeight)
         }
     }
 }

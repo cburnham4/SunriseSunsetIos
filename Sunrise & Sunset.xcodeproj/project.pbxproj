@@ -24,6 +24,7 @@
 		E094B75423B29B08002AACA6 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75323B29B08002AACA6 /* WeatherViewController.swift */; };
 		E094B75623B29B64002AACA6 /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75523B29B64002AACA6 /* WeatherRequest.swift */; };
 		E094B75823B29EF2002AACA6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75723B29EF2002AACA6 /* TabBarViewController.swift */; };
+		E0C2974F2403247900F2B9C3 /* DailyWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C2974E2403247900F2B9C3 /* DailyWeatherViewController.swift */; };
 		E0D5A44A232D191A00E10FE0 /* SunriseSunsetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */; };
 		E0D60DD723D1E6A500911765 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D60DD623D1E6A500911765 /* NumberExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		E094B75323B29B08002AACA6 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		E094B75523B29B64002AACA6 /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 		E094B75723B29EF2002AACA6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		E0C2974E2403247900F2B9C3 /* DailyWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherViewController.swift; sourceTree = "<group>"; };
 		E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunsetRequest.swift; sourceTree = "<group>"; };
 		E0D60DD623D1E6A500911765 /* NumberExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +150,7 @@
 				E094B75523B29B64002AACA6 /* WeatherRequest.swift */,
 				E0660B0423B5883400A19E07 /* HourlyWeatherViewController.swift */,
 				E018307B23BFF1D8007DED35 /* WeatherInfoViewController.swift */,
+				E0C2974E2403247900F2B9C3 /* DailyWeatherViewController.swift */,
 			);
 			name = Weather;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				E0660B0523B5883400A19E07 /* HourlyWeatherViewController.swift in Sources */,
 				E06F4D2B23C0DF880018BAD8 /* TwoColumnCollectionFlow.swift in Sources */,
 				E094B75423B29B08002AACA6 /* WeatherViewController.swift in Sources */,
+				E0C2974F2403247900F2B9C3 /* DailyWeatherViewController.swift in Sources */,
 				E0D5A44A232D191A00E10FE0 /* SunriseSunsetRequest.swift in Sources */,
 				E094B75823B29EF2002AACA6 /* TabBarViewController.swift in Sources */,
 				E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */,
@@ -547,13 +551,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 56NQ7Z9L75;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = LunarTimes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.20;
+				MARKETING_VERSION = 3.30;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.lunartimes;
 				PRODUCT_NAME = "Sunrise & Sunset";
@@ -569,13 +573,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 56NQ7Z9L75;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = LunarTimes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.20;
+				MARKETING_VERSION = 3.30;
 				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.lunartimes;
 				PRODUCT_NAME = "Sunrise & Sunset";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
