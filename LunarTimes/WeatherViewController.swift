@@ -30,6 +30,7 @@ class WeatherViewController: UIViewController {
         let request = GADRequest()
         bannerView.load(request)
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         if let weather = savedWeather {
             parseResult(weather: weather)
@@ -67,8 +68,8 @@ class WeatherViewController: UIViewController {
                 (TwoColumnCollectionFlow.height + TwoColumnCollectionFlow.verticalSpacing)
         }
         if let weatherInfoViewController = children[2] as? DailyWeatherViewController {
-            weatherInfoViewController.weatherInfoItems = weather.dailyWeather
             dailyWeatherHeight.constant = CGFloat(weather.dailyWeather.count * DailyWeatherViewController.rowHeight)
+            weatherInfoViewController.weatherInfoItems = weather.dailyWeather
         }
     }
 }
