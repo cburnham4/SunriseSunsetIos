@@ -376,10 +376,10 @@
                                 <rect key="frame" x="20" y="0.0" width="374" height="736"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LN-wc-hOf">
-                                <rect key="frame" x="12" y="60" width="390" height="569"/>
+                                <rect key="frame" x="12" y="44" width="390" height="585"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="IUS-Cd-NCa">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="804.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="12" width="390" height="855.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sb-SG-0Y2">
                                                 <rect key="frame" x="0.0" y="0.0" width="390" height="36"/>
@@ -396,8 +396,14 @@
                                                     <segue destination="hU6-tW-WA1" kind="embed" identifier="HourlyWeatherSegue" id="U5W-4s-1Oj"/>
                                                 </connections>
                                             </containerView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwx-8Q-jT2">
+                                                <rect key="frame" x="0.0" y="144" width="390" height="19.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjy-Cv-SyT">
-                                                <rect key="frame" x="0.0" y="144" width="390" height="256"/>
+                                                <rect key="frame" x="0.0" y="169.33333333333337" width="390" height="256"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="256" id="Li6-3x-UU3"/>
                                                 </constraints>
@@ -405,8 +411,14 @@
                                                     <segue destination="SEZ-4d-7uK" kind="embed" identifier="WeatherInfoSegue" id="uY2-S0-abo"/>
                                                 </connections>
                                             </containerView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Weather" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mja-wf-uw4">
+                                                <rect key="frame" x="0.0" y="431.33333333333331" width="390" height="19.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QOg-7W-ovq">
-                                                <rect key="frame" x="0.0" y="406" width="390" height="352"/>
+                                                <rect key="frame" x="0.0" y="456.66666666666663" width="390" height="352"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="352" id="I9T-cU-TgS"/>
                                                 </constraints>
@@ -415,7 +427,7 @@
                                                 </connections>
                                             </containerView>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered bt Dark Sky  icons by icons8.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QwH-l6-En5">
-                                                <rect key="frame" x="0.0" y="764" width="390" height="40.666666666666629"/>
+                                                <rect key="frame" x="0.0" y="814.66666666666663" width="390" height="40.666666666666629"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -425,7 +437,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="IUS-Cd-NCa" firstAttribute="top" secondItem="5LN-wc-hOf" secondAttribute="top" id="40f-3i-Cth"/>
+                                    <constraint firstItem="IUS-Cd-NCa" firstAttribute="top" secondItem="5LN-wc-hOf" secondAttribute="top" constant="12" id="40f-3i-Cth"/>
                                     <constraint firstItem="IUS-Cd-NCa" firstAttribute="width" secondItem="5LN-wc-hOf" secondAttribute="width" id="aP5-kM-iHq"/>
                                     <constraint firstAttribute="trailing" secondItem="IUS-Cd-NCa" secondAttribute="trailing" id="mkE-gX-Qak"/>
                                     <constraint firstItem="IUS-Cd-NCa" firstAttribute="leading" secondItem="5LN-wc-hOf" secondAttribute="leading" id="nBl-Wh-5Bn"/>
@@ -446,7 +458,7 @@
                             <constraint firstItem="ftV-Og-0DM" firstAttribute="top" secondItem="3Og-ib-75o" secondAttribute="bottom" id="EXg-Zb-6zO"/>
                             <constraint firstAttribute="trailing" secondItem="jDE-Y9-nQb" secondAttribute="trailing" constant="20" symbolic="YES" id="Vtf-zr-Pwg"/>
                             <constraint firstItem="jDE-Y9-nQb" firstAttribute="top" secondItem="d3x-7w-b2U" secondAttribute="top" id="f4G-pu-Ta7"/>
-                            <constraint firstItem="5LN-wc-hOf" firstAttribute="top" secondItem="2H7-M5-r9I" secondAttribute="bottom" constant="16" id="fDj-bh-K2o"/>
+                            <constraint firstItem="5LN-wc-hOf" firstAttribute="top" secondItem="2H7-M5-r9I" secondAttribute="bottom" id="fDj-bh-K2o"/>
                             <constraint firstItem="3Og-ib-75o" firstAttribute="centerX" secondItem="d3x-7w-b2U" secondAttribute="centerX" id="ncd-oI-RzF"/>
                             <constraint firstAttribute="trailing" secondItem="5LN-wc-hOf" secondAttribute="trailing" constant="12" id="pYq-07-eSd"/>
                             <constraint firstAttribute="bottom" secondItem="jDE-Y9-nQb" secondAttribute="bottom" id="phR-Z1-FjJ"/>
