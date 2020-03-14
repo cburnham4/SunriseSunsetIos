@@ -16,7 +16,7 @@ class TwoColumnCollectionFlow: UICollectionViewFlowLayout {
     override init() {
         super.init()
         setupLayout()
-    }
+    } 
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -38,7 +38,7 @@ class TwoColumnCollectionFlow: UICollectionViewFlowLayout {
             /* Set two dinners per column */
             let numberOfColumns: CGFloat = 2
             
-            let itemWidth = (self.collectionView!.frame.width - (numberOfColumns * minimumInteritemSpacing - minimumLineSpacing)) / numberOfColumns
+            let itemWidth = (self.collectionView!.frame.width - (numberOfColumns - 1) * minimumInteritemSpacing) / numberOfColumns
             let targetSize = CGSize(width: itemWidth, height: TwoColumnCollectionFlow.height)
             
             return targetSize

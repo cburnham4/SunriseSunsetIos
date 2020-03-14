@@ -19,6 +19,7 @@ class HourlyWeatherCollectionCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
+    @IBOutlet weak var roundedView: ShadowView!
     
     func setContent(hourlyWeather: HourlyWeather) {
         timeLabel.text = hourlyWeather.time

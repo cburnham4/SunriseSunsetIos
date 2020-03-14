@@ -16,10 +16,17 @@ struct WeatherInfoItem {
 class WeatherInfoCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
+    @IBOutlet weak var shadowView: ShadowView!
     
     func setContent(weatherInfo: WeatherInfoItem) {
         nameLabel.text = weatherInfo.name
         descLabel.text = weatherInfo.info
+        setupShadow()
+    }
+    
+    func setupShadow() {
+        shadowView.bounds =  CGRect(x: 0, y: 0, width: bounds.width - 8, height: shadowView.bounds.height)
+        shadowView.addShadow() // Add additional shadow as the view is now resized 
     }
 }
 

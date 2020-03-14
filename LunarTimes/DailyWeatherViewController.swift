@@ -46,7 +46,7 @@ class DailyWeatherViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    static let rowHeight = 44
+    static let rowHeight = 48
     
     var weatherInfoItems: [DailyWeather]? {
         didSet {

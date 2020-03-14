@@ -70,6 +70,7 @@ class WeatherViewController: UIViewController {
         if let weatherInfoViewController = children[2] as? DailyWeatherViewController {
             dailyWeatherHeight.constant = CGFloat(weather.dailyWeather.count * DailyWeatherViewController.rowHeight)
             weatherInfoViewController.weatherInfoItems = weather.dailyWeather
+            weatherInfoViewController.view.layoutSubviews()
         }
     }
 }
