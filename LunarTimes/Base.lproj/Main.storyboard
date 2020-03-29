@@ -367,7 +367,7 @@
             </objects>
             <point key="canvasLocation" x="2669.5652173913045" y="398.64130434782612"/>
         </scene>
-        <!--Add Location Table View Controller-->
+        <!--Location-->
         <scene sceneID="LtN-pW-UNO">
             <objects>
                 <tableViewController id="RA6-ub-RzC" customClass="AddLocationTableViewController" customModule="Sunrise___Sunset" customModuleProvider="target" sceneMemberID="viewController">
@@ -390,7 +390,7 @@
                             <outlet property="delegate" destination="RA6-ub-RzC" id="sgA-XT-XLH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="57c-UP-hiu">
+                    <navigationItem key="navigationItem" title="Location" id="57c-UP-hiu">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="JI2-Pp-Rhy">
                             <connections>
                                 <action selector="returnToRoot:" destination="RA6-ub-RzC" id="3RM-BV-t3w"/>
@@ -514,7 +514,13 @@
                             <constraint firstItem="5LN-wc-hOf" firstAttribute="leading" secondItem="d3x-7w-b2U" secondAttribute="leading" constant="12" id="xAI-un-thO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Weather" id="6Yc-0A-o9f"/>
+                    <navigationItem key="navigationItem" title="Weather" id="6Yc-0A-o9f">
+                        <barButtonItem key="rightBarButtonItem" title="Location" image="location.fill" catalog="system" id="uW8-Tj-yHK">
+                            <connections>
+                                <segue destination="0d6-PR-tV5" kind="presentation" id="VJY-yW-aFR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bannerView" destination="3Og-ib-75o" id="hj6-vy-8qK"/>
                         <outlet property="dailyWeatherHeight" destination="I9T-cU-TgS" id="Xgm-Xp-K6k"/>
@@ -908,4 +914,7 @@
         <image name="pexels-photo-106132" width="504.5" height="630.5"/>
         <image name="sun.min" catalog="system" width="64" height="60"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="VJY-yW-aFR"/>
+    </inferredMetricsTieBreakers>
 </document>
