@@ -174,6 +174,7 @@ class SunriseViewController: UIViewController {
         dateButton.setTitle(getFormattedDate(), for: .normal)
     }
     
+    /*Move to Table View*/
     @IBAction func changeLocationClicked(_ sender: UIButton) {
         openLocationPicker()
     }

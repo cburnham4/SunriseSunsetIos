@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c2N-Hw-CnP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c2N-Hw-CnP">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -340,7 +340,14 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZfN-NS-eLw" secondAttribute="bottom" id="qVb-Uu-6bL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sunrise &amp; Sunset" id="Kus-0w-M62"/>
+                    <navigationItem key="navigationItem" title="Sunrise &amp; Sunset" id="Kus-0w-M62">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="location.fill" catalog="system" id="46c-pw-ghf">
+                            <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="0d6-PR-tV5" kind="presentation" id="5Jv-D6-djh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="astroDawnLabel" destination="LPC-PJ-jr6" id="dh8-KY-6sr"/>
                         <outlet property="astroDuskLabel" destination="OCs-Xh-VO7" id="0mn-IG-p9R"/>
@@ -359,6 +366,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2669.5652173913045" y="398.64130434782612"/>
+        </scene>
+        <!--Add Location Table View Controller-->
+        <scene sceneID="LtN-pW-UNO">
+            <objects>
+                <tableViewController id="RA6-ub-RzC" customClass="AddLocationTableViewController" customModule="Sunrise___Sunset" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vdr-1a-xdi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WRU-zW-jMY">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WRU-zW-jMY" id="CWa-Fb-pDh">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RA6-ub-RzC" id="MmF-cd-SC2"/>
+                            <outlet property="delegate" destination="RA6-ub-RzC" id="sgA-XT-XLH"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="57c-UP-hiu">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="JI2-Pp-Rhy">
+                            <connections>
+                                <action selector="returnToRoot:" destination="RA6-ub-RzC" id="3RM-BV-t3w"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="M0s-aI-wU6">
+                            <connections>
+                                <action selector="addLocation:" destination="RA6-ub-RzC" id="o4V-Q3-22L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="akj-XT-RvS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4457.971014492754" y="398.64130434782612"/>
         </scene>
         <!--Weather-->
         <scene sceneID="RMK-EA-sxg">
@@ -835,10 +882,29 @@
             </objects>
             <point key="canvasLocation" x="3600" y="1567"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Y5I-rz-ylJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0d6-PR-tV5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hBg-Zf-83j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RA6-ub-RzC" kind="relationship" relationship="rootViewController" id="Hqj-RM-Bdh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ikK-th-NS9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3550.7246376811595" y="398.64130434782612"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cloud.heavyrain" catalog="system" width="64" height="62"/>
         <image name="cloudy" width="100" height="100"/>
+        <image name="location.fill" catalog="system" width="64" height="56"/>
         <image name="pexels-photo-106132" width="504.5" height="630.5"/>
         <image name="sun.min" catalog="system" width="64" height="60"/>
     </resources>

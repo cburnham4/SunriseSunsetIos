@@ -15,6 +15,7 @@
 		443B8DE91D09FE2F00F5CDBB /* LunarTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B8DE81D09FE2F00F5CDBB /* LunarTimesTests.swift */; };
 		50F76D16C96E258C66CECA8F /* Pods_Sunrise___Sunset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */; };
 		6F5B2FD234A3F3EB7BB6CCE8 /* Pods_Sunrise___SunsetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */; };
+		99172428242FE1CF0039B067 /* AddLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99172427242FE1CF0039B067 /* AddLocationTableViewController.swift */; };
 		E018307C23BFF1D8007DED35 /* WeatherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E018307B23BFF1D8007DED35 /* WeatherInfoViewController.swift */; };
 		E02793A2241D2F200061F560 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02793A1241D2F200061F560 /* ShadowView.swift */; };
 		E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048EB35217FF017008A4807 /* ColorsConfig.swift */; };
@@ -56,6 +57,7 @@
 		6881CB6B1648E82B9C529D51 /* Pods-Sunrise & Sunset.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunrise & Sunset.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sunrise & Sunset/Pods-Sunrise & Sunset.debug.xcconfig"; sourceTree = "<group>"; };
 		6A7BF18696D579D51D285EEB /* Pods-Sunrise & SunsetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunrise & SunsetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sunrise & SunsetTests/Pods-Sunrise & SunsetTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7369F129C4A0BE6BC13B3578 /* Pods_Sunrise___Sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Sunrise___Sunset.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		99172427242FE1CF0039B067 /* AddLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationTableViewController.swift; sourceTree = "<group>"; };
 		C631C5D24740823C9ADEB579 /* Pods_Sunrise___SunsetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Sunrise___SunsetTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E018307B23BFF1D8007DED35 /* WeatherInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoViewController.swift; sourceTree = "<group>"; };
 		E02793A1241D2F200061F560 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				E075347A1ED89BFF007D372B /* Extras */,
 				443B8DD51D09FE2F00F5CDBB /* SunriseViewController.swift */,
 				4401C5921D156D8800700CE3 /* Main.storyboard */,
+				99172427242FE1CF0039B067 /* AddLocationTableViewController.swift */,
 				443B8DDA1D09FE2F00F5CDBB /* Assets.xcassets */,
 				E048EB35217FF017008A4807 /* ColorsConfig.swift */,
 				E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */,
@@ -395,6 +398,7 @@
 				E0D5A44A232D191A00E10FE0 /* SunriseSunsetRequest.swift in Sources */,
 				E094B75823B29EF2002AACA6 /* TabBarViewController.swift in Sources */,
 				E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */,
+				99172428242FE1CF0039B067 /* AddLocationTableViewController.swift in Sources */,
 				E02793A2241D2F200061F560 /* ShadowView.swift in Sources */,
 				E0D60DD723D1E6A500911765 /* NumberExtensions.swift in Sources */,
 				443B8DD41D09FE2F00F5CDBB /* AppDelegate.swift in Sources */,
