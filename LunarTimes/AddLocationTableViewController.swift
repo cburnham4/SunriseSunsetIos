@@ -15,38 +15,79 @@ import LocationPicker
 import LhHelpers
 import DatePickerDialog
 
-class AddLocationTableViewController: UITableViewController {
+class AddLocationViewModel {
+    
+}
+
+
+class AddLocationTableViewController: UITableViewController, BaseViewController {
+    var viewModel: AddLocationViewModel!
+    
+    static var storyboardName = "Main"
+    
+    static var viewControllerIdentifier = "AddLocationTableViewController"
+    
+    typealias BaseViewModel = AddLocationViewModel
+    
     
     var placemark: CLPlacemark?
     var latitude = 70.0;
     var longitude = 70.0;
+    var locationLocalityArray: [String] = []
+    var address = ""
+    var locationArray: [Location] = []
+    var delegate: LocationSelectedDelegate?
+    let defaults = UserDefaults.standard
+    
+    var locationDict = [String:[[String:Double]]] ()
+    var locationDictKeys : [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        
+        locationDictKeys = (defaults.array(forKey: "locationDictKeys") as? [String]) ?? [""]
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        // #warning Incomplete im«
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    @IBAction func returnToRoot(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        return locationDictKeys.count
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
+        
+        /* Populating with the same values over and over, poor implementation. See notes at bottom. Also...
+         May be useful to retrieve location lat & long from some sort of mapping mechanism (dictionary), essentially the key is locality, removes dependance of positionally pulling location from array. perhaps save as a dict overall.*/
+       
+        /*for location in locationArray {
+            retrieveLocationInfo(location.placemark)
+            locationLocalityArray.append(address)
+            print (locationLocalityArray)
+        }
+        cell.textLabel?.text = locationLocalityArray[indexPath.row] */
+        
+
+        
+        cell.textLabel?.text = locationDictKeys[indexPath.row]
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let location = locationArray[indexPath.row]
+        delegate?.locationSelected(location: location)
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func addLocation(_ sender: UIBarButtonItem) {
         openLocationPicker()
@@ -86,72 +127,73 @@ class AddLocationTableViewController: UITableViewController {
         locationPicker.completion = { location in
             guard let location = location else { return }
             self.placemark = location.placemark
-            (self.tabBarController as? LocationSelectedDelegate)?.locationSelected(location: location)
+            
+           /* if !self.locationArray.contains(location){
+                self.locationArray.append(location)
+                self.tableView.reloadData()
+ 
+            }*/
+            
+            self.retrieveLocationInfo(location.placemark)
+            self.locationDict = self.defaults.object(forKey: "locationDict") as? [String : [[String : Double]]] ?? ["":[["":0.0]]]
+            if self.locationDict[self.address] == nil {
+                self.locationDict[self.address] = [["lat": self.latitude],["long":self.longitude]]
+                if self.locationDict[""] != nil {
+                    self.locationDict.removeValue(forKey: "")
+                }
+                self.locationDictKeys.append(self.address)
+                if self.locationDictKeys.contains("") {
+                    let blankIndex = self.locationDictKeys.firstIndex(of: "")
+                    self.locationDictKeys.remove(at: blankIndex!)
+                }
+                self.defaults.set(self.locationDictKeys, forKey: "locationDictKeys")
+                self.defaults.set(self.locationDict, forKey: "locationDict")
+            }
+            
+           
+            self.delegate?.locationSelected(location: location)
+            self.tableView.reloadData()
         }
         
+        
+        
         navigationController?.pushViewController(locationPicker, animated: true)
+        
+        
     }
+    
+    func retrieveLocationInfo(_ placemark: CLPlacemark?) {
+        if let containsPlacemark = placemark {
+            //stop updating location to save battery life
+            let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
+            let postalCode = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
+            let administrativeArea = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : ""
+            
+            let cordinates = containsPlacemark.location?.coordinate
+            self.latitude = (cordinates?.latitude)!
+            self.longitude = (cordinates?.longitude)!
+            
+            self.address = locality! + ", " + administrativeArea! + " " + postalCode!;
 
-    
-    
-    
-    
-    
-    
-    
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+extension AddLocationTableViewController {
+    func saveLocality() {
+        /*  Placemark does not need to be saved. Save lat and long as doubles. Then save the locality as a string when it is recoverlocality/display location is run. Following that, when the objects are tapped only run request and have the location label get the info from the locality Array. Only find locality from placemark when saved for the first time. Probably need to change location updated to not take a placemark or only run it on first time retrieving info. Will have to figure a way for that. SAVE AS DICT RATHER THAN TWO ARRAYS!!!!*/
+        
+        
+    }
+}
+
+extension AddLocationTableViewController {
+    func loadLocality() {
+    }
+}
+
+
+
+
+

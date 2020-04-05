@@ -11,6 +11,8 @@ import LocationPicker
 import LhHelpers
 import CoreLocation
 
+
+
 extension UIViewController {
     func showActivityIndicator() -> UIView {
         let container = UIView()
@@ -48,10 +50,15 @@ protocol LocationSelectedDelegate {
     func locationSelected(location: Location)
 }
 
+
 class TabBarViewController: UITabBarController {
+    
+
     
     var activityIndicatorView: UIView?
     var locationManager = CLLocationManager()
+    let defaults = UserDefaults.standard
+    let savedLocal = "savedLocal"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +75,7 @@ class TabBarViewController: UITabBarController {
         locationManager.startUpdatingLocation()
     }
     
+    
     func updateChildren(longitude: Double, latitude: Double, placemark: CLPlacemark?) {
         guard let viewControllers = viewControllers else { return }
         for viewController in viewControllers {
@@ -83,15 +91,20 @@ class TabBarViewController: UITabBarController {
     }
 }
 
+
 extension TabBarViewController: LocationSelectedDelegate {
     func locationSelected(location: Location) {
         guard let coordinates = location.placemark.location?.coordinate else {
             return
         }
         
+
+        
         updateChildren(longitude: coordinates.longitude, latitude: coordinates.latitude, placemark: location.placemark)
     }
 }
+
+
 
 extension TabBarViewController: CLLocationManagerDelegate {
     

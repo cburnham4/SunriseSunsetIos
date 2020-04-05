@@ -31,6 +31,12 @@ class SunriseViewController: UIViewController {
     @IBOutlet weak var astroDuskLabel: UILabel!
     @IBOutlet weak var astroDawnLabel: UILabel!
     
+    @IBAction func locationPickerTapped(_ sender: Any) {
+        let tableViewController: AddLocationTableViewController = AddLocationTableViewController.viewController(viewModel: AddLocationViewModel() )
+        tableViewController.delegate = self
+        navigationController?.pushViewController(tableViewController, animated: true)
+    }
+    
     /* Model Variables */
     var calendar = NSCalendar.current;
     var placemark: CLPlacemark?
@@ -174,7 +180,7 @@ class SunriseViewController: UIViewController {
         dateButton.setTitle(getFormattedDate(), for: .normal)
     }
     
-    /*Move to Table View*/
+    /*Move to Table*/
     @IBAction func changeLocationClicked(_ sender: UIButton) {
         openLocationPicker()
     }
@@ -254,4 +260,12 @@ extension SunriseViewController: LocationChangedDelegate {
         displayLocationInfo(placemark)
         createRequest()
     }
+}
+
+extension SunriseViewController: LocationSelectedDelegate {
+    func locationSelected(location: Location) {
+        (self.tabBarController as? LocationSelectedDelegate)?.locationSelected(location: location)
+    }
+    
+
 }
