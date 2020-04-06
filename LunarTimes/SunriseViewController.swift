@@ -181,10 +181,6 @@ class SunriseViewController: UIViewController {
         dateButton.setTitle(getFormattedDate(), for: .normal)
     }
     
-    /*Move to Table*/
-    @IBAction func changeLocationClicked(_ sender: UIButton) {
-        openLocationPicker()
-    }
     
     @IBAction func dateButtonClicked(_ sender: UIButton) {
         DatePickerDialog().show("Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", defaultDate: date, datePickerMode: .date) {
@@ -195,46 +191,6 @@ class SunriseViewController: UIViewController {
                 strongSelf.createRequest()
             }
         }
-    }
-    
-    func openLocationPicker(){
-        let locationPicker = LocationPickerViewController()
-        
-        // you can optionally set initial location
-        let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
-        if let placemark = placemark {
-            let initialLocation = Location(name: "Current Location", location: location, placemark: placemark)
-            
-            locationPicker.location = initialLocation
-        } else {
-            locationPicker.showCurrentLocationButton = false
-        }
-        
-        // default: navigation bar's `barTintColor` or `.whiteColor()`
-        locationPicker.currentLocationButtonBackground = .blue
-        
-        // ignored if initial location is given, shows that location instead
-        locationPicker.showCurrentLocationInitially = true // default: true
-        
-        locationPicker.mapType = .standard // default: .Hybrid
-        
-        // for searching, see `MKLocalSearchRequest`'s `region` property
-        locationPicker.useCurrentLocationAsHint = true // default: false
-        
-        locationPicker.searchBarPlaceholder = "Search places" // default: "Search or enter an address"
-        
-        locationPicker.searchHistoryLabel = "Previously searched" // default: "Search History"
-        
-        // optional region distance to be used for creation region when user selects place from search results
-        locationPicker.resultRegionDistance = 500 // default: 600
-        
-        locationPicker.completion = { location in
-            guard let location = location else { return }
-            self.placemark = location.placemark
-            (self.tabBarController as? LocationSelectedDelegate)?.locationSelected(location: location)
-        }
-        
-        navigationController?.pushViewController(locationPicker, animated: true)
     }
     
     func stringFromTimeInterval(_ interval: TimeInterval) -> String {
