@@ -34,6 +34,7 @@ class SunriseViewController: UIViewController {
     @IBAction func locationPickerTapped(_ sender: Any) {
         let tableViewController: AddLocationTableViewController = AddLocationTableViewController.viewController(viewModel: AddLocationViewModel() )
         tableViewController.delegate = self
+        tableViewController.displayLocationDelegate = self
         navigationController?.pushViewController(tableViewController, animated: true)
     }
     
@@ -253,6 +254,13 @@ class SunriseViewController: UIViewController {
 }
 
 extension SunriseViewController: LocationChangedDelegate {
+    func locationUpdated(longitude: Double, latitude: Double) {
+        self.longitude = longitude
+        self.latitude = latitude
+        /*  DisplayLocationInfo*/
+        createRequest()
+    }
+    
     func locationUpdated(longitude: Double, latitude: Double, placemark: CLPlacemark?) {
         self.longitude = longitude
         self.latitude = latitude
@@ -263,9 +271,19 @@ extension SunriseViewController: LocationChangedDelegate {
 }
 
 extension SunriseViewController: LocationSelectedDelegate {
+    func locationSelected(longitude: Double, latitude: Double) {
+        (self.tabBarController as? LocationSelectedDelegate)?.locationSelected(longitude: longitude, latitude: latitude)
+    }
+    
     func locationSelected(location: Location) {
         (self.tabBarController as? LocationSelectedDelegate)?.locationSelected(location: location)
     }
     
 
+}
+
+extension SunriseViewController: DisplayClickedLocationDelegate {
+    func displayClickedLocation(locationKey: String) {
+        locationLabel.text = "Location: " + locationKey
+    }
 }

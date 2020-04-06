@@ -33,23 +33,20 @@ class AddLocationTableViewController: UITableViewController, BaseViewController 
     var placemark: CLPlacemark?
     var latitude = 70.0;
     var longitude = 70.0;
-    var locationLocalityArray: [String] = []
     var address = ""
-    var locationArray: [Location] = []
     var delegate: LocationSelectedDelegate?
     let defaults = UserDefaults.standard
+    var displayLocationDelegate: DisplayClickedLocationDelegate?
     
-    var locationDict = [String:[[String:Double]]] ()
+    var locationDict = [String:[Double]] ()
     var locationDictKeys : [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         
-        locationDictKeys = (defaults.array(forKey: "locationDictKeys") as? [String]) ?? [""]
-
-
-
+        loadLocality()
+        loadLocationDict()
     }
 
     // MARK: - Table view data source
@@ -84,8 +81,13 @@ class AddLocationTableViewController: UITableViewController, BaseViewController 
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let location = locationArray[indexPath.row]
-        delegate?.locationSelected(location: location)
+        let locationKey = locationDictKeys[indexPath.row]
+        let latitude = locationDict[locationKey]?[0]
+        let longitude = locationDict[locationKey]?[1]
+        
+        displayLocationDelegate?.displayClickedLocation(locationKey: locationKey)
+        delegate?.locationSelected(longitude: longitude!, latitude: latitude!)
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -128,31 +130,31 @@ class AddLocationTableViewController: UITableViewController, BaseViewController 
             guard let location = location else { return }
             self.placemark = location.placemark
             
-           /* if !self.locationArray.contains(location){
-                self.locationArray.append(location)
-                self.tableView.reloadData()
- 
-            }*/
             
             self.retrieveLocationInfo(location.placemark)
-            self.locationDict = self.defaults.object(forKey: "locationDict") as? [String : [[String : Double]]] ?? ["":[["":0.0]]]
             if self.locationDict[self.address] == nil {
-                self.locationDict[self.address] = [["lat": self.latitude],["long":self.longitude]]
+                /* Latitude will be index 0 and longitude will be index 1*/
+                self.locationDict[self.address] = [self.latitude,self.longitude]
+                
+
                 if self.locationDict[""] != nil {
                     self.locationDict.removeValue(forKey: "")
                 }
+                
                 self.locationDictKeys.append(self.address)
+                
                 if self.locationDictKeys.contains("") {
                     let blankIndex = self.locationDictKeys.firstIndex(of: "")
                     self.locationDictKeys.remove(at: blankIndex!)
                 }
-                self.defaults.set(self.locationDictKeys, forKey: "locationDictKeys")
-                self.defaults.set(self.locationDict, forKey: "locationDict")
+                self.saveLocality(locationDictKeys: self.locationDictKeys)
+                self.saveLocationDict(locationDict: self.locationDict)
             }
             
            
             self.delegate?.locationSelected(location: location)
             self.tableView.reloadData()
+            self.navigationController?.popViewController(animated: true)
         }
         
         
@@ -181,16 +183,24 @@ class AddLocationTableViewController: UITableViewController, BaseViewController 
 }
 
 extension AddLocationTableViewController {
-    func saveLocality() {
-        /*  Placemark does not need to be saved. Save lat and long as doubles. Then save the locality as a string when it is recoverlocality/display location is run. Following that, when the objects are tapped only run request and have the location label get the info from the locality Array. Only find locality from placemark when saved for the first time. Probably need to change location updated to not take a placemark or only run it on first time retrieving info. Will have to figure a way for that. SAVE AS DICT RATHER THAN TWO ARRAYS!!!!*/
-        
-        
+    func saveLocality(locationDictKeys: Array<String>) {
+        defaults.set(locationDictKeys, forKey: "locationDictKeys")
+    }
+
+    func saveLocationDict(locationDict: [String:[Double]]){
+        defaults.set(locationDict, forKey: "locationDict")
+    }
+    func loadLocality() {
+        locationDictKeys = (defaults.array(forKey: "locationDictKeys") as? [String]) ?? [""]
+    }
+    func loadLocationDict() {
+        locationDict = defaults.object(forKey: "locationDict") as? [String : [Double]] ?? ["":[0.0]]
     }
 }
 
-extension AddLocationTableViewController {
-    func loadLocality() {
-    }
+
+protocol DisplayClickedLocationDelegate {
+    func displayClickedLocation(locationKey: String)
 }
 
 
