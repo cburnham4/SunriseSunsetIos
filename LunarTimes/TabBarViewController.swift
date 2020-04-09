@@ -44,12 +44,10 @@ extension UIViewController {
 
 protocol LocationChangedDelegate {
     func locationUpdated(longitude: Double, latitude: Double, placemark: CLPlacemark?)
-    func locationUpdated(longitude: Double, latitude: Double)
 }
 
 protocol LocationSelectedDelegate {
-    func locationSelected(location: Location)
-    func locationSelected(longitude: Double, latitude: Double)
+    func locationSelected(selectedLocation: SunriseLocation)
 }
 
 
@@ -95,18 +93,8 @@ class TabBarViewController: UITabBarController {
 
 
 extension TabBarViewController: LocationSelectedDelegate {
-    func locationSelected(longitude: Double, latitude: Double) {
-        updateChildren(longitude: longitude, latitude: latitude)
-    }
-    
-    func locationSelected(location: Location) {
-        guard let coordinates = location.placemark.location?.coordinate else {
-            return
-        }
-        
-
-        
-        updateChildren(longitude: coordinates.longitude, latitude: coordinates.latitude, placemark: location.placemark)
+    func locationSelected(selectedLocation: SunriseLocation) {
+        updateChildren(longitude: selectedLocation.longitude, latitude: selectedLocation.latitude, placemark: selectedLocation.sunrisePlacemark)
     }
 }
 
@@ -155,14 +143,3 @@ extension TabBarViewController: CLLocationManagerDelegate {
     }
 }
 
-extension TabBarViewController {
-    func updateChildren(longitude: Double, latitude: Double) {
-        guard let viewControllers = viewControllers else { return }
-        for viewController in viewControllers {
-            if let navController = viewController as? UINavigationController,
-                let viewController = navController.viewControllers.first as? LocationChangedDelegate {
-                viewController.locationUpdated(longitude: longitude, latitude: latitude)
-            }
-        }
-    }
-}

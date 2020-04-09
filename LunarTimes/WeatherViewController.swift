@@ -76,10 +76,6 @@ class WeatherViewController: UIViewController {
 }
 
 extension WeatherViewController: LocationChangedDelegate {
-    func locationUpdated(longitude: Double, latitude: Double) {
-        requestWeather(longitude: longitude, latitude: latitude)
-    }
-    
     func locationUpdated(longitude: Double, latitude: Double, placemark: CLPlacemark?) {
         requestWeather(longitude: longitude, latitude: latitude)
     }
