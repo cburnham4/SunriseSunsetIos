@@ -499,7 +499,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Weather" id="6Yc-0A-o9f">
-                        <barButtonItem key="rightBarButtonItem" title="Location" image="location.fill" catalog="system" id="uW8-Tj-yHK"/>
+                        <barButtonItem key="rightBarButtonItem" title="Location" image="location.fill" catalog="system" id="uW8-Tj-yHK">
+                            <connections>
+                                <action selector="locationPickerTapped:" destination="NNi-Sf-UBN" id="mTj-fw-3yg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bannerView" destination="3Og-ib-75o" id="hj6-vy-8qK"/>
