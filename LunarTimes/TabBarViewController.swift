@@ -11,8 +11,6 @@ import LocationPicker
 import LhHelpers
 import CoreLocation
 
-
-
 extension UIViewController {
     func showActivityIndicator() -> UIView {
         let container = UIView()
@@ -52,9 +50,6 @@ protocol LocationSelectedDelegate {
 
 
 class TabBarViewController: UITabBarController {
-    
-
-    
     var activityIndicatorView: UIView?
     var locationManager = CLLocationManager()
     let defaults = UserDefaults.standard
@@ -142,4 +137,3 @@ extension TabBarViewController: CLLocationManagerDelegate {
         })
     }
 }
-

@@ -18,13 +18,14 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var dailyWeatherHeight: NSLayoutConstraint!
     
     @IBAction func locationPickerTapped(_ sender: Any) {
-        let tableViewController: AddLocationTableViewController = AddLocationTableViewController.viewController(viewModel: AddLocationViewModel(placemark: nil, sunriseLocation: nil))
+        let tableViewController: AddLocationTableViewController = AddLocationTableViewController.viewController(viewModel: AddLocationViewModel(placemark: placemark, sunriseLocation: nil))
         tableViewController.viewModel.delegate = self
         navigationController?.pushViewController(tableViewController, animated: true)
     }
     
     var savedWeather: WeatherResponse?
-    
+    var placemark: CLPlacemark?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

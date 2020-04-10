@@ -95,12 +95,10 @@ class AddLocationTableViewController: UITableViewController, BaseViewController 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete im«
         return viewModel.numsections
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return viewModel.sunriseLocations.count
     }
     
@@ -203,13 +201,11 @@ extension AddLocationTableViewController {
 
 extension Array where Element == SunriseLocation {
     func containsAddress(address: String) -> Bool {
-        var contains = false
         for location in self{
             if location.address == address {
-                contains = true
-                break
+                return true
             }
         }
-        return contains
+        return false
     }
 }
