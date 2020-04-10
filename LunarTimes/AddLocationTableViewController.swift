@@ -156,7 +156,7 @@ class AddLocationTableViewController: UITableViewController, BaseViewController 
             self.viewModel.placemark = location.placemark
             self.viewModel.currentSunriseLocation = SunriseLocation(address:self.retrieveAddress(location.placemark), myLocation: location, sunrisePlacemark: location.placemark)
 
-            if !self.viewModel.sunriseLocations.contains(self.viewModel.currentSunriseLocation!) {
+            if !self.viewModel.sunriseLocations.containsAddress(address: self.viewModel.currentSunriseLocation!.address) {
                 self.viewModel.sunriseLocations.append(self.viewModel.currentSunriseLocation!)
                 self.saveLocations(sunriseLocations: self.viewModel.sunriseLocations)
             }
@@ -201,6 +201,15 @@ extension AddLocationTableViewController {
     }
 }
 
-
-
-
+extension Array where Element == SunriseLocation {
+    func containsAddress(address: String) -> Bool {
+        var contains = false
+        for location in self{
+            if location.address == address {
+                contains = true
+                break
+            }
+        }
+        return contains
+    }
+}
