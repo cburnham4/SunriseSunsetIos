@@ -32,17 +32,15 @@ class SunriseViewController: UIViewController {
     @IBOutlet weak var astroDawnLabel: UILabel!
     
     @IBAction func locationPickerTapped(_ sender: Any) {
-        let tableViewController: AddLocationTableViewController = AddLocationTableViewController.viewController(viewModel: AddLocationViewModel(placemark: placemark, sunriseLocation: nil))
+        let tableViewController: AddLocationTableViewController = AddLocationTableViewController.viewController(viewModel: AddLocationViewModel(sunriseLocation: sunriseLocation))
         tableViewController.viewModel.delegate = self
         navigationController?.pushViewController(tableViewController, animated: true)
     }
     
     /* Model Variables */
     var calendar = NSCalendar.current;
-    var placemark: CLPlacemark?
+    var sunriseLocation: SunriseLocation?
     var date: Date = Date()
-    var latitude = 70.0;
-    var longitude = 70.0;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +63,8 @@ class SunriseViewController: UIViewController {
         bannerView.load(request)
     }
     
-    func createRequest(){
+    func createRequest() {
+        guard let sunriseLocation = sunriseLocation else { return }
         /* Get the formatted date */
         let destFormat = DateFormatter()
         destFormat.dateFormat = "yyyy-MM-dd";
@@ -73,7 +72,7 @@ class SunriseViewController: UIViewController {
         
         let dateString  = destFormat.string(from: date);
         
-        let request = SunriseSunsetRequest(lat: latitude, long: longitude, dateString: dateString)
+        let request = SunriseSunsetRequest(lat: sunriseLocation.latitude, long: sunriseLocation.longitude, dateString: dateString)
         request.makeRequest { [weak self] response in
             switch response {
             case .failure:
@@ -143,24 +142,6 @@ class SunriseViewController: UIViewController {
         return dateString;
     }
     
-    /* Show the location address */
-    func displayLocationInfo(_ placemark: CLPlacemark?) {
-        if let containsPlacemark = placemark {
-            //stop updating location to save battery life
-            let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
-            let postalCode = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
-            let administrativeArea = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : ""
-            
-            let cordinates = containsPlacemark.location?.coordinate
-            self.latitude = (cordinates?.latitude)!
-            self.longitude = (cordinates?.longitude)!
-            
-            let address = locality! + ", " + administrativeArea! + " " + postalCode!;
-            self.locationLabel.text = "Location: " + address
-            print(address)
-        }
-    }
-    
     /* MARK: Actions */
 
     @IBAction func prevDayOnClick(_ sender: UIButton) {
@@ -209,11 +190,9 @@ class SunriseViewController: UIViewController {
 }
 
 extension SunriseViewController: LocationChangedDelegate {
-    func locationUpdated(longitude: Double, latitude: Double, placemark: CLPlacemark?) {
-        self.longitude = longitude
-        self.latitude = latitude
-        self.placemark = placemark
-        displayLocationInfo(placemark)
+    func locationUpdated(selectedLocation: SunriseLocation) {
+        self.sunriseLocation = selectedLocation
+        locationLabel.text = "Location: \(selectedLocation.sunrisePlacemark?.address ?? "")"
         createRequest()
     }
 }
