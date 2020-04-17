@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c2N-Hw-CnP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c2N-Hw-CnP">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +27,7 @@
                                 <rect key="frame" x="20" y="58" width="374" height="581"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="bHi-Ej-Dm8">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="632"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="592"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Kwm-Ci-S23">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
@@ -295,17 +295,6 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKW-Ye-bkz">
-                                                <rect key="frame" x="0.0" y="598" width="374" height="34"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Change Location">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="changeLocationClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iq5-NW-TLM"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -340,7 +329,14 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZfN-NS-eLw" secondAttribute="bottom" id="qVb-Uu-6bL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sunrise &amp; Sunset" id="Kus-0w-M62"/>
+                    <navigationItem key="navigationItem" title="Sunrise &amp; Sunset" id="Kus-0w-M62">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="location.fill" catalog="system" id="46c-pw-ghf">
+                            <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="locationPickerTapped:" destination="BYZ-38-t0r" id="0Bl-q3-KWd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="astroDawnLabel" destination="LPC-PJ-jr6" id="dh8-KY-6sr"/>
                         <outlet property="astroDuskLabel" destination="OCs-Xh-VO7" id="0mn-IG-p9R"/>
@@ -359,6 +355,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2669.5652173913045" y="398.64130434782612"/>
+        </scene>
+        <!--Location-->
+        <scene sceneID="LtN-pW-UNO">
+            <objects>
+                <tableViewController storyboardIdentifier="AddLocationTableViewController" id="RA6-ub-RzC" customClass="AddLocationTableViewController" customModule="Sunrise___Sunset" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vdr-1a-xdi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" id="WRU-zW-jMY">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WRU-zW-jMY" id="CWa-Fb-pDh">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RA6-ub-RzC" id="MmF-cd-SC2"/>
+                            <outlet property="delegate" destination="RA6-ub-RzC" id="sgA-XT-XLH"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Location" id="57c-UP-hiu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="M0s-aI-wU6">
+                            <connections>
+                                <action selector="addLocation:" destination="RA6-ub-RzC" id="o4V-Q3-22L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="akj-XT-RvS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3681" y="399"/>
         </scene>
         <!--Weather-->
         <scene sceneID="RMK-EA-sxg">
@@ -467,7 +498,13 @@
                             <constraint firstItem="5LN-wc-hOf" firstAttribute="leading" secondItem="d3x-7w-b2U" secondAttribute="leading" constant="12" id="xAI-un-thO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Weather" id="6Yc-0A-o9f"/>
+                    <navigationItem key="navigationItem" title="Weather" id="6Yc-0A-o9f">
+                        <barButtonItem key="rightBarButtonItem" title="Location" image="location.fill" catalog="system" id="uW8-Tj-yHK">
+                            <connections>
+                                <action selector="locationPickerTapped:" destination="NNi-Sf-UBN" id="mTj-fw-3yg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bannerView" destination="3Og-ib-75o" id="hj6-vy-8qK"/>
                         <outlet property="dailyWeatherHeight" destination="I9T-cU-TgS" id="Xgm-Xp-K6k"/>
@@ -839,6 +876,7 @@
     <resources>
         <image name="cloud.heavyrain" catalog="system" width="64" height="62"/>
         <image name="cloudy" width="100" height="100"/>
+        <image name="location.fill" catalog="system" width="64" height="56"/>
         <image name="pexels-photo-106132" width="504.5" height="630.5"/>
         <image name="sun.min" catalog="system" width="64" height="60"/>
     </resources>

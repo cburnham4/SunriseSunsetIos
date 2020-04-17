@@ -41,17 +41,19 @@ extension UIViewController {
 }
 
 protocol LocationChangedDelegate {
-    func locationUpdated(longitude: Double, latitude: Double, placemark: CLPlacemark?)
+    func locationUpdated(selectedLocation: SunriseLocation)
 }
 
 protocol LocationSelectedDelegate {
-    func locationSelected(location: Location)
+    func locationSelected(selectedLocation: SunriseLocation)
 }
 
+
 class TabBarViewController: UITabBarController {
-    
     var activityIndicatorView: UIView?
     var locationManager = CLLocationManager()
+    let defaults = UserDefaults.standard
+    let savedLocal = "savedLocal"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,12 +70,13 @@ class TabBarViewController: UITabBarController {
         locationManager.startUpdatingLocation()
     }
     
-    func updateChildren(longitude: Double, latitude: Double, placemark: CLPlacemark?) {
+    
+    func updateChildren(selectedLocation: SunriseLocation) {
         guard let viewControllers = viewControllers else { return }
         for viewController in viewControllers {
             if let navController = viewController as? UINavigationController,
                 let viewController = navController.viewControllers.first as? LocationChangedDelegate {
-                viewController.locationUpdated(longitude: longitude, latitude: latitude, placemark: placemark)
+                viewController.locationUpdated(selectedLocation: selectedLocation)
             }
         }
     }
@@ -84,12 +87,8 @@ class TabBarViewController: UITabBarController {
 }
 
 extension TabBarViewController: LocationSelectedDelegate {
-    func locationSelected(location: Location) {
-        guard let coordinates = location.placemark.location?.coordinate else {
-            return
-        }
-        
-        updateChildren(longitude: coordinates.longitude, latitude: coordinates.latitude, placemark: location.placemark)
+    func locationSelected(selectedLocation: SunriseLocation) {
+        updateChildren(selectedLocation: selectedLocation)
     }
 }
 
@@ -100,8 +99,10 @@ extension TabBarViewController: CLLocationManagerDelegate {
         case .authorizedAlways, .authorizedWhenInUse:
             activityIndicatorView = showActivityIndicator()
             locationManager.startUpdatingLocation()
-        default:
+        case .denied:
             AlertUtils.createAlert(view: self, title: "Location Permissions", message: "Enable location permissions to view data for current location")
+        default:
+            activityIndicatorView?.removeFromSuperview()
         }
     }
     
@@ -131,7 +132,8 @@ extension TabBarViewController: CLLocationManagerDelegate {
             }
             
             self?.activityIndicatorView?.removeFromSuperview()
-            self?.updateChildren(longitude: longitude, latitude: latitude, placemark: placemark)
+            let sunriseLocation = SunriseLocation(latitude: latitude, longitude: longitude, sunrisePlacemark: placemark)
+            self?.updateChildren(selectedLocation: sunriseLocation)
         })
     }
 }

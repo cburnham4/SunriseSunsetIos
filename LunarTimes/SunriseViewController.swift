@@ -31,12 +31,16 @@ class SunriseViewController: UIViewController {
     @IBOutlet weak var astroDuskLabel: UILabel!
     @IBOutlet weak var astroDawnLabel: UILabel!
     
+    @IBAction func locationPickerTapped(_ sender: Any) {
+        let tableViewController: AddLocationTableViewController = AddLocationTableViewController.viewController(viewModel: AddLocationViewModel(sunriseLocation: sunriseLocation))
+        tableViewController.viewModel.delegate = self
+        navigationController?.pushViewController(tableViewController, animated: true)
+    }
+    
     /* Model Variables */
     var calendar = NSCalendar.current;
-    var placemark: CLPlacemark?
+    var sunriseLocation: SunriseLocation?
     var date: Date = Date()
-    var latitude = 70.0;
-    var longitude = 70.0;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +63,8 @@ class SunriseViewController: UIViewController {
         bannerView.load(request)
     }
     
-    func createRequest(){
+    func createRequest() {
+        guard let sunriseLocation = sunriseLocation else { return }
         /* Get the formatted date */
         let destFormat = DateFormatter()
         destFormat.dateFormat = "yyyy-MM-dd";
@@ -67,7 +72,7 @@ class SunriseViewController: UIViewController {
         
         let dateString  = destFormat.string(from: date);
         
-        let request = SunriseSunsetRequest(lat: latitude, long: longitude, dateString: dateString)
+        let request = SunriseSunsetRequest(lat: sunriseLocation.latitude, long: sunriseLocation.longitude, dateString: dateString)
         request.makeRequest { [weak self] response in
             switch response {
             case .failure:
@@ -137,24 +142,6 @@ class SunriseViewController: UIViewController {
         return dateString;
     }
     
-    /* Show the location address */
-    func displayLocationInfo(_ placemark: CLPlacemark?) {
-        if let containsPlacemark = placemark {
-            //stop updating location to save battery life
-            let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
-            let postalCode = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
-            let administrativeArea = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : ""
-            
-            let cordinates = containsPlacemark.location?.coordinate
-            self.latitude = (cordinates?.latitude)!
-            self.longitude = (cordinates?.longitude)!
-            
-            let address = locality! + ", " + administrativeArea! + " " + postalCode!;
-            self.locationLabel.text = "Location: " + address
-            print(address)
-        }
-    }
-    
     /* MARK: Actions */
 
     @IBAction func prevDayOnClick(_ sender: UIButton) {
@@ -174,9 +161,6 @@ class SunriseViewController: UIViewController {
         dateButton.setTitle(getFormattedDate(), for: .normal)
     }
     
-    @IBAction func changeLocationClicked(_ sender: UIButton) {
-        openLocationPicker()
-    }
     
     @IBAction func dateButtonClicked(_ sender: UIButton) {
         DatePickerDialog().show("Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", defaultDate: date, datePickerMode: .date) {
@@ -187,46 +171,6 @@ class SunriseViewController: UIViewController {
                 strongSelf.createRequest()
             }
         }
-    }
-    
-    func openLocationPicker(){
-        let locationPicker = LocationPickerViewController()
-        
-        // you can optionally set initial location
-        let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
-        if let placemark = placemark {
-            let initialLocation = Location(name: "Current Location", location: location, placemark: placemark)
-            
-            locationPicker.location = initialLocation
-        } else {
-            locationPicker.showCurrentLocationButton = false
-        }
-        
-        // default: navigation bar's `barTintColor` or `.whiteColor()`
-        locationPicker.currentLocationButtonBackground = .blue
-        
-        // ignored if initial location is given, shows that location instead
-        locationPicker.showCurrentLocationInitially = true // default: true
-        
-        locationPicker.mapType = .standard // default: .Hybrid
-        
-        // for searching, see `MKLocalSearchRequest`'s `region` property
-        locationPicker.useCurrentLocationAsHint = true // default: false
-        
-        locationPicker.searchBarPlaceholder = "Search places" // default: "Search or enter an address"
-        
-        locationPicker.searchHistoryLabel = "Previously searched" // default: "Search History"
-        
-        // optional region distance to be used for creation region when user selects place from search results
-        locationPicker.resultRegionDistance = 500 // default: 600
-        
-        locationPicker.completion = { location in
-            guard let location = location else { return }
-            self.placemark = location.placemark
-            (self.tabBarController as? LocationSelectedDelegate)?.locationSelected(location: location)
-        }
-        
-        navigationController?.pushViewController(locationPicker, animated: true)
     }
     
     func stringFromTimeInterval(_ interval: TimeInterval) -> String {
@@ -246,11 +190,15 @@ class SunriseViewController: UIViewController {
 }
 
 extension SunriseViewController: LocationChangedDelegate {
-    func locationUpdated(longitude: Double, latitude: Double, placemark: CLPlacemark?) {
-        self.longitude = longitude
-        self.latitude = latitude
-        self.placemark = placemark
-        displayLocationInfo(placemark)
+    func locationUpdated(selectedLocation: SunriseLocation) {
+        self.sunriseLocation = selectedLocation
+        locationLabel.text = "Location: \(selectedLocation.sunrisePlacemark?.address ?? "")"
         createRequest()
+    }
+}
+
+extension SunriseViewController: LocationSelectedDelegate {
+    func locationSelected(selectedLocation: SunriseLocation) {
+        (self.tabBarController as? LocationSelectedDelegate)?.locationSelected(selectedLocation: selectedLocation)
     }
 }

@@ -17,8 +17,15 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var weatherInfoContentHeight: NSLayoutConstraint!
     @IBOutlet weak var dailyWeatherHeight: NSLayoutConstraint!
     
+    @IBAction func locationPickerTapped(_ sender: Any) {
+        let tableViewController: AddLocationTableViewController = AddLocationTableViewController.viewController(viewModel: AddLocationViewModel(sunriseLocation: presentedLocation))
+        tableViewController.viewModel.delegate = self
+        navigationController?.pushViewController(tableViewController, animated: true)
+    }
+    
+    var presentedLocation: SunriseLocation?
     var savedWeather: WeatherResponse?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,7 +83,14 @@ class WeatherViewController: UIViewController {
 }
 
 extension WeatherViewController: LocationChangedDelegate {
-    func locationUpdated(longitude: Double, latitude: Double, placemark: CLPlacemark?) {
-        requestWeather(longitude: longitude, latitude: latitude)
+    func locationUpdated(selectedLocation: SunriseLocation) {
+        self.presentedLocation = selectedLocation
+        requestWeather(longitude: selectedLocation.longitude, latitude: selectedLocation.latitude)
+    }
+}
+
+extension WeatherViewController: LocationSelectedDelegate {
+    func locationSelected(selectedLocation: SunriseLocation) {
+        (self.tabBarController as? LocationSelectedDelegate)?.locationSelected(selectedLocation: selectedLocation)
     }
 }
