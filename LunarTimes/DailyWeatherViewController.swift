@@ -24,6 +24,7 @@ struct DailyWeather {
 
 class DailyWeatherTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var shadowView: ShadowView!
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var tempLow: UILabel!
@@ -39,6 +40,12 @@ class DailyWeatherTableViewCell: UITableViewCell {
         if let imageName = dailyWeather.imageName {
             weatherIcon.image = UIImage(named: imageName)
         }
+    }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        shadowView.frame.size = CGSize(width: superview?.frame.width ?? 300, height: frame.height) 
+        shadowView.addShadow()
     }
 }
 
