@@ -86,6 +86,9 @@ extension WeatherViewController: LocationChangedDelegate {
     func locationUpdated(selectedLocation: SunriseLocation) {
         self.presentedLocation = selectedLocation
         requestWeather(longitude: selectedLocation.longitude, latitude: selectedLocation.latitude)
+        if let locality = selectedLocation.sunrisePlacemark?.locality {
+            title = "Weather: " + locality
+        }
     }
 }
 

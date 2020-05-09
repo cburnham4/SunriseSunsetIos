@@ -192,6 +192,9 @@ class SunriseViewController: UIViewController {
 extension SunriseViewController: LocationChangedDelegate {
     func locationUpdated(selectedLocation: SunriseLocation) {
         self.sunriseLocation = selectedLocation
+        if let locality = selectedLocation.sunrisePlacemark?.locality {
+            title = "Sunrise & Sunset: " + locality
+        }
         locationLabel.text = "Location: \(selectedLocation.sunrisePlacemark?.address ?? "")"
         createRequest()
     }
