@@ -44,8 +44,8 @@ class DailyWeatherTableViewCell: UITableViewCell {
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        shadowView.frame.size = CGSize(width: superview?.frame.width ?? 300, height: frame.height) 
-        shadowView.addShadow()
+        shadowView?.frame.size = CGSize(width: superview?.frame.width ?? 300, height: frame.height)
+        shadowView?.addShadow()
     }
 }
 

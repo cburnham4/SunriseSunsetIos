@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c2N-Hw-CnP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c2N-Hw-CnP">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -519,6 +519,7 @@
         <!--Sunrise-->
         <scene sceneID="Mst-Gy-HxW">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDT-a3-pgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="88e-Zi-zxZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Sunrise" image="sun.min" catalog="system" id="hPs-4X-om4"/>
                     <toolbarItems/>
@@ -531,7 +532,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="41f-km-NDe"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TDT-a3-pgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1857.9710144927537" y="398.64130434782612"/>
         </scene>
@@ -557,6 +557,7 @@
         <!--Weather-->
         <scene sceneID="LPI-4h-O6L">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OL5-r0-H5S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P0H-OX-Ar4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Weather" image="cloud.heavyrain" catalog="system" id="UHI-O8-pfo"/>
                     <toolbarItems/>
@@ -569,7 +570,6 @@
                         <segue destination="NNi-Sf-UBN" kind="relationship" relationship="rootViewController" id="SCe-YD-cUY"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OL5-r0-H5S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1858" y="1115"/>
         </scene>
@@ -589,7 +589,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="398" height="96"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="4" minimumInteritemSpacing="2" id="hLp-6h-dSS">
-                                    <size key="itemSize" width="70" height="80"/>
+                                    <size key="itemSize" width="70" height="95"/>
                                     <size key="estimatedItemSize" width="70" height="96"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -597,14 +597,14 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="HourlyWeatherCollectionCell" id="L8x-03-JSy" customClass="HourlyWeatherCollectionCell" customModule="Sunrise___Sunset" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="96"/>
+                                        <rect key="frame" x="0.0" y="0.66666666666666663" width="70" height="95"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="kdc-TX-YjF">
-                                            <rect key="frame" x="0.0" y="0.0" width="70" height="96"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2XS-jf-fot" customClass="ShadowView" customModule="Sunrise___Sunset" customModuleProvider="target">
-                                                    <rect key="frame" x="2" y="4" width="66" height="88"/>
+                                                    <rect key="frame" x="2" y="4" width="66" height="87"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJm-Ry-lnE">
                                                             <rect key="frame" x="13.666666666666668" y="6" width="38.666666666666657" height="19.333333333333332"/>
@@ -844,6 +844,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="dayLabel" destination="NWQ-E9-7m3" id="z8O-pL-Qgu"/>
+                                            <outlet property="shadowView" destination="wBo-P4-5qz" id="K6U-Dk-Hti"/>
                                             <outlet property="tempHighLabel" destination="dDQ-MC-RU7" id="SRt-ir-qPK"/>
                                             <outlet property="tempLow" destination="Kjr-aH-rfl" id="h8j-j9-ZuX"/>
                                             <outlet property="weatherIcon" destination="qFH-pf-V1y" id="rHf-bQ-dKF"/>
@@ -874,10 +875,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cloud.heavyrain" catalog="system" width="64" height="62"/>
+        <image name="cloud.heavyrain" catalog="system" width="128" height="125"/>
         <image name="cloudy" width="100" height="100"/>
-        <image name="location.fill" catalog="system" width="64" height="56"/>
+        <image name="location.fill" catalog="system" width="128" height="115"/>
         <image name="pexels-photo-106132" width="504.5" height="630.5"/>
-        <image name="sun.min" catalog="system" width="64" height="60"/>
+        <image name="sun.min" catalog="system" width="128" height="121"/>
     </resources>
 </document>
