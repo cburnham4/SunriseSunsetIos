@@ -26,21 +26,24 @@ class WeatherViewController: UIViewController {
     var presentedLocation: SunriseLocation?
     var savedWeather: WeatherResponse?
     
+    var timer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         /* Setup the bannerview */
         bannerView.adUnitID = "ca-app-pub-8223005482588566/3396819721"
         bannerView.rootViewController = self
-        
-        /* Request the new ad */
-        let request = GADRequest()
-        bannerView.load(request)
+        bannerView.load(GADRequest())
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if let weather = savedWeather {
             parseResult(weather: weather)
+        }
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { [weak self] timer in
+            self?.bannerView.load(GADRequest())
         }
     }
     
@@ -79,6 +82,12 @@ class WeatherViewController: UIViewController {
             weatherInfoViewController.weatherInfoItems = weather.dailyWeather
             weatherInfoViewController.view.layoutSubviews()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+        timer = nil
     }
 }
 

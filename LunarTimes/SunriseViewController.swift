@@ -41,6 +41,8 @@ class SunriseViewController: UIViewController {
     var calendar = NSCalendar.current;
     var sunriseLocation: SunriseLocation?
     var date: Date = Date()
+    
+    var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,19 +50,15 @@ class SunriseViewController: UIViewController {
         dateButton.setTitle(getFormattedDate(), for: .normal)
         
         /* Load the google admob ad */
-        loadAd()
-    }
-    
-    func loadAd(){
-        print("Google Mobile Ads SDK version: " + GADRequest.sdkVersion())
-    
-        /* Setup the bannerview */
         bannerView.adUnitID = "ca-app-pub-8223005482588566/7260467533"
         bannerView.rootViewController = self
-        
-        /* Request the new ad */
-        let request = GADRequest()
-        bannerView.load(request)
+        bannerView.load(GADRequest())
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { [weak self] timer in
+            self?.bannerView.load(GADRequest())
+        }
     }
     
     func createRequest() {
@@ -186,6 +184,12 @@ class SunriseViewController: UIViewController {
         let date = dateTime.substring(with: NSRange(location: 0,length: 10))
         let time  = dateTime.substring(with: NSRange(location: 11,length: 8))
         return date + " " + time
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+        timer = nil
     }
 }
 
