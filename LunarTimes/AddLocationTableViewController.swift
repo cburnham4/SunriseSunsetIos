@@ -12,7 +12,7 @@ import Alamofire
 import SwiftyJSON
 import GoogleMobileAds
 import LocationPicker
-import LhHelpers
+import lh_helpers
 import DatePickerDialog
 
 extension CLPlacemark {
@@ -98,8 +98,11 @@ class AddLocationViewModel {
 }
 
 class AddLocationTableViewController: UITableViewController, BaseViewController {
+    typealias BaseViewModel = AddLocationViewModel
+
     
     var viewModel: AddLocationViewModel!
+    var flowDelegate: Any?
     static var storyboardName = "Main"
     static var viewControllerIdentifier = "AddLocationTableViewController"
     

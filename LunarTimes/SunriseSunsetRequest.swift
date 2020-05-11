@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import LhHelpers
+import lh_helpers
 
 struct SunriseSunsetResponse: Codable {
     var results: ResultTimes

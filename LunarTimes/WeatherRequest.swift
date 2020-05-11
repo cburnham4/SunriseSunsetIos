@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import LhHelpers
+import lh_helpers
 
 struct WeatherResponse: Codable {
     var currently: WeatherDataSet

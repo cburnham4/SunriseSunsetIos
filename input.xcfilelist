@@ -1,0 +1,14 @@
+#  input.xcfilelist
+#  ChatRoullette
+#
+#  Created by Carl Burnham on 4/12/20.
+#  Copyright © 2020 LetsHangLLC. All rights reserved.
+
+# This file may be set as an input or output file list for a shell script build phase.
+# List file paths below; one per line. These paths will be considered inputs or outputs for the script phase.
+# Build settings will be expanded, e.g. $(SRCROOT)/fileName
+
+$(SRCROOT)/../Carthage/Build/iOS/Alamofire.framework
+$(SRCROOT)/../Carthage/Build/iOS/DatePickerDialog.framework
+$(SRCROOT)/../Carthage/Build/iOS/SwiftyJSON.framework
+$(SRCROOT)/../Carthage/Build/iOS/LocationPicker.framework

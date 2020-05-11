@@ -8,7 +8,7 @@
 
 import UIKit
 import LocationPicker
-import LhHelpers
+import lh_helpers
 import CoreLocation
 
 extension UIViewController {
