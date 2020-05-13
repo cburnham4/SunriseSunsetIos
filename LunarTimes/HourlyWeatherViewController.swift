@@ -11,12 +11,14 @@ import UIKit
 struct HourlyWeather {
     let time: String
     let temp: Double?
+    let precipitation: Double?
     let imageName: String?
 }
 
 class HourlyWeatherCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var percipitationLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var roundedView: ShadowView!
@@ -27,6 +29,11 @@ class HourlyWeatherCollectionCell: UICollectionViewCell {
         tempLabel.text = tempString
         if let imageName = hourlyWeather.imageName {
             weatherIcon.image = UIImage(named: imageName)
+        }
+        if let precipitation = hourlyWeather.precipitation, precipitation > 0.05 {
+            percipitationLabel.text = (precipitation * 100.0).percentString(to: 1)
+        } else {
+            percipitationLabel.text = " "
         }
     }
 }

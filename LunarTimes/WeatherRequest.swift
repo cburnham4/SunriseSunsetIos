@@ -20,7 +20,10 @@ extension WeatherResponse {
         return hourly.data.compactMap {
             let date = Date(timeIntervalSince1970: TimeInterval($0.time))
             let hour = date.getDateString(dateFormat: "ha")
-            return HourlyWeather(time: hour, temp: $0.temperature, imageName: $0.icon)
+            return HourlyWeather(time: hour,
+                                 temp: $0.temperature,
+                                 precipitation: $0.precipProbability,
+                                 imageName: $0.icon)
         }
     }
     
