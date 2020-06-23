@@ -11,35 +11,6 @@ import LocationPicker
 import lh_helpers
 import CoreLocation
 
-extension UIViewController {
-    func showActivityIndicator() -> UIView {
-        let container = UIView()
-        let loadingView = UIView()
-        let activityIndicator = UIActivityIndicatorView()
-        
-        container.frame = view.frame
-        container.center = view.center
-        container.backgroundColor = UIColor(rgb: 0xffffff).withAlphaComponent(0.3)
-        
-        loadingView.frame = CGRect(origin: .zero, size: CGSize(width: 80, height: 80))
-        loadingView.center = view.center
-        loadingView.backgroundColor = UIColor(rgb: 0x444444).withAlphaComponent(0.7)
-        loadingView.clipsToBounds = true
-        loadingView.layer.cornerRadius = 10
-        
-        activityIndicator.frame = CGRect(origin: .zero, size: CGSize(width: 40, height: 40))
-        activityIndicator.style = UIActivityIndicatorView.Style.whiteLarge
-        activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2);
-        activityIndicator.hidesWhenStopped = true;
-        
-        loadingView.addSubview(activityIndicator)
-        container.addSubview(loadingView)
-        view.addSubview(container)
-        activityIndicator.startAnimating()
-        return container
-    }
-}
-
 protocol LocationChangedDelegate {
     func locationUpdated(selectedLocation: SunriseLocation)
 }
