@@ -19,10 +19,9 @@ extension CLPlacemark {
     var address: String {
         //stop updating location to save battery life
         let locality = self.locality ?? ""
-        let postalCode = self.postalCode ?? ""
         let administrativeArea = self.administrativeArea ?? ""
         
-        return locality + ", " + administrativeArea + " " + postalCode
+        return locality + ", " + administrativeArea
     }
 }
 
