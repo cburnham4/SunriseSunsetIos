@@ -8,21 +8,21 @@
 
 import UIKit
 
-@IBDesignable
+
 class GradientView: UIView {
 
-    @IBInspectable var FirstColor: UIColor = UIColor.clear {
+    @IBInspectable var firstColor: UIColor = UIColor.clear {
         didSet {
             updateView()
         }
     }
     
-    @IBInspectable var SecondColor: UIColor = UIColor.clear {
+    @IBInspectable var secondColor: UIColor = UIColor.clear {
         didSet {
             updateView()
         }
     }
-    @IBInspectable var DropShadow: Bool = false {
+    @IBInspectable var dropShadow: Bool = false {
         didSet {
             updateView()
         }
@@ -38,10 +38,10 @@ class GradientView: UIView {
         let layer = self.layer as! CAGradientLayer
         layer.startPoint = CGPoint(x: 0.0, y: 0.0)
         layer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        layer.colors = [ FirstColor.cgColor, SecondColor.cgColor]
+        layer.colors = [ firstColor.cgColor, secondColor.cgColor]
         layer.locations = [NSNumber(value: 0.5), NSNumber(value: 0.35)]
         
-        if DropShadow {//Make a drop shadow
+        if dropShadow {//Make a drop shadow
 
             layer.shadowColor = UIColor.black.cgColor
             layer.shadowOpacity = 1
