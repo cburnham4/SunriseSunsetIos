@@ -10,7 +10,7 @@ import UIKit
 
 
 class GradientView: UIView {
-
+    
     @IBInspectable var firstColor: UIColor = UIColor.clear {
         didSet {
             updateView()
@@ -18,11 +18,6 @@ class GradientView: UIView {
     }
     
     @IBInspectable var secondColor: UIColor = UIColor.clear {
-        didSet {
-            updateView()
-        }
-    }
-    @IBInspectable var dropShadow: Bool = false {
         didSet {
             updateView()
         }
@@ -40,15 +35,20 @@ class GradientView: UIView {
         layer.endPoint = CGPoint(x: 1.0, y: 1.0)
         layer.colors = [ firstColor.cgColor, secondColor.cgColor]
         layer.locations = [NSNumber(value: 0.5), NSNumber(value: 0.35)]
+        self.dropShadow()
+    }
+}
+
+extension GradientView {
+    func dropShadow(scale: Bool = true) {
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        layer.shadowRadius = 0.0
         
-        if dropShadow {//Make a drop shadow
-
-            layer.shadowColor = UIColor.black.cgColor
-            layer.shadowOpacity = 1
-            layer.shadowOffset = CGSize(width: 4, height: 4)
-            layer.shadowRadius = 3
-
-            layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
-        }
+        layer.shouldRasterize = true
+        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+        
     }
 }

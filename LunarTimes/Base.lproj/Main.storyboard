@@ -122,7 +122,6 @@
                                                             <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
                                                                 <color key="value" red="0.98431372549019602" green="0.93333333333333335" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGf-we-R7U" customClass="GradientView" customModule="Sunrise___Sunset" customModuleProvider="target">
@@ -151,15 +150,11 @@
                                                             <constraint firstItem="FVc-iT-2DL" firstAttribute="centerY" secondItem="FGf-we-R7U" secondAttribute="centerY" id="uUu-Yu-LNe"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                                                                <color key="value" red="0.98039215690000003" green="0.90196078430000004" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                                                                <color key="value" red="0.98431372549999996" green="0.93333333330000001" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="DropShadow" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
                                                                 <color key="value" red="0.98039215690000003" green="0.90196078430000004" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                                                <color key="value" red="0.98431372549019602" green="0.93333333333333335" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
@@ -189,13 +184,12 @@
                                                             <constraint firstAttribute="trailing" secondItem="FWo-tC-XgR" secondAttribute="trailing" constant="48" id="x6P-zp-aMn"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                                                                <color key="value" red="0.98039215690000003" green="0.90196078430000004" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                                                <color key="value" red="0.98039215686274506" green="0.90196078431372551" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                                                                <color key="value" red="0.98431372549999996" green="0.93333333330000001" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                                                <color key="value" red="0.98431372549019602" green="0.93333333333333335" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="DropShadow" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
@@ -233,13 +227,12 @@
                                                             <constraint firstItem="kmY-Kz-JuQ" firstAttribute="leading" secondItem="C9q-wc-D7r" secondAttribute="leading" constant="8" id="VjB-u3-Fz0"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                                                                <color key="value" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                                                <color key="value" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                                                                <color key="value" red="0.93725490199999995" green="0.94901960780000005" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                                                <color key="value" red="0.93725490196078431" green="0.94901960784313721" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="DropShadow" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-F9-fjq" userLabel="nauticalDusk View" customClass="GradientView" customModule="Sunrise___Sunset" customModuleProvider="target">
@@ -267,13 +260,12 @@
                                                             <constraint firstItem="tYM-qY-AuK" firstAttribute="centerY" secondItem="jZj-F9-fjq" secondAttribute="centerY" id="ZZm-PQ-pYw"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                                                                <color key="value" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                                                <color key="value" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                                                                <color key="value" red="0.93725490199999995" green="0.94901960780000005" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                                                <color key="value" red="0.93725490196078431" green="0.94901960784313721" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="DropShadow" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jN3-Zd-1eK" userLabel="Dusk View" customClass="GradientView" customModule="Sunrise___Sunset" customModuleProvider="target">
@@ -346,13 +338,12 @@
                                                             <constraint firstItem="ygj-vt-wrp" firstAttribute="centerY" secondItem="L13-gC-CzP" secondAttribute="centerY" id="oWG-xk-H8p"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                                                                <color key="value" red="0.91764705879999997" green="0.89019607840000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                                                <color key="value" red="0.91764705882352937" green="0.8901960784313725" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                                                                <color key="value" red="0.84313725490000002" green="0.83529411760000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                                                <color key="value" red="0.84313725490196079" green="0.83529411764705885" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="DropShadow" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7p-tt-fxV" userLabel="nauticalDawn View" customClass="GradientView" customModule="Sunrise___Sunset" customModuleProvider="target">
@@ -380,13 +371,12 @@
                                                             <constraint firstAttribute="trailing" secondItem="Kda-Xf-BaI" secondAttribute="trailing" constant="48" id="hLT-0y-J2n"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                                                                <color key="value" red="0.91764705879999997" green="0.89019607840000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                                                <color key="value" red="0.91764705882352937" green="0.8901960784313725" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                                                                <color key="value" red="0.84313725490000002" green="0.83529411760000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                                                <color key="value" red="0.84313725490196079" green="0.83529411764705885" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="DropShadow" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bO-er-4Gh" customClass="GradientView" customModule="Sunrise___Sunset" customModuleProvider="target">
@@ -415,13 +405,12 @@
                                                             <constraint firstItem="dfP-4X-lmU" firstAttribute="centerY" secondItem="3bO-er-4Gh" secondAttribute="centerY" id="hFx-x0-PQi"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="FirstColor">
-                                                                <color key="value" red="0.91764705879999997" green="0.89019607840000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                                                <color key="value" red="0.91764705882352937" green="0.8901960784313725" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="SecondColor">
-                                                                <color key="value" red="0.84313725490000002" green="0.83529411760000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                                                <color key="value" red="0.84313725490196079" green="0.83529411764705885" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="DropShadow" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
