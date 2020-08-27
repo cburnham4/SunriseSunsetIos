@@ -22,13 +22,13 @@ struct DailyWeather {
     }
 }
 
-class DailyWeatherTableViewCell: UITableViewCell {
+class DailyWeatherCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var shadowView: ShadowView!
+    @IBOutlet weak var roundedView: ShadowView!
     @IBOutlet weak var dayLabel: UILabel!
-    @IBOutlet weak var weatherIcon: UIImageView!
-    @IBOutlet weak var tempLow: UILabel!
     @IBOutlet weak var tempHighLabel: UILabel!
+    @IBOutlet weak var tempLow: UILabel!
+    @IBOutlet weak var weatherIcon: UIImageView!
     
     func setContent(dailyWeather: DailyWeather) {
         dayLabel.text = dailyWeather.dayName
@@ -41,38 +41,34 @@ class DailyWeatherTableViewCell: UITableViewCell {
             weatherIcon.image = UIImage(named: imageName)
         }
     }
-    
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        shadowView?.frame.size = CGSize(width: superview?.frame.width ?? 300, height: frame.height)
-        shadowView?.addShadow()
-    }
 }
 
 class DailyWeatherViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var dailyWeatherCollectionView: UICollectionView!
+    
     
     static let rowHeight = 48
     
     var weatherInfoItems: [DailyWeather]? {
         didSet {
-            tableView?.reloadData()
+            dailyWeatherCollectionView?.reloadData()
         }
     }
 }
 
-extension DailyWeatherViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension DailyWeatherViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weatherInfoItems?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DailyWeatherTableViewCell") as? DailyWeatherTableViewCell,
-            let weatherInfo = weatherInfoItems?[indexPath.row] else {
-            return UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DailyWeatherCollectionViewCell", for: indexPath) as? DailyWeatherCollectionViewCell,
+            let dailyWeatherInfo = weatherInfoItems?[indexPath.row] else {
+            return UICollectionViewCell()
         }
-        cell.setContent(dailyWeather: weatherInfo)
+        
+        cell.setContent(dailyWeather: dailyWeatherInfo)
         return cell
     }
 }
