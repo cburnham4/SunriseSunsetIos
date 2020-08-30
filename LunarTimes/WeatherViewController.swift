@@ -12,7 +12,8 @@ import GoogleMobileAds
 
 class WeatherViewController: UIViewController {
 
-    @IBOutlet weak var locationLabel: UILabel!
+
+    @IBOutlet weak var weatherLocation: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var currentWeatherLabel: UILabel!
     @IBOutlet weak var rainChanceLabel: UILabel!
@@ -37,6 +38,7 @@ class WeatherViewController: UIViewController {
             cycleViews(currentViewController: weeklyViewController!, newViewController: hourlyViewController!)
         }else{
             cycleViews(currentViewController: hourlyViewController!, newViewController: weeklyViewController!)
+            
         }
         
     }
@@ -59,6 +61,10 @@ class WeatherViewController: UIViewController {
         bannerView.adUnitID = "ca-app-pub-8223005482588566/3396819721"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
+        
+        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -130,7 +136,8 @@ extension WeatherViewController: LocationChangedDelegate {
         requestWeather(longitude: selectedLocation.longitude, latitude: selectedLocation.latitude)
         
         /* unsure why following line is breaking*/
-        //locationLabel.text = "\(selectedLocation.sunrisePlacemark?.address ?? "")"
+//        print("\(selectedLocation.sunrisePlacemark?.address ?? "")")
+        //weatherLocation.text = "\(selectedLocation.sunrisePlacemark?.address ?? "")"
         
         if let locality = selectedLocation.sunrisePlacemark?.locality {
             title = "Weather: " + locality

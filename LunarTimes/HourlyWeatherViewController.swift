@@ -64,3 +64,20 @@ extension HourlyWeatherViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+//extension HourlyWeatherViewController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        
+//        let numberOfItemsPerRow = 5.0
+//        let spacingBetweenCells = 10.0
+//        
+//        let totalSpacing = 80 + ((numberOfItemsPerRow - 1) * spacingBetweenCells)
+//        if let collection = self.hourlyCollectionView{
+//            let width = (Double(collection.bounds.width) - totalSpacing)/numberOfItemsPerRow
+//            print(width)
+//            return CGSize(width: width, height: width)
+//        }else{
+//            return CGSize(width: 0, height: 0)
+//        }
+//    }
+//}

@@ -17,7 +17,7 @@ struct DailyWeather {
     var dayName: String {
         let date = Date(timeIntervalSince1970: TimeInterval(time))
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
+        dateFormatter.dateFormat = "E ee"
         return dateFormatter.string(from: date).capitalized
     }
 }
