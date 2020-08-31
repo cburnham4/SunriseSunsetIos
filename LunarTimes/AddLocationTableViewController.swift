@@ -201,3 +201,13 @@ extension Array where Element == SunriseLocation {
         return false
     }
 }
+
+extension AddLocationTableViewController {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            viewModel.sunriseLocations.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            self.saveLocations(sunriseLocations: self.viewModel.sunriseLocations)
+        }
+    }
+}

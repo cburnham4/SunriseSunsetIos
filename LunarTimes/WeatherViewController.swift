@@ -25,6 +25,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     weak var hourlyViewController: UIViewController?
     weak var weeklyViewController: UIViewController?
+    var address: String = ""
     
     @IBAction func locationPickerTapped(_ sender: Any) {
         let tableViewController: AddLocationTableViewController = AddLocationTableViewController.viewController(viewModel: AddLocationViewModel(sunriseLocation: presentedLocation))
@@ -54,6 +55,8 @@ class WeatherViewController: UIViewController {
         self.add(subView: hourlyViewController!, toView: containerView, defaultView: true)
         self.add(subView: weeklyViewController!, toView: containerView, defaultView: false)
         super.viewDidLoad()
+        
+        weatherLocation.text = address
 
         
         
@@ -134,14 +137,10 @@ extension WeatherViewController: LocationChangedDelegate {
     func locationUpdated(selectedLocation: SunriseLocation) {
         self.presentedLocation = selectedLocation
         requestWeather(longitude: selectedLocation.longitude, latitude: selectedLocation.latitude)
-        
-        /* unsure why following line is breaking*/
-//        print("\(selectedLocation.sunrisePlacemark?.address ?? "")")
-        //weatherLocation.text = "\(selectedLocation.sunrisePlacemark?.address ?? "")"
-        
-        if let locality = selectedLocation.sunrisePlacemark?.locality {
-            title = "Weather: " + locality
-        }
+
+        address = "\(selectedLocation.sunrisePlacemark?.address ?? "")"
+        weatherLocation?.text = address
+
     }
 }
 
