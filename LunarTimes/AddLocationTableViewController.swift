@@ -139,6 +139,8 @@ class AddLocationTableViewController: UITableViewController, BaseViewController 
         // for searching, see `MKLocalSearchRequest`'s `region` property
         locationPicker.useCurrentLocationAsHint = true // default: false
         
+        locationPicker.searchTextFieldColor = .white
+        
         locationPicker.completion = { location in
             guard let location = location else { return }
             self.viewModel.currentSunriseLocation = SunriseLocation(myLocation: location, sunrisePlacemark: location.placemark)
