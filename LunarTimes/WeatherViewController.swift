@@ -51,7 +51,7 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         hourlyViewController = self.storyboard?.instantiateViewController(withIdentifier: "hourlyView")
-        weeklyViewController = self.storyboard?.instantiateViewController(withIdentifier: "dailyView")
+        weeklyViewController = self.storyboard?.instantiateViewController(withIdentifier: "DailyWeatherViewController")
         self.add(subView: hourlyViewController!, toView: containerView, defaultView: true)
         self.add(subView: weeklyViewController!, toView: containerView, defaultView: false)
         super.viewDidLoad()

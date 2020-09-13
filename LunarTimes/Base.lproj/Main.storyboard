@@ -969,7 +969,7 @@
         <!--Daily Weather View Controller-->
         <scene sceneID="BCs-p1-A5K">
             <objects>
-                <viewController storyboardIdentifier="dailyView" id="d7K-4a-ulc" customClass="DailyWeatherViewController" customModule="Sunrise___Sunset" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DailyWeatherViewController" id="d7K-4a-ulc" customClass="DailyWeatherViewController" customModule="Sunrise___Sunset" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZEz-kr-enX"/>
                         <viewControllerLayoutGuide type="bottom" id="cDF-58-Vl7"/>

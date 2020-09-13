@@ -47,7 +47,6 @@ class DailyWeatherViewController: UIViewController {
     
     @IBOutlet weak var dailyWeatherCollectionView: UICollectionView!
     
-    
     static let rowHeight = 48
     
     var weatherInfoItems: [DailyWeather]? {
