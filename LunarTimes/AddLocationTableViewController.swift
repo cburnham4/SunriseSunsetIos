@@ -116,9 +116,17 @@ class AddLocationTableViewController: UITableViewController, BaseViewController 
         openLocationPicker()
     }
     
+    func closeTapped(){
+        guard navigationController?.visibleViewController is UIViewController else{
+            return
+        }
+        navigationController?.dismiss(animated: true)
+    }
+    
     func openLocationPicker(){
         let locationPicker = LocationPickerViewController()
-        
+        let locationNavigationController = UINavigationController(rootViewController: locationPicker)
+        locationPicker.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeTapped))
         // you can optionally set initial location
         let location = CLLocation(latitude: self.viewModel.latitude, longitude: self.viewModel.longitude)
         if let placemark = viewModel.placemark {
@@ -155,7 +163,7 @@ class AddLocationTableViewController: UITableViewController, BaseViewController 
             self.navigationController?.popViewController(animated: true)
         }
         
-        navigationController?.pushViewController(locationPicker, animated: true)
+        navigationController?.present(locationNavigationController, animated: true)
     }
 }
 
