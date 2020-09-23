@@ -61,9 +61,12 @@ class TabBarViewController: UITabBarController {
         
         //Added to set background a certain color
         let numberOfItems = CGFloat(tabBar.items!.count)
-        let tabBarItemSize = CGSize(width: tabBar.frame.width / numberOfItems, height: tabBar.frame.height)
+        let tabBarItemSize = CGSize(width: (tabBar.frame.width + 30) / numberOfItems, height: tabBar.frame.height)
         
-        tabBar.selectionIndicatorImage = UIImage.imageWithColor(color: UIColor(red: 2, green: 17, blue: 62), size: tabBarItemSize).resizableImage(withCapInsets: UIEdgeInsets.zero)
+        tabBar.selectionIndicatorImage = UIImage.imageWithColor(color: UIColor(red: 2, green: 17, blue: 62), size: tabBarItemSize)
+            
+            //doesn't seem necessary
+//            .resizableImage(withCapInsets: UIEdgeInsets.zero)
         
         // remove default border
         tabBar.frame.size.width = self.view.frame.width + 4
