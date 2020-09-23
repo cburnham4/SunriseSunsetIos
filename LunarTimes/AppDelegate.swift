@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GADMobileAds.configure(withApplicationID: "ca-app-pub-8223005482588566~5783734330")
         
+        UINavigationBar.appearance().barTintColor =  UIColor(named: "nav_bar_color")
+        UINavigationBar.appearance().barStyle = .black
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: "nav_title_color")]
         return true
     }
 }
