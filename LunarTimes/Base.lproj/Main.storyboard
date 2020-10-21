@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_background" translatesAutoresizingMaskIntoConstraints="NO" id="ZfN-NS-eLw">
@@ -464,6 +464,11 @@
                             <constraint firstItem="rmA-xd-i27" firstAttribute="top" secondItem="pqW-ts-m3C" secondAttribute="bottom" constant="8" id="edV-yg-hqZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZfN-NS-eLw" secondAttribute="bottom" id="qVb-Uu-6bL"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="D4Y-sT-1jc"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Sunrise &amp; Sunset" id="Kus-0w-M62">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="location.fill" catalog="system" id="46c-pw-ghf">
@@ -536,7 +541,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ftV-Og-0DM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="d3x-7w-b2U">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="706"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_background" translatesAutoresizingMaskIntoConstraints="NO" id="jDE-Y9-nQb">
@@ -627,10 +632,10 @@
                                 <rect key="frame" x="0.0" y="197" width="414" height="410"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7e-D9-8fc">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="437"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="477"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="IUS-Cd-NCa">
-                                                <rect key="frame" x="15" y="8" width="384" height="429"/>
+                                                <rect key="frame" x="15" y="8" width="384" height="469"/>
                                                 <subviews>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pu-yF-2Av">
                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="112"/>
@@ -639,16 +644,16 @@
                                                         </constraints>
                                                     </containerView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjy-Cv-SyT">
-                                                        <rect key="frame" x="0.0" y="136" width="384" height="220"/>
+                                                        <rect key="frame" x="0.0" y="136" width="384" height="260"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="220" id="det-Iw-ipw"/>
+                                                            <constraint firstAttribute="height" constant="260" id="det-Iw-ipw"/>
                                                         </constraints>
                                                         <connections>
                                                             <segue destination="SEZ-4d-7uK" kind="embed" identifier="WeatherInfoSegue" id="uY2-S0-abo"/>
                                                         </connections>
                                                     </containerView>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by Dark Sky icons by icons8.com" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QwH-l6-En5" userLabel="Powered bt Dark Sky  icons by icons8.com">
-                                                        <rect key="frame" x="0.0" y="380" width="384" height="49"/>
+                                                        <rect key="frame" x="0.0" y="420" width="384" height="49"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="49" id="5Ib-Kl-Rp5"/>
@@ -674,11 +679,12 @@
                                     <constraint firstAttribute="trailing" secondItem="e7e-D9-8fc" secondAttribute="trailing" id="LkD-A7-FJO"/>
                                     <constraint firstItem="e7e-D9-8fc" firstAttribute="top" secondItem="Sfv-2L-KI2" secondAttribute="top" id="Xmj-Zr-SbE"/>
                                     <constraint firstItem="e7e-D9-8fc" firstAttribute="leading" secondItem="Sfv-2L-KI2" secondAttribute="leading" id="hDg-An-TZH"/>
+                                    <constraint firstItem="e7e-D9-8fc" firstAttribute="width" secondItem="Sfv-2L-KI2" secondAttribute="width" id="vcW-DJ-BGn"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="N2u-Nz-7d2"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="6db-cM-CHv"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Og-ib-75o" customClass="GADBannerView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Og-ib-75o" customClass="GADBannerView">
                                 <rect key="frame" x="47" y="607" width="320" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -921,11 +927,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Krm-mE-ky3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sHD-WN-HwD">
-                        <rect key="frame" x="0.0" y="0.0" width="384" height="220"/>
+                        <rect key="frame" x="0.0" y="0.0" width="384" height="260"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="2YJ-mr-sso">
-                                <rect key="frame" x="0.0" y="0.0" width="384" height="220"/>
+                                <rect key="frame" x="0.0" y="0.0" width="384" height="260"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
