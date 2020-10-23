@@ -13,43 +13,46 @@ struct WeatherInfoItem {
     let info: String
 }
 
-class WeatherInfoCell: UICollectionViewCell {
+class WeatherInfoCell: UITableViewCell {
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
-    @IBOutlet weak var shadowView: ShadowView!
+    @IBOutlet weak var gradientView: GradientView!
     
     func setContent(weatherInfo: WeatherInfoItem) {
         nameLabel.text = weatherInfo.name
         descLabel.text = weatherInfo.info
-        setupShadow()
     }
-    
-    func setupShadow() {
-        shadowView.bounds =  CGRect(x: 0, y: 0, width: bounds.width - 8, height: shadowView.bounds.height)
-        shadowView.addShadow() // Add additional shadow as the view is now resized 
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        gradientView?.frame.size = CGSize(width: superview?.frame.width ?? 300, height: frame.height)
     }
 }
 
 class WeatherInfoViewController: UIViewController {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     
     var weatherInfoItems: [WeatherInfoItem]? {
         didSet {
-            collectionView?.reloadData()
+            tableView?.reloadData()
         }
     }
 }
 
-extension WeatherInfoViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension WeatherInfoViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return weatherInfoItems?.count ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherInfoCell", for: indexPath) as? WeatherInfoCell,
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherInfoCell", for: indexPath) as? WeatherInfoCell,
             let weatherInfo = weatherInfoItems?[indexPath.row] else {
-            return UICollectionViewCell()
+            return UITableViewCell()
         }
         
         cell.setContent(weatherInfo: weatherInfo)

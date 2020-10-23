@@ -25,12 +25,25 @@ class TabBarViewController: UITabBarController {
     var locationManager = CLLocationManager()
     let defaults = UserDefaults.standard
     let savedLocal = "savedLocal"
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Added to set background a certain color
+        let numberOfItems = CGFloat(tabBar.items!.count)
+        let tabBarItemSize = CGSize(width: (tabBar.frame.width + 30) / numberOfItems, height: tabBar.frame.height)
+        
+        //tabBar.selectionIndicatorImage = UIImage.imageWithColor(color: UIColor(red: 2, green: 17, blue: 62), size: tabBarItemSize)
+        tabBar.tintColor = UIColor(red: 2, green: 17, blue: 62)
+        
+        // remove default border
+        tabBar.frame.size.width = self.view.frame.width + 4
+        tabBar.frame.origin.x = -2
+        
+        
         NotificationCenter.default.addObserver(self, selector:#selector(onAppear), name: UIApplication.willEnterForegroundNotification, object: nil)
-
+        
         /* Get the location of the user */
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
@@ -51,7 +64,7 @@ class TabBarViewController: UITabBarController {
             }
         }
     }
-
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -106,5 +119,18 @@ extension TabBarViewController: CLLocationManagerDelegate {
             let sunriseLocation = SunriseLocation(latitude: latitude, longitude: longitude, sunrisePlacemark: placemark)
             self?.updateChildren(selectedLocation: sunriseLocation)
         })
+    }
+}
+
+extension UIImage {
+    
+    class func imageWithColor(color: UIColor, size: CGSize) -> UIImage {
+        let rect: CGRect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
     }
 }

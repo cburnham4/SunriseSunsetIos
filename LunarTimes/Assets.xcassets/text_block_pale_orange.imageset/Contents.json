@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "text_block_pale_orange.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "snow.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

@@ -33,9 +33,9 @@ extension WeatherResponse {
         let stormDistance = currently.nearestStormDistance != nil ? "\(currently.nearestStormDistance!) miles" : "N/A"
         let temp = currently.temperature == nil ? "N/A" : "\(currently.temperature!) °F"
         return [
-            WeatherInfoItem(name: "Summary", info: currently.summary),
-            WeatherInfoItem(name: "Temperature", info: temp),
-            WeatherInfoItem(name: "Precipitation Probability", info: precipProbabilityString),
+//            WeatherInfoItem(name: "Summary", info: currently.summary),
+//            WeatherInfoItem(name: "Temperature", info: temp),
+//            WeatherInfoItem(name: "Precipitation Probability", info: precipProbabilityString),
             WeatherInfoItem(name: "Precipitation Intensity", info:  "\(currently.precipIntensity) in/hr"),
             WeatherInfoItem(name: "Wind Speed", info: "\(currently.windSpeed) mph"),
             WeatherInfoItem(name: "Wind Gust", info: "\(currently.windGust) mph"),
