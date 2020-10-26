@@ -30,10 +30,8 @@ class WeatherInfoCell: UITableViewCell {
 }
 
 class WeatherInfoViewController: UIViewController {
-
     
     @IBOutlet weak var tableView: UITableView!
-    
     
     var weatherInfoItems: [WeatherInfoItem]? {
         didSet {

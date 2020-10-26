@@ -59,7 +59,7 @@ struct WeatherDataSetResponse: Codable {
 
 struct WeatherDataSet: Codable {
     var time: Int
-    var summary: String
+    var summary: String?
     var precipIntensity: Double
     var precipProbability: Double
     var temperature: Double?
