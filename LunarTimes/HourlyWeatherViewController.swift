@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import lh_helpers
 
 struct HourlyWeather {
     let time: String
@@ -14,6 +15,8 @@ struct HourlyWeather {
     let precipitation: Double?
     let imageName: String?
 }
+
+class HourlyWeatherViewModel { }
 
 class HourlyWeatherCollectionCell: UICollectionViewCell {
     
@@ -38,7 +41,11 @@ class HourlyWeatherCollectionCell: UICollectionViewCell {
     }
 }
 
-class HourlyWeatherViewController: UIViewController {
+class HourlyWeatherViewController: UIViewController, BaseViewController {
+    static var storyboardName: String = "Main"
+
+    var viewModel: HourlyWeatherViewModel!
+    var flowDelegate: Any? = nil
     
     @IBOutlet weak var hourlyCollectionView: UICollectionView!
     

@@ -9,9 +9,9 @@
 import UIKit
 import CoreLocation
 import GoogleMobileAds
+import lh_helpers
 
 class WeatherViewController: UIViewController {
-
 
     @IBOutlet weak var weatherLocation: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -23,8 +23,8 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var dailyWeatherHeight: NSLayoutConstraint!
     
     @IBOutlet weak var containerView: UIView!
-    weak var hourlyViewController: UIViewController?
-    weak var weeklyViewController: UIViewController?
+    weak var hourlyViewController: UIViewController!
+    weak var weeklyViewController: UIViewController!
     var address: String = ""
     
     @IBAction func locationPickerTapped(_ sender: Any) {
@@ -36,12 +36,10 @@ class WeatherViewController: UIViewController {
     
     @IBAction func showWeather(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            cycleViews(currentViewController: weeklyViewController!, newViewController: hourlyViewController!)
-        }else{
-            cycleViews(currentViewController: hourlyViewController!, newViewController: weeklyViewController!)
-            
+            cycleViews(currentViewController: weeklyViewController, newViewController: hourlyViewController)
+        } else {
+            cycleViews(currentViewController: hourlyViewController, newViewController: weeklyViewController)
         }
-        
     }
     
     var presentedLocation: SunriseLocation?
@@ -50,24 +48,23 @@ class WeatherViewController: UIViewController {
     var timer: Timer?
     
     override func viewDidLoad() {
-        hourlyViewController = self.storyboard?.instantiateViewController(withIdentifier: "hourlyView")
-        weeklyViewController = self.storyboard?.instantiateViewController(withIdentifier: "DailyWeatherViewController")
-        self.add(subView: hourlyViewController!, toView: containerView, defaultView: true)
-        self.add(subView: weeklyViewController!, toView: containerView, defaultView: false)
         super.viewDidLoad()
+        hourlyViewController = HourlyWeatherViewController.viewController(viewModel: HourlyWeatherViewModel())
+        weeklyViewController = DailyWeatherViewController.viewController(viewModel: DailyWeatherViewModel())
+
+        // Add weekly view to instantiate it then remove it
+        addChildViewControllerToContainer(hourlyViewController, containerView: containerView)
+        addChildViewControllerToContainer(weeklyViewController, containerView: containerView)
+        weeklyViewController.view.removeFromSuperview()
         
         weatherLocation.text = address
 
-        
-        
         /* Setup the bannerview */
         bannerView.adUnitID = "ca-app-pub-8223005482588566/3396819721"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         
         UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
-
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -140,7 +137,6 @@ extension WeatherViewController: LocationChangedDelegate {
 
         address = "\(selectedLocation.sunrisePlacemark?.address ?? "")"
         weatherLocation?.text = address
-
     }
 }
 
@@ -151,24 +147,10 @@ extension WeatherViewController: LocationSelectedDelegate {
 }
 
 extension WeatherViewController {
-    func add(subView:UIViewController, toView parentView:UIView, defaultView: Bool) {
-        self.addChild(subView)
-        subView.didMove(toParent: self)
-        
-        if defaultView {
-            parentView.addSubview(subView.view)
-            subView.view.frame = parentView.bounds
-            subView.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        }
-    }
-}
-
-extension WeatherViewController {
-    func cycleViews(currentViewController: UIViewController!, newViewController: UIViewController!) {
+    func cycleViews(currentViewController: UIViewController, newViewController: UIViewController!) {
         currentViewController.view.removeFromSuperview()
         containerView.addSubview(newViewController.view)
         newViewController.view.frame = containerView.bounds
         newViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
 }
-

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import lh_helpers
 
 struct DailyWeather {
     let time: Int
@@ -17,7 +18,7 @@ struct DailyWeather {
     var dayName: String {
         let date = Date(timeIntervalSince1970: TimeInterval(time))
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "E ee"
+        dateFormatter.dateFormat = "E d"
         return dateFormatter.string(from: date).capitalized
     }
 }
@@ -43,11 +44,15 @@ class DailyWeatherCollectionViewCell: UICollectionViewCell {
     }
 }
 
-class DailyWeatherViewController: UIViewController {
+class DailyWeatherViewModel { }
+
+class DailyWeatherViewController: UIViewController, BaseViewController {
+
+    static var storyboardName = "Main"
+    var viewModel: DailyWeatherViewModel!
+    var flowDelegate: Any? = nil
     
     @IBOutlet weak var dailyWeatherCollectionView: UICollectionView!
-    
-    static let rowHeight = 48
     
     var weatherInfoItems: [DailyWeather]? {
         didSet {
