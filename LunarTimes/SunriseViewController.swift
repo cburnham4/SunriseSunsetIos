@@ -13,7 +13,6 @@ import SwiftyJSON
 import GoogleMobileAds
 import LocationPicker
 import lh_helpers
-import DatePickerDialog
 
 class SunriseViewController: UIViewController {
 

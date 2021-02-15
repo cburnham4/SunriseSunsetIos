@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-8223005482588566~5783734330")
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         UINavigationBar.appearance().barTintColor =  UIColor(named: "nav_bar_color")
         UINavigationBar.appearance().barStyle = .black
