@@ -25,27 +25,19 @@
 		E094B75423B29B08002AACA6 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75323B29B08002AACA6 /* WeatherViewController.swift */; };
 		E094B75623B29B64002AACA6 /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75523B29B64002AACA6 /* WeatherRequest.swift */; };
 		E094B75823B29EF2002AACA6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75723B29EF2002AACA6 /* TabBarViewController.swift */; };
+		E0BAC7332649E44600ED79C2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E0BAC7322649E44600ED79C2 /* FirebaseAnalytics */; };
+		E0BAC7352649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = E0BAC7342649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta */; };
 		E0C2974F2403247900F2B9C3 /* DailyWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C2974E2403247900F2B9C3 /* DailyWeatherViewController.swift */; };
-		E0CBE9FF246A014200204538 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBE9F9246A011300204538 /* FirebaseAnalytics.framework */; };
-		E0CBEA11246A014200204538 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA01246A014200204538 /* FirebaseCore.framework */; };
 		E0CBEA13246A014200204538 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA02246A014200204538 /* GoogleMobileAds.framework */; };
-		E0CBEA15246A014200204538 /* FirebaseInstallations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA03246A014200204538 /* FirebaseInstallations.framework */; };
-		E0CBEA17246A014200204538 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA04246A014200204538 /* FirebaseCoreDiagnostics.framework */; };
 		E0CBEA19246A014200204538 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA05246A014200204538 /* GTMSessionFetcher.framework */; };
-		E0CBEA1B246A014200204538 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA06246A014200204538 /* FIRAnalyticsConnector.framework */; };
-		E0CBEA25246A014300204538 /* FirebaseCrashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA0B246A014200204538 /* FirebaseCrashlytics.framework */; };
-		E0CBEA27246A014300204538 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA0C246A014200204538 /* GoogleUtilities.framework */; };
 		E0CBEA29246A014300204538 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA0D246A014200204538 /* GoogleAppMeasurement.framework */; };
-		E0CBEA2F246A014300204538 /* GoogleDataTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA10246A014200204538 /* GoogleDataTransport.framework */; };
 		E0CBEA31246A015300204538 /* lh_helpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBE9FC246A013500204538 /* lh_helpers.framework */; };
 		E0CBEA32246A015300204538 /* lh_helpers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBE9FC246A013500204538 /* lh_helpers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E0CBEA36246A04C400204538 /* PromisesObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA35246A04C400204538 /* PromisesObjC.framework */; };
 		E0D5A44A232D191A00E10FE0 /* SunriseSunsetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */; };
 		E0D60DD723D1E6A500911765 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D60DD623D1E6A500911765 /* NumberExtensions.swift */; };
 		E0DB54B725DB13850004149B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0DB54B625DB13850004149B /* Alamofire */; };
 		E0DB54BC25DB13AB0004149B /* LocationPicker in Frameworks */ = {isa = PBXBuildFile; productRef = E0DB54BB25DB13AB0004149B /* LocationPicker */; };
 		E0DB54C125DB13F50004149B /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E0DB54C025DB13F50004149B /* SwiftyJSON */; };
-		E0DB54C625DB145F0004149B /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA08246A014200204538 /* Firebase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,22 +120,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0DB54C125DB13F50004149B /* SwiftyJSON in Frameworks */,
-				E0CBEA27246A014300204538 /* GoogleUtilities.framework in Frameworks */,
 				E0CBEA19246A014200204538 /* GTMSessionFetcher.framework in Frameworks */,
-				E0CBEA36246A04C400204538 /* PromisesObjC.framework in Frameworks */,
+				E0BAC7352649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta in Frameworks */,
 				E0CBEA13246A014200204538 /* GoogleMobileAds.framework in Frameworks */,
-				E0CBE9FF246A014200204538 /* FirebaseAnalytics.framework in Frameworks */,
-				E0CBEA15246A014200204538 /* FirebaseInstallations.framework in Frameworks */,
 				E0CBEA31246A015300204538 /* lh_helpers.framework in Frameworks */,
+				E0BAC7332649E44600ED79C2 /* FirebaseAnalytics in Frameworks */,
 				E0DB54B725DB13850004149B /* Alamofire in Frameworks */,
 				E0DB54BC25DB13AB0004149B /* LocationPicker in Frameworks */,
-				E0CBEA1B246A014200204538 /* FIRAnalyticsConnector.framework in Frameworks */,
-				E0CBEA11246A014200204538 /* FirebaseCore.framework in Frameworks */,
-				E0CBEA2F246A014300204538 /* GoogleDataTransport.framework in Frameworks */,
-				E0DB54C625DB145F0004149B /* Firebase.framework in Frameworks */,
 				E0CBEA29246A014300204538 /* GoogleAppMeasurement.framework in Frameworks */,
-				E0CBEA25246A014300204538 /* FirebaseCrashlytics.framework in Frameworks */,
-				E0CBEA17246A014200204538 /* FirebaseCoreDiagnostics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +273,8 @@
 				E0DB54B625DB13850004149B /* Alamofire */,
 				E0DB54BB25DB13AB0004149B /* LocationPicker */,
 				E0DB54C025DB13F50004149B /* SwiftyJSON */,
+				E0BAC7322649E44600ED79C2 /* FirebaseAnalytics */,
+				E0BAC7342649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta */,
 			);
 			productName = LunarTimes;
 			productReference = 443B8DD01D09FE2F00F5CDBB /* Sunrise & Sunset.app */;
@@ -346,6 +332,7 @@
 				E0DB54B525DB13850004149B /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E0DB54BA25DB13AB0004149B /* XCRemoteSwiftPackageReference "LocationPicker" */,
 				E0DB54BF25DB13F50004149B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				E0BAC7312649E44600ED79C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 443B8DD11D09FE2F00F5CDBB /* Products */;
 			projectDirPath = "";
@@ -723,6 +710,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E0BAC7312649E44600ED79C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.1;
+			};
+		};
 		E0DB54B525DB13850004149B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -750,6 +745,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E0BAC7322649E44600ED79C2 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0BAC7312649E44600ED79C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		E0BAC7342649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0BAC7312649E44600ED79C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAnalyticsSwift-Beta";
+		};
 		E0DB54B625DB13850004149B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0DB54B525DB13850004149B /* XCRemoteSwiftPackageReference "Alamofire" */;
