@@ -115,8 +115,8 @@ class AddLocationTableViewController: UITableViewController, BaseViewController 
         openLocationPicker()
     }
     
-    func closeTapped(){
-        guard navigationController?.visibleViewController is UIViewController else{
+    @objc func closeTapped(){
+        guard (navigationController?.visibleViewController) != nil else{
             return
         }
         navigationController?.dismiss(animated: true)

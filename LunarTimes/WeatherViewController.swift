@@ -98,13 +98,13 @@ class WeatherViewController: UIViewController {
         }
         
         /* may be cleaner to create a current weather object in weather request to obtain info. Start Here: */
-        temperatureLabel.text = "\(weather.currently.temperature!)"
-        currentWeatherLabel.text = "\(weather.currently.summary ?? "")"
+        temperatureLabel.text = "\(weather.current.temperature!)"
+        currentWeatherLabel.text = "\(weather.current.summary ?? "")"
         
-        let precipProbabilityString = (weather.currently.precipProbability * 100.0).percentString(to: 1)
-        rainChanceLabel.text = "Chance of Rain: " + precipProbabilityString
+        // TODO @chase let precipProbabilityString = (weather.current.precipProbability ?? 0 * 100.0).percentString(to: 1)
+        //rainChanceLabel.text = "Chance of Rain: " + precipProbabilityString
         
-        weatherImage.image = UIImage(named: weather.currently.icon!)
+        weatherImage.image = UIImage(named: weather.current.icon!)
         /* :End Here*/
         print(children)
         if let hourlyViewController = children[1] as? HourlyWeatherViewController {
