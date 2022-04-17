@@ -23,7 +23,7 @@ extension WeatherResponse {
             return HourlyWeather(time: hour,
                                  temp: $0.temperature,
                                  precipitation: $0.precipProbability,
-                                 imageName: $0.icon)
+                                 iconURL: $0.iconURL)
         }
     }
     
@@ -48,7 +48,7 @@ extension WeatherResponse {
     
     var dailyWeather: [DailyWeather] {
         return daily.map {
-            DailyWeather(time: $0.time, tempHigh: $0.temperatureHigh, tempLow: $0.temperatureLow, imageName: $0.icon)
+            DailyWeather(time: $0.time, tempHigh: $0.temperatureHigh, tempLow: $0.temperatureLow, iconURL: $0.iconURL)
         }
     }
 }
@@ -88,8 +88,11 @@ struct CurrentWeather: Codable {
 }
 
 extension CurrentWeather {
-    var icon: String? {
-        return weather.first?.icon
+    var iconURL: URL? {
+        if let icon = weather.first?.icon {
+            return URL(string: "http://openweathermap.org/img/wn/\(icon)@2x.png")
+        }
+        return URL(string: "http://openweathermap.org/img/wn/01d@2x.png")
     }
 
     var summary: String {
@@ -132,8 +135,11 @@ struct WeatherDataSet: Codable {
 }
 
 extension WeatherDataSet {
-    var icon: String? {
-        return weather.first?.icon
+    var iconURL: URL? {
+        if let icon = weather.first?.icon {
+            return URL(string: "http://openweathermap.org/img/wn/\(icon)@2x.png")
+        }
+        return URL(string: "http://openweathermap.org/img/wn/01d@2x.png")
     }
 
     var summary: String {

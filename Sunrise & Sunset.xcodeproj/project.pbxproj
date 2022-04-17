@@ -18,6 +18,7 @@
 		E018307C23BFF1D8007DED35 /* WeatherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E018307B23BFF1D8007DED35 /* WeatherInfoViewController.swift */; };
 		E02793A2241D2F200061F560 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02793A1241D2F200061F560 /* ShadowView.swift */; };
 		E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048EB35217FF017008A4807 /* ColorsConfig.swift */; };
+		E050EF9E27848169005D0585 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E050EF9D27848169005D0585 /* Kingfisher */; };
 		E0660B0523B5883400A19E07 /* HourlyWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0660B0423B5883400A19E07 /* HourlyWeatherViewController.swift */; };
 		E06F4D2B23C0DF880018BAD8 /* TwoColumnCollectionFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F4D2A23C0DF880018BAD8 /* TwoColumnCollectionFlow.swift */; };
 		E07534781ED89BED007D372B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07534771ED89BED007D372B /* GoogleService-Info.plist */; };
@@ -123,6 +124,7 @@
 				E0CBEA19246A014200204538 /* GTMSessionFetcher.framework in Frameworks */,
 				E0BAC7352649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta in Frameworks */,
 				E0CBEA13246A014200204538 /* GoogleMobileAds.framework in Frameworks */,
+				E050EF9E27848169005D0585 /* Kingfisher in Frameworks */,
 				E0CBEA31246A015300204538 /* lh_helpers.framework in Frameworks */,
 				E0BAC7332649E44600ED79C2 /* FirebaseAnalytics in Frameworks */,
 				E0DB54B725DB13850004149B /* Alamofire in Frameworks */,
@@ -275,6 +277,7 @@
 				E0DB54C025DB13F50004149B /* SwiftyJSON */,
 				E0BAC7322649E44600ED79C2 /* FirebaseAnalytics */,
 				E0BAC7342649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta */,
+				E050EF9D27848169005D0585 /* Kingfisher */,
 			);
 			productName = LunarTimes;
 			productReference = 443B8DD01D09FE2F00F5CDBB /* Sunrise & Sunset.app */;
@@ -333,6 +336,7 @@
 				E0DB54BA25DB13AB0004149B /* XCRemoteSwiftPackageReference "LocationPicker" */,
 				E0DB54BF25DB13F50004149B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				E0BAC7312649E44600ED79C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E050EF9C27848169005D0585 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 443B8DD11D09FE2F00F5CDBB /* Products */;
 			projectDirPath = "";
@@ -710,6 +714,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E050EF9C27848169005D0585 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
 		E0BAC7312649E44600ED79C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -745,6 +757,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E050EF9D27848169005D0585 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E050EF9C27848169005D0585 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		E0BAC7322649E44600ED79C2 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0BAC7312649E44600ED79C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

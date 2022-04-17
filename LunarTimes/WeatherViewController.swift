@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import GoogleMobileAds
 import lh_helpers
+import Kingfisher
 
 class WeatherViewController: UIViewController {
 
@@ -103,8 +104,8 @@ class WeatherViewController: UIViewController {
         
         // TODO @chase let precipProbabilityString = (weather.current.precipProbability ?? 0 * 100.0).percentString(to: 1)
         //rainChanceLabel.text = "Chance of Rain: " + precipProbabilityString
-        
-        weatherImage.image = UIImage(named: weather.current.icon!)
+        weatherImage.kf.setImage(with: weather.current.iconURL)
+
         /* :End Here*/
         print(children)
         if let hourlyViewController = children[1] as? HourlyWeatherViewController {

@@ -13,7 +13,7 @@ struct HourlyWeather {
     let time: String
     let temp: Double?
     let precipitation: Double?
-    let imageName: String?
+    let iconURL: URL?
 }
 
 class HourlyWeatherViewModel { }
@@ -30,9 +30,7 @@ class HourlyWeatherCollectionCell: UICollectionViewCell {
         timeLabel.text = hourlyWeather.time
         let tempString = String(format: "%.1f%@", hourlyWeather.temp ?? 0.0, "°F")
         tempLabel.text = tempString
-        if let imageName = hourlyWeather.imageName {
-            weatherIcon.image = UIImage(named: imageName)
-        }
+        weatherIcon.kf.setImage(with: hourlyWeather.iconURL)
         if let precipitation = hourlyWeather.precipitation, precipitation > 0.05 {
             percipitationLabel.text = (precipitation * 100.0).percentString(to: 1)
         } else {
