@@ -47,7 +47,7 @@ struct SunriseSunsetRequest: Request {
     let dateString: String
     
     var endpoint: String {
-        return "https://api.sunrise-sunset.org/json?lat=" + lat.description +
+        return "http://api.sunrise-sunset.org/json?lat=" + lat.description +
             "&lng=" + long.description + "&formatted=0" + "&date=" + dateString;
     }
 }
