@@ -28,8 +28,6 @@
 		E0BAC7332649E44600ED79C2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E0BAC7322649E44600ED79C2 /* FirebaseAnalytics */; };
 		E0BAC7352649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = E0BAC7342649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta */; };
 		E0C2974F2403247900F2B9C3 /* DailyWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C2974E2403247900F2B9C3 /* DailyWeatherViewController.swift */; };
-		E0CBEA13246A014200204538 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA02246A014200204538 /* GoogleMobileAds.framework */; };
-		E0CBEA19246A014200204538 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA05246A014200204538 /* GTMSessionFetcher.framework */; };
 		E0CBEA29246A014300204538 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA0D246A014200204538 /* GoogleAppMeasurement.framework */; };
 		E0CBEA31246A015300204538 /* lh_helpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBE9FC246A013500204538 /* lh_helpers.framework */; };
 		E0CBEA32246A015300204538 /* lh_helpers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBE9FC246A013500204538 /* lh_helpers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -38,6 +36,9 @@
 		E0DB54B725DB13850004149B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0DB54B625DB13850004149B /* Alamofire */; };
 		E0DB54BC25DB13AB0004149B /* LocationPicker in Frameworks */ = {isa = PBXBuildFile; productRef = E0DB54BB25DB13AB0004149B /* LocationPicker */; };
 		E0DB54C125DB13F50004149B /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E0DB54C025DB13F50004149B /* SwiftyJSON */; };
+		E0DC79E528AAA0EE0001D454 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DC79E428AAA0EE0001D454 /* GoogleMobileAds.xcframework */; };
+		E0DC79E828AAA1090001D454 /* GTMSessionFetcher.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DC79E728AAA1090001D454 /* GTMSessionFetcher.xcframework */; };
+		E0DC79E928AAA1090001D454 /* GTMSessionFetcher.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0DC79E728AAA1090001D454 /* GTMSessionFetcher.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				E0CBEA32246A015300204538 /* lh_helpers.framework in Embed Frameworks */,
+				E0DC79E928AAA1090001D454 /* GTMSessionFetcher.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +114,8 @@
 		E0CBEA35246A04C400204538 /* PromisesObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromisesObjC.framework; path = ../Carthage/Build/iOS/PromisesObjC.framework; sourceTree = "<group>"; };
 		E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunsetRequest.swift; sourceTree = "<group>"; };
 		E0D60DD623D1E6A500911765 /* NumberExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
+		E0DC79E428AAA0EE0001D454 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = ../Carthage/Build/GoogleMobileAds.xcframework; sourceTree = "<group>"; };
+		E0DC79E728AAA1090001D454 /* GTMSessionFetcher.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GTMSessionFetcher.xcframework; path = ../Carthage/Build/GTMSessionFetcher.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,12 +124,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0DB54C125DB13F50004149B /* SwiftyJSON in Frameworks */,
-				E0CBEA19246A014200204538 /* GTMSessionFetcher.framework in Frameworks */,
+				E0DC79E528AAA0EE0001D454 /* GoogleMobileAds.xcframework in Frameworks */,
 				E0BAC7352649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta in Frameworks */,
-				E0CBEA13246A014200204538 /* GoogleMobileAds.framework in Frameworks */,
 				E0CBEA31246A015300204538 /* lh_helpers.framework in Frameworks */,
 				E0BAC7332649E44600ED79C2 /* FirebaseAnalytics in Frameworks */,
 				E0DB54B725DB13850004149B /* Alamofire in Frameworks */,
+				E0DC79E828AAA1090001D454 /* GTMSessionFetcher.xcframework in Frameworks */,
 				E0DB54BC25DB13AB0004149B /* LocationPicker in Frameworks */,
 				E0CBEA29246A014300204538 /* GoogleAppMeasurement.framework in Frameworks */,
 			);
@@ -223,6 +227,8 @@
 		E0CBE9EA246A00D100204538 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E0DC79E728AAA1090001D454 /* GTMSessionFetcher.xcframework */,
+				E0DC79E428AAA0EE0001D454 /* GoogleMobileAds.xcframework */,
 				E0CBEA35246A04C400204538 /* PromisesObjC.framework */,
 				E0CBEA06246A014200204538 /* FIRAnalyticsConnector.framework */,
 				E0CBEA08246A014200204538 /* Firebase.framework */,
