@@ -33,7 +33,6 @@
 		E0D5A44A232D191A00E10FE0 /* SunriseSunsetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */; };
 		E0D60DD723D1E6A500911765 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D60DD623D1E6A500911765 /* NumberExtensions.swift */; };
 		E0DB54B725DB13850004149B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0DB54B625DB13850004149B /* Alamofire */; };
-		E0DB54C125DB13F50004149B /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E0DB54C025DB13F50004149B /* SwiftyJSON */; };
 		E0DC79E528AAA0EE0001D454 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DC79E428AAA0EE0001D454 /* GoogleMobileAds.xcframework */; };
 		E0DC79E828AAA1090001D454 /* GTMSessionFetcher.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DC79E728AAA1090001D454 /* GTMSessionFetcher.xcframework */; };
 /* End PBXBuildFile section */
@@ -121,7 +120,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E06F5B2428AAE30200673DCD /* FirebaseAnalytics in Frameworks */,
-				E0DB54C125DB13F50004149B /* SwiftyJSON in Frameworks */,
 				E0DC79E528AAA0EE0001D454 /* GoogleMobileAds.xcframework in Frameworks */,
 				E0CBEA31246A015300204538 /* lh_helpers.framework in Frameworks */,
 				E06F5B2228AAE2EC00673DCD /* LocationPicker in Frameworks */,
@@ -273,7 +271,6 @@
 			name = "Sunrise & Sunset";
 			packageProductDependencies = (
 				E0DB54B625DB13850004149B /* Alamofire */,
-				E0DB54C025DB13F50004149B /* SwiftyJSON */,
 				E06F5B2128AAE2EC00673DCD /* LocationPicker */,
 				E06F5B2328AAE30200673DCD /* FirebaseAnalytics */,
 			);
@@ -331,7 +328,6 @@
 			mainGroup = 443B8DC71D09FE2F00F5CDBB;
 			packageReferences = (
 				E0DB54B525DB13850004149B /* XCRemoteSwiftPackageReference "Alamofire" */,
-				E0DB54BF25DB13F50004149B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				E043563028AAC25E00DA86CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				E06F5B2028AAE01000673DCD /* XCRemoteSwiftPackageReference "LocationPicker" */,
 			);
@@ -736,14 +732,6 @@
 				minimumVersion = 5.4.1;
 			};
 		};
-		E0DB54BF25DB13F50004149B /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -761,11 +749,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E0DB54B525DB13850004149B /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		E0DB54C025DB13F50004149B /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E0DB54BF25DB13F50004149B /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

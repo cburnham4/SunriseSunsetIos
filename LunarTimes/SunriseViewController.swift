@@ -9,7 +9,6 @@
 import UIKit
 import CoreLocation
 import Alamofire
-import SwiftyJSON
 import GoogleMobileAds
 import LocationPicker
 import lh_helpers
