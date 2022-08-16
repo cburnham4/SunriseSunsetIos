@@ -34,13 +34,13 @@ class SunriseLocation: NSObject, NSCoding {
         return sunrisePlacemark?.address ?? ""
     }
         
-    init(myLocation: Location, sunrisePlacemark: CLPlacemark?){
+    init(myLocation: Location, sunrisePlacemark: CLPlacemark? = nil){
         self.latitude = myLocation.coordinate.latitude
         self.longitude = myLocation.coordinate.longitude
         self.sunrisePlacemark = sunrisePlacemark
     }
     
-    @objc init(latitude: Double, longitude: Double, sunrisePlacemark: CLPlacemark?){
+    @objc init(latitude: Double, longitude: Double, sunrisePlacemark: CLPlacemark? = nil){
         self.latitude = latitude
         self.longitude = longitude
         self.sunrisePlacemark = sunrisePlacemark

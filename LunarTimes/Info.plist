@@ -26,8 +26,6 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSExceptionAllowsInsecureHTTPLoads</key>
-	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
@@ -41,6 +39,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSExceptionAllowsInsecureHTTPLoads</key>
+	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Find your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

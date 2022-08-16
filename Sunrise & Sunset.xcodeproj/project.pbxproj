@@ -20,25 +20,22 @@
 		E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048EB35217FF017008A4807 /* ColorsConfig.swift */; };
 		E0660B0523B5883400A19E07 /* HourlyWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0660B0423B5883400A19E07 /* HourlyWeatherViewController.swift */; };
 		E06F4D2B23C0DF880018BAD8 /* TwoColumnCollectionFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F4D2A23C0DF880018BAD8 /* TwoColumnCollectionFlow.swift */; };
+		E06F5B2228AAE2EC00673DCD /* LocationPicker in Frameworks */ = {isa = PBXBuildFile; productRef = E06F5B2128AAE2EC00673DCD /* LocationPicker */; };
+		E06F5B2428AAE30200673DCD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E06F5B2328AAE30200673DCD /* FirebaseAnalytics */; };
 		E07534781ED89BED007D372B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07534771ED89BED007D372B /* GoogleService-Info.plist */; };
 		E07534791ED89BED007D372B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07534771ED89BED007D372B /* GoogleService-Info.plist */; };
 		E094B75423B29B08002AACA6 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75323B29B08002AACA6 /* WeatherViewController.swift */; };
 		E094B75623B29B64002AACA6 /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75523B29B64002AACA6 /* WeatherRequest.swift */; };
 		E094B75823B29EF2002AACA6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094B75723B29EF2002AACA6 /* TabBarViewController.swift */; };
-		E0BAC7332649E44600ED79C2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E0BAC7322649E44600ED79C2 /* FirebaseAnalytics */; };
-		E0BAC7352649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = E0BAC7342649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta */; };
 		E0C2974F2403247900F2B9C3 /* DailyWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C2974E2403247900F2B9C3 /* DailyWeatherViewController.swift */; };
-		E0CBEA29246A014300204538 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBEA0D246A014200204538 /* GoogleAppMeasurement.framework */; };
 		E0CBEA31246A015300204538 /* lh_helpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBE9FC246A013500204538 /* lh_helpers.framework */; };
 		E0CBEA32246A015300204538 /* lh_helpers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBE9FC246A013500204538 /* lh_helpers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E0D5A44A232D191A00E10FE0 /* SunriseSunsetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */; };
 		E0D60DD723D1E6A500911765 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D60DD623D1E6A500911765 /* NumberExtensions.swift */; };
 		E0DB54B725DB13850004149B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0DB54B625DB13850004149B /* Alamofire */; };
-		E0DB54BC25DB13AB0004149B /* LocationPicker in Frameworks */ = {isa = PBXBuildFile; productRef = E0DB54BB25DB13AB0004149B /* LocationPicker */; };
 		E0DB54C125DB13F50004149B /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E0DB54C025DB13F50004149B /* SwiftyJSON */; };
 		E0DC79E528AAA0EE0001D454 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DC79E428AAA0EE0001D454 /* GoogleMobileAds.xcframework */; };
 		E0DC79E828AAA1090001D454 /* GTMSessionFetcher.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DC79E728AAA1090001D454 /* GTMSessionFetcher.xcframework */; };
-		E0DC79E928AAA1090001D454 /* GTMSessionFetcher.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0DC79E728AAA1090001D454 /* GTMSessionFetcher.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +56,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				E0CBEA32246A015300204538 /* lh_helpers.framework in Embed Frameworks */,
-				E0DC79E928AAA1090001D454 /* GTMSessionFetcher.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,6 +77,7 @@
 		99172427242FE1CF0039B067 /* AddLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationTableViewController.swift; sourceTree = "<group>"; };
 		E018307B23BFF1D8007DED35 /* WeatherInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoViewController.swift; sourceTree = "<group>"; };
 		E02793A1241D2F200061F560 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		E043562A28AABD6600DA86CC /* GoogleAppMeasurement */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GoogleAppMeasurement; path = "/Users/carlburnham/Library/Developer/Xcode/DerivedData/LetsHang-bztyuqrjiglsktdgqknlvrwdvrcu/SourcePackages/checkouts/GoogleAppMeasurement"; sourceTree = "<absolute>"; };
 		E048EB35217FF017008A4807 /* ColorsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsConfig.swift; sourceTree = "<group>"; };
 		E0660B0423B5883400A19E07 /* HourlyWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherViewController.swift; sourceTree = "<group>"; };
 		E06F4D2A23C0DF880018BAD8 /* TwoColumnCollectionFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoColumnCollectionFlow.swift; sourceTree = "<group>"; };
@@ -123,15 +120,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E06F5B2428AAE30200673DCD /* FirebaseAnalytics in Frameworks */,
 				E0DB54C125DB13F50004149B /* SwiftyJSON in Frameworks */,
 				E0DC79E528AAA0EE0001D454 /* GoogleMobileAds.xcframework in Frameworks */,
-				E0BAC7352649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta in Frameworks */,
 				E0CBEA31246A015300204538 /* lh_helpers.framework in Frameworks */,
-				E0BAC7332649E44600ED79C2 /* FirebaseAnalytics in Frameworks */,
+				E06F5B2228AAE2EC00673DCD /* LocationPicker in Frameworks */,
 				E0DB54B725DB13850004149B /* Alamofire in Frameworks */,
 				E0DC79E828AAA1090001D454 /* GTMSessionFetcher.xcframework in Frameworks */,
-				E0DB54BC25DB13AB0004149B /* LocationPicker in Frameworks */,
-				E0CBEA29246A014300204538 /* GoogleAppMeasurement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +225,7 @@
 				E0DC79E728AAA1090001D454 /* GTMSessionFetcher.xcframework */,
 				E0DC79E428AAA0EE0001D454 /* GoogleMobileAds.xcframework */,
 				E0CBEA35246A04C400204538 /* PromisesObjC.framework */,
+				E043562A28AABD6600DA86CC /* GoogleAppMeasurement */,
 				E0CBEA06246A014200204538 /* FIRAnalyticsConnector.framework */,
 				E0CBEA08246A014200204538 /* Firebase.framework */,
 				E0CBEA0E246A014200204538 /* FirebaseAuth.framework */,
@@ -277,10 +273,9 @@
 			name = "Sunrise & Sunset";
 			packageProductDependencies = (
 				E0DB54B625DB13850004149B /* Alamofire */,
-				E0DB54BB25DB13AB0004149B /* LocationPicker */,
 				E0DB54C025DB13F50004149B /* SwiftyJSON */,
-				E0BAC7322649E44600ED79C2 /* FirebaseAnalytics */,
-				E0BAC7342649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta */,
+				E06F5B2128AAE2EC00673DCD /* LocationPicker */,
+				E06F5B2328AAE30200673DCD /* FirebaseAnalytics */,
 			);
 			productName = LunarTimes;
 			productReference = 443B8DD01D09FE2F00F5CDBB /* Sunrise & Sunset.app */;
@@ -336,9 +331,9 @@
 			mainGroup = 443B8DC71D09FE2F00F5CDBB;
 			packageReferences = (
 				E0DB54B525DB13850004149B /* XCRemoteSwiftPackageReference "Alamofire" */,
-				E0DB54BA25DB13AB0004149B /* XCRemoteSwiftPackageReference "LocationPicker" */,
 				E0DB54BF25DB13F50004149B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				E0BAC7312649E44600ED79C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E043563028AAC25E00DA86CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E06F5B2028AAE01000673DCD /* XCRemoteSwiftPackageReference "LocationPicker" */,
 			);
 			productRefGroup = 443B8DD11D09FE2F00F5CDBB /* Products */;
 			projectDirPath = "";
@@ -521,7 +516,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -574,7 +569,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -589,7 +584,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 56NQ7Z9L75;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -602,7 +597,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.1.0;
+				MARKETING_VERSION = 4.3.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",
@@ -621,7 +616,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 56NQ7Z9L75;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -634,13 +629,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.1.0;
+				MARKETING_VERSION = 4.3.0;
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",
 					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = us.letshang.lunartimes;
 				PRODUCT_NAME = "Sunrise & Sunset";
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 5.0;
@@ -716,12 +712,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E0BAC7312649E44600ED79C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		E043563028AAC25E00DA86CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.11.1;
+				branch = master;
+				kind = branch;
+			};
+		};
+		E06F5B2028AAE01000673DCD /* XCRemoteSwiftPackageReference "LocationPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/letshangllc/LocationPicker";
+			requirement = {
+				kind = revision;
+				revision = f662d4fea955eaece5f289e1512df5c31d41ac90;
 			};
 		};
 		E0DB54B525DB13850004149B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -730,14 +734,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.4.1;
-			};
-		};
-		E0DB54BA25DB13AB0004149B /* XCRemoteSwiftPackageReference "LocationPicker" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/almassapargali/LocationPicker";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.4.3;
 			};
 		};
 		E0DB54BF25DB13F50004149B /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
@@ -751,25 +747,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E0BAC7322649E44600ED79C2 /* FirebaseAnalytics */ = {
+		E06F5B2128AAE2EC00673DCD /* LocationPicker */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E0BAC7312649E44600ED79C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
+			package = E06F5B2028AAE01000673DCD /* XCRemoteSwiftPackageReference "LocationPicker" */;
+			productName = LocationPicker;
 		};
-		E0BAC7342649E44600ED79C2 /* FirebaseAnalyticsSwift-Beta */ = {
+		E06F5B2328AAE30200673DCD /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E0BAC7312649E44600ED79C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseAnalyticsSwift-Beta";
+			package = E043563028AAC25E00DA86CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 		E0DB54B625DB13850004149B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0DB54B525DB13850004149B /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		E0DB54BB25DB13AB0004149B /* LocationPicker */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E0DB54BA25DB13AB0004149B /* XCRemoteSwiftPackageReference "LocationPicker" */;
-			productName = LocationPicker;
 		};
 		E0DB54C025DB13F50004149B /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;

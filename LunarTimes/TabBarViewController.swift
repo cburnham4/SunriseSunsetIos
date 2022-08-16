@@ -119,6 +119,13 @@ extension TabBarViewController: CLLocationManagerDelegate {
             let sunriseLocation = SunriseLocation(latitude: latitude, longitude: longitude, sunrisePlacemark: placemark)
             self?.updateChildren(selectedLocation: sunriseLocation)
         })
+
+        handleLocationUpdate(sunriseLocation: SunriseLocation(latitude: latitude, longitude: longitude))
+    }
+
+    func handleLocationUpdate(sunriseLocation: SunriseLocation) {
+        activityIndicatorView?.removeFromSuperview()
+        updateChildren(selectedLocation: sunriseLocation)
     }
 }
 
