@@ -82,7 +82,7 @@ class WeatherViewController: UIViewController {
         request.makeRequest { [weak self] response in
             switch response {
             case .failure:
-                print("Failure")
+                print("Failure: \(response)")
             case .success(let weather):
                 DispatchQueue.main.async {
                     self?.parseResult(weather: weather)
