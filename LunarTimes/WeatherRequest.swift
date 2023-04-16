@@ -10,45 +10,51 @@ import Foundation
 import lh_helpers
 
 struct WeatherResponse: Codable {
-    var currently: WeatherDataSet
-    var hourly: WeatherDataSetResponse
-    var daily: WeatherDataSetResponse
+    var current: CurrentWeather
+    var hourly: [CurrentWeather]
+    var daily: [WeatherDataSet]
 }
 
 extension WeatherResponse {
     var hourlyWeathers: [HourlyWeather] {
-        return hourly.data.compactMap {
+        return hourly.compactMap {
             let date = Date(timeIntervalSince1970: TimeInterval($0.time))
             let hour = date.getDateString(dateFormat: "ha")
             return HourlyWeather(time: hour,
                                  temp: $0.temperature,
                                  precipitation: $0.precipProbability,
-                                 imageName: $0.icon)
+                                 iconURL: $0.iconURL)
         }
     }
     
     var weatherInfoItems: [WeatherInfoItem] {
-        let precipProbabilityString = (currently.precipProbability * 100.0).percentString(to: 1)
-        let cloudCoverString = (currently.cloudCover * 100.0).percentString(to: 1)
-        let stormDistance = currently.nearestStormDistance != nil ? "\(currently.nearestStormDistance!) miles" : "N/A"
-        let temp = currently.temperature == nil ? "N/A" : "\(currently.temperature!) °F"
+        let cloudCoverString = (current.cloudCover).percentString(to: 1)
+        let stormDistance = current.nearestStormDistance != nil ? "\(current.nearestStormDistance!) miles" : "N/A"
+        let temp = current.temperature == nil ? "N/A" : "\(current.temperature!) °F"
+        let windGustString = current.windGust != nil ? "\(current.windGust!) mph" : "N/A"
         return [
 //            WeatherInfoItem(name: "Summary", info: currently.summary),
 //            WeatherInfoItem(name: "Temperature", info: temp),
-//            WeatherInfoItem(name: "Precipitation Probability", info: precipProbabilityString),
-            WeatherInfoItem(name: "Precipitation Intensity", info:  "\(currently.precipIntensity) in/hr"),
-            WeatherInfoItem(name: "Wind Speed", info: "\(currently.windSpeed) mph"),
-            WeatherInfoItem(name: "Wind Gust", info: "\(currently.windGust) mph"),
-            WeatherInfoItem(name: "UV Index", info: "\(currently.uvIndex)"),
+            WeatherInfoItem(name: "Precipitation Probability", info: currentPrecipProbabilityString),
+            //WeatherInfoItem(name: "Precipitation Intensity", info:  "\(current.precipIntensity) in/hr"),
+            WeatherInfoItem(name: "Wind Speed", info: "\(current.windSpeed) mph"),
+            WeatherInfoItem(name: "Wind Gust", info: windGustString),
+            WeatherInfoItem(name: "UV Index", info: "\(current.uvIndex)"),
             WeatherInfoItem(name: "Cloud Cover", info: cloudCoverString),
-            WeatherInfoItem(name: "Visibility", info: "\(currently.visibility) miles"),
-            WeatherInfoItem(name: "Distance to Nearest Storm", info: stormDistance)
+            WeatherInfoItem(name: "Visibility", info: "\(current.visibility / 1000) miles"),
+           // WeatherInfoItem(name: "Distance to Nearest Storm", info: stormDistance)
         ]
+    }
+
+    var currentPrecipProbabilityString: String {
+        let precipProbability = current.precipProbability ?? hourly.first?.precipProbability ?? 0.0
+        let precipProbabilityString = (precipProbability * 100.0).percentString(to: 1)
+        return precipProbabilityString
     }
     
     var dailyWeather: [DailyWeather] {
-        return daily.data.map {
-            DailyWeather(time: $0.time, tempHigh: $0.temperatureHigh, tempLow: $0.temperatureLow, imageName: $0.icon)
+        return daily.map {
+            DailyWeather(time: $0.time, tempHigh: $0.temperatureHigh, tempLow: $0.temperatureLow, iconURL: $0.iconURL)
         }
     }
 }
@@ -57,21 +63,124 @@ struct WeatherDataSetResponse: Codable {
     var data: [WeatherDataSet]
 }
 
-struct WeatherDataSet: Codable {
+struct CurrentWeather: Codable {
     var time: Int
-    var summary: String?
-    var precipIntensity: Double
-    var precipProbability: Double
+    // var rainIntensity: Double?
+    var snowIntensity: Double?
+    var precipProbability: Double? // TOOD
     var temperature: Double?
-    var temperatureHigh: Double?
-    var temperatureLow: Double?
     var windSpeed: Double
-    var windGust: Double
+    var windGust: Double?
     var uvIndex: Double
     var cloudCover: Double
     var visibility: Double
     var nearestStormDistance: Double?
-    var icon: String?
+    var weather: [WeatherObject]
+
+    enum CodingKeys: String, CodingKey {
+        case time = "dt"
+       // case rainIntensity = "rain"
+        case snowIntensity = "snow"
+        case precipProbability = "pop"
+        case temperature = "temp"
+        case windSpeed = "wind_speed"
+        case windGust = "wind_gust"
+        case uvIndex = "uvi"
+        case cloudCover = "clouds"
+        case visibility
+        case nearestStormDistance = "TODsO"
+        case weather
+    }
+}
+
+extension CurrentWeather {
+    var iconURL: URL? {
+        if let icon = weather.first?.icon {
+            return URL(string: "https://openweathermap.org/img/wn/\(icon)@2x.png")
+        }
+        return URL(string: "https://openweathermap.org/img/wn/01d@2x.png")
+    }
+
+    var summary: String {
+        return weather[0].description
+    }
+
+//    var precipIntensity: Double? { // TODO: Figure out how this could work with new api
+//        return rainIntensity ?? snowIntensity
+//    }
+}
+
+struct WeatherDataSet: Codable {
+    var time: Int
+    var rainIntensity: Double?
+    var snowIntensity: Double?
+    var precipProbability: Double? // TOOD
+    var temperature: Temperature
+    var windSpeed: Double
+    var windGust: Double
+    var uvIndex: Double
+    var cloudCover: Double
+    var visibility: Double?
+    var nearestStormDistance: Double?
+    var weather: [WeatherObject]
+
+    enum CodingKeys: String, CodingKey {
+        case time = "dt"
+        case rainIntensity = "rain"
+        case snowIntensity = "snow"
+        case precipProbability = "pop" // Figure this out
+        case temperature = "temp"
+        case windSpeed = "wind_speed"
+        case windGust = "wind_gust"
+        case uvIndex = "uvi"
+        case cloudCover = "clouds"
+        case visibility
+        case nearestStormDistance = "TODsO"
+        case weather
+    }
+}
+
+extension WeatherDataSet {
+    var iconURL: URL? {
+        if let icon = weather.first?.icon {
+            return URL(string: "https://openweathermap.org/img/wn/\(icon)@2x.png")
+        }
+        return URL(string: "https://openweathermap.org/img/wn/01d@2x.png")
+    }
+
+    var summary: String {
+        return weather[0].description
+    }
+
+//    var precipIntensity: Double? {
+//        return rainIntensity ?? snowIntensity
+//    }
+
+    var temperatureHigh: Double? {
+        return temperature.temperatureHigh
+    }
+
+    var temperatureLow: Double? {
+        return temperature.temperatureLow
+    }
+}
+
+struct Temperature: Codable {
+    var temperature: Double?
+    var temperatureHigh: Double?
+    var temperatureLow: Double?
+
+    enum CodingKeys: String, CodingKey {
+        case temperature = "day"
+        case temperatureHigh = "max"
+        case temperatureLow = "min"
+    }
+}
+
+struct WeatherObject: Codable {
+    let main: String
+    let description: String
+    let icon: String
 }
 
 
@@ -79,12 +188,15 @@ struct WeatherRequest: Request {
     
     typealias ResultObject = WeatherResponse
     
-    let key = "62eef0129749318110c1b4feb927ce96"
+    let key = "a37e6c8648419c77bf38c0b3d252b9b5"
     let latitude: Double
     let longitude: Double
     
     var endpoint: String {
-        return "https://api.darksky.net/forecast/\(key)/\(latitude),\(longitude)"
+        let url = "https://api.openweathermap.org/data/2.5/onecall?lat=\(latitude)&lon=\(longitude)&appid=\(key)&exclude=minutely&units=imperial"
+        //return "https://api.darksky.net/forecast/\(key)/\(latitude),\(longitude)"
+        print(url)
+        return url
     }
 }
 

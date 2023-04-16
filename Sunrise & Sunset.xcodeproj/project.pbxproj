@@ -17,6 +17,7 @@
 		99172428242FE1CF0039B067 /* AddLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99172427242FE1CF0039B067 /* AddLocationTableViewController.swift */; };
 		E018307C23BFF1D8007DED35 /* WeatherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E018307B23BFF1D8007DED35 /* WeatherInfoViewController.swift */; };
 		E02793A2241D2F200061F560 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02793A1241D2F200061F560 /* ShadowView.swift */; };
+		E03B831229EB253A007FF40B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E03B831129EB253A007FF40B /* Kingfisher */; };
 		E048EB36217FF017008A4807 /* ColorsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048EB35217FF017008A4807 /* ColorsConfig.swift */; };
 		E0660B0523B5883400A19E07 /* HourlyWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0660B0423B5883400A19E07 /* HourlyWeatherViewController.swift */; };
 		E06F4D2B23C0DF880018BAD8 /* TwoColumnCollectionFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F4D2A23C0DF880018BAD8 /* TwoColumnCollectionFlow.swift */; };
@@ -121,6 +122,7 @@
 			files = (
 				E06F5B2428AAE30200673DCD /* FirebaseAnalytics in Frameworks */,
 				E0CEAE6B28BD159B0013AA77 /* GoogleMobileAds.xcframework in Frameworks */,
+				E03B831229EB253A007FF40B /* Kingfisher in Frameworks */,
 				E0CBEA31246A015300204538 /* lh_helpers.framework in Frameworks */,
 				E06F5B2228AAE2EC00673DCD /* LocationPicker in Frameworks */,
 				E0DB54B725DB13850004149B /* Alamofire in Frameworks */,
@@ -273,6 +275,7 @@
 				E0DB54B625DB13850004149B /* Alamofire */,
 				E06F5B2128AAE2EC00673DCD /* LocationPicker */,
 				E06F5B2328AAE30200673DCD /* FirebaseAnalytics */,
+				E03B831129EB253A007FF40B /* Kingfisher */,
 			);
 			productName = LunarTimes;
 			productReference = 443B8DD01D09FE2F00F5CDBB /* Sunrise & Sunset.app */;
@@ -330,6 +333,7 @@
 				E0DB54B525DB13850004149B /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E043563028AAC25E00DA86CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				E06F5B2028AAE01000673DCD /* XCRemoteSwiftPackageReference "LocationPicker" */,
+				E03B831029EB253A007FF40B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 443B8DD11D09FE2F00F5CDBB /* Products */;
 			projectDirPath = "";
@@ -708,6 +712,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E03B831029EB253A007FF40B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		E043563028AAC25E00DA86CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -735,6 +747,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E03B831129EB253A007FF40B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E03B831029EB253A007FF40B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		E06F5B2128AAE2EC00673DCD /* LocationPicker */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E06F5B2028AAE01000673DCD /* XCRemoteSwiftPackageReference "LocationPicker" */;

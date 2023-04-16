@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import GoogleMobileAds
 import lh_helpers
+import Kingfisher
 
 class WeatherViewController: UIViewController {
 
@@ -82,7 +83,7 @@ class WeatherViewController: UIViewController {
         request.makeRequest { [weak self] response in
             switch response {
             case .failure:
-                print("Failure: \(response)")
+                print("Failure \(#line)")
             case .success(let weather):
                 DispatchQueue.main.async {
                     self?.parseResult(weather: weather)
@@ -98,13 +99,12 @@ class WeatherViewController: UIViewController {
         }
         
         /* may be cleaner to create a current weather object in weather request to obtain info. Start Here: */
-        temperatureLabel.text = "\(weather.currently.temperature!)"
-        currentWeatherLabel.text = "\(weather.currently.summary ?? "")"
-        
-        let precipProbabilityString = (weather.currently.precipProbability * 100.0).percentString(to: 1)
-        rainChanceLabel.text = "Chance of Rain: " + precipProbabilityString
-        
-        weatherImage.image = UIImage(named: weather.currently.icon!)
+        temperatureLabel.text = "\(weather.current.temperature!) °F"
+        currentWeatherLabel.text = weather.current.summary.capitalized
+
+        rainChanceLabel.text = "Chance of Rain: " + weather.currentPrecipProbabilityString
+        weatherImage.kf.setImage(with: weather.current.iconURL)
+
         /* :End Here*/
         print(children)
         if let hourlyViewController = children[1] as? HourlyWeatherViewController {

@@ -13,7 +13,7 @@ struct DailyWeather {
     let time: Int
     let tempHigh: Double?
     let tempLow: Double?
-    let imageName: String?
+    let iconURL: URL?
     
     var dayName: String {
         let date = Date(timeIntervalSince1970: TimeInterval(time))
@@ -38,9 +38,7 @@ class DailyWeatherCollectionViewCell: UICollectionViewCell {
         let tempHightring = String(format: "%.1f%@", dailyWeather.tempHigh ?? 0.0, "°F")
         tempHighLabel.text = tempHightring
         
-        if let imageName = dailyWeather.imageName {
-            weatherIcon.image = UIImage(named: imageName)
-        }
+        weatherIcon.kf.setImage(with: dailyWeather.iconURL)
     }
 }
 
