@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 import lh_helpers
 
 struct HourlyWeather {

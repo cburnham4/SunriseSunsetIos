@@ -8,9 +8,9 @@
 
 import UIKit
 import GoogleMobileAds
-import Firebase
+import FirebaseCore
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -20,9 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
-        UINavigationBar.appearance().barTintColor =  UIColor(named: "nav_bar_color")
-        UINavigationBar.appearance().barStyle = .black
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: "nav_title_color")]
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.backgroundColor = UIColor(named: "nav_bar_color")
+        if let titleColor = UIColor(named: "nav_title_color") {
+            navBarAppearance.titleTextAttributes = [.foregroundColor: titleColor]
+        }
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
         return true
     }
 }

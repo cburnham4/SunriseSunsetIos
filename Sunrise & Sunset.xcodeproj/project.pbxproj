@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		443B8DE91D09FE2F00F5CDBB /* LunarTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B8DE81D09FE2F00F5CDBB /* LunarTimesTests.swift */; };
 		990B700C24C0ECAA00AADFA5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990B700B24C0ECAA00AADFA5 /* GradientView.swift */; };
 		99172428242FE1CF0039B067 /* AddLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99172427242FE1CF0039B067 /* AddLocationTableViewController.swift */; };
+		A01FEA0128BD159B0013AA77 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A01FEA0228BD159B0013AA77 /* GoogleMobileAds */; };
 		E018307C23BFF1D8007DED35 /* WeatherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E018307B23BFF1D8007DED35 /* WeatherInfoViewController.swift */; };
 		E02793A2241D2F200061F560 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02793A1241D2F200061F560 /* ShadowView.swift */; };
 		E03B831229EB253A007FF40B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E03B831129EB253A007FF40B /* Kingfisher */; };
@@ -31,11 +32,9 @@
 		E0C2974F2403247900F2B9C3 /* DailyWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C2974E2403247900F2B9C3 /* DailyWeatherViewController.swift */; };
 		E0CBEA31246A015300204538 /* lh_helpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBE9FC246A013500204538 /* lh_helpers.framework */; };
 		E0CBEA32246A015300204538 /* lh_helpers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0CBE9FC246A013500204538 /* lh_helpers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E0CEAE6B28BD159B0013AA77 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DC79E428AAA0EE0001D454 /* GoogleMobileAds.xcframework */; };
 		E0D5A44A232D191A00E10FE0 /* SunriseSunsetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */; };
 		E0D60DD723D1E6A500911765 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D60DD623D1E6A500911765 /* NumberExtensions.swift */; };
 		E0DB54B725DB13850004149B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0DB54B625DB13850004149B /* Alamofire */; };
-		E0DC79E828AAA1090001D454 /* GTMSessionFetcher.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DC79E728AAA1090001D454 /* GTMSessionFetcher.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +76,6 @@
 		99172427242FE1CF0039B067 /* AddLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationTableViewController.swift; sourceTree = "<group>"; };
 		E018307B23BFF1D8007DED35 /* WeatherInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoViewController.swift; sourceTree = "<group>"; };
 		E02793A1241D2F200061F560 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
-		E043562A28AABD6600DA86CC /* GoogleAppMeasurement */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GoogleAppMeasurement; path = "/Users/carlburnham/Library/Developer/Xcode/DerivedData/LetsHang-bztyuqrjiglsktdgqknlvrwdvrcu/SourcePackages/checkouts/GoogleAppMeasurement"; sourceTree = "<absolute>"; };
 		E048EB35217FF017008A4807 /* ColorsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsConfig.swift; sourceTree = "<group>"; };
 		E0660B0423B5883400A19E07 /* HourlyWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherViewController.swift; sourceTree = "<group>"; };
 		E06F4D2A23C0DF880018BAD8 /* TwoColumnCollectionFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoColumnCollectionFlow.swift; sourceTree = "<group>"; };
@@ -86,33 +84,9 @@
 		E094B75523B29B64002AACA6 /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 		E094B75723B29EF2002AACA6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E0C2974E2403247900F2B9C3 /* DailyWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherViewController.swift; sourceTree = "<group>"; };
-		E0CBE9EB246A00D100204538 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		E0CBE9EF246A00DC00204538 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		E0CBE9F3246A00F500204538 /* DatePickerDialog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DatePickerDialog.framework; path = ../Carthage/Build/iOS/DatePickerDialog.framework; sourceTree = "<group>"; };
-		E0CBE9F6246A010800204538 /* LocationPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocationPicker.framework; path = ../Carthage/Build/iOS/LocationPicker.framework; sourceTree = "<group>"; };
-		E0CBE9F9246A011300204538 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = ../Carthage/Build/iOS/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		E0CBE9FC246A013500204538 /* lh_helpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = lh_helpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0CBEA01246A014200204538 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = ../Carthage/Build/iOS/FirebaseCore.framework; sourceTree = "<group>"; };
-		E0CBEA02246A014200204538 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = ../Carthage/Build/iOS/GoogleMobileAds.framework; sourceTree = "<group>"; };
-		E0CBEA03246A014200204538 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstallations.framework; path = ../Carthage/Build/iOS/FirebaseInstallations.framework; sourceTree = "<group>"; };
-		E0CBEA04246A014200204538 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCoreDiagnostics.framework; path = ../Carthage/Build/iOS/FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
-		E0CBEA05246A014200204538 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = ../Carthage/Build/iOS/GTMSessionFetcher.framework; sourceTree = "<group>"; };
-		E0CBEA06246A014200204538 /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = ../Carthage/Build/iOS/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
-		E0CBEA07246A014200204538 /* GoogleDataTransportCCTSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransportCCTSupport.framework; path = ../Carthage/Build/iOS/GoogleDataTransportCCTSupport.framework; sourceTree = "<group>"; };
-		E0CBEA08246A014200204538 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../Carthage/Build/iOS/Firebase.framework; sourceTree = "<group>"; };
-		E0CBEA09246A014200204538 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = ../Carthage/Build/iOS/GoogleSignIn.framework; sourceTree = "<group>"; };
-		E0CBEA0A246A014200204538 /* GTMAppAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMAppAuth.framework; path = ../Carthage/Build/iOS/GTMAppAuth.framework; sourceTree = "<group>"; };
-		E0CBEA0B246A014200204538 /* FirebaseCrashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCrashlytics.framework; path = ../Carthage/Build/iOS/FirebaseCrashlytics.framework; sourceTree = "<group>"; };
-		E0CBEA0C246A014200204538 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = ../Carthage/Build/iOS/GoogleUtilities.framework; sourceTree = "<group>"; };
-		E0CBEA0D246A014200204538 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppMeasurement.framework; path = ../Carthage/Build/iOS/GoogleAppMeasurement.framework; sourceTree = "<group>"; };
-		E0CBEA0E246A014200204538 /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = ../Carthage/Build/iOS/FirebaseAuth.framework; sourceTree = "<group>"; };
-		E0CBEA0F246A014200204538 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = ../Carthage/Build/iOS/FirebaseDatabase.framework; sourceTree = "<group>"; };
-		E0CBEA10246A014200204538 /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransport.framework; path = ../Carthage/Build/iOS/GoogleDataTransport.framework; sourceTree = "<group>"; };
-		E0CBEA35246A04C400204538 /* PromisesObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromisesObjC.framework; path = ../Carthage/Build/iOS/PromisesObjC.framework; sourceTree = "<group>"; };
 		E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunsetRequest.swift; sourceTree = "<group>"; };
 		E0D60DD623D1E6A500911765 /* NumberExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
-		E0DC79E428AAA0EE0001D454 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = ../Carthage/Build/GoogleMobileAds.xcframework; sourceTree = "<group>"; };
-		E0DC79E728AAA1090001D454 /* GTMSessionFetcher.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GTMSessionFetcher.xcframework; path = ../Carthage/Build/GTMSessionFetcher.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,12 +95,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E06F5B2428AAE30200673DCD /* FirebaseAnalytics in Frameworks */,
-				E0CEAE6B28BD159B0013AA77 /* GoogleMobileAds.xcframework in Frameworks */,
+				A01FEA0128BD159B0013AA77 /* GoogleMobileAds in Frameworks */,
 				E03B831229EB253A007FF40B /* Kingfisher in Frameworks */,
 				E0CBEA31246A015300204538 /* lh_helpers.framework in Frameworks */,
 				E06F5B2228AAE2EC00673DCD /* LocationPicker in Frameworks */,
 				E0DB54B725DB13850004149B /* Alamofire in Frameworks */,
-				E0DC79E828AAA1090001D454 /* GTMSessionFetcher.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,32 +195,7 @@
 		E0CBE9EA246A00D100204538 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E0DC79E728AAA1090001D454 /* GTMSessionFetcher.xcframework */,
-				E0DC79E428AAA0EE0001D454 /* GoogleMobileAds.xcframework */,
-				E0CBEA35246A04C400204538 /* PromisesObjC.framework */,
-				E043562A28AABD6600DA86CC /* GoogleAppMeasurement */,
-				E0CBEA06246A014200204538 /* FIRAnalyticsConnector.framework */,
-				E0CBEA08246A014200204538 /* Firebase.framework */,
-				E0CBEA0E246A014200204538 /* FirebaseAuth.framework */,
-				E0CBEA01246A014200204538 /* FirebaseCore.framework */,
-				E0CBEA04246A014200204538 /* FirebaseCoreDiagnostics.framework */,
-				E0CBEA0B246A014200204538 /* FirebaseCrashlytics.framework */,
-				E0CBEA0F246A014200204538 /* FirebaseDatabase.framework */,
-				E0CBEA03246A014200204538 /* FirebaseInstallations.framework */,
-				E0CBEA0D246A014200204538 /* GoogleAppMeasurement.framework */,
-				E0CBEA10246A014200204538 /* GoogleDataTransport.framework */,
-				E0CBEA07246A014200204538 /* GoogleDataTransportCCTSupport.framework */,
-				E0CBEA02246A014200204538 /* GoogleMobileAds.framework */,
-				E0CBEA09246A014200204538 /* GoogleSignIn.framework */,
-				E0CBEA0C246A014200204538 /* GoogleUtilities.framework */,
-				E0CBEA0A246A014200204538 /* GTMAppAuth.framework */,
-				E0CBEA05246A014200204538 /* GTMSessionFetcher.framework */,
 				E0CBE9FC246A013500204538 /* lh_helpers.framework */,
-				E0CBE9F9246A011300204538 /* FirebaseAnalytics.framework */,
-				E0CBE9F6246A010800204538 /* LocationPicker.framework */,
-				E0CBE9F3246A00F500204538 /* DatePickerDialog.framework */,
-				E0CBE9EF246A00DC00204538 /* SwiftyJSON.framework */,
-				E0CBE9EB246A00D100204538 /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -262,9 +210,7 @@
 				443B8DCC1D09FE2F00F5CDBB /* Sources */,
 				443B8DCD1D09FE2F00F5CDBB /* Frameworks */,
 				443B8DCE1D09FE2F00F5CDBB /* Resources */,
-				E066E3BE23B5389C00F489A1 /* Crashlytics */,
 				E0CBEA33246A015300204538 /* Embed Frameworks */,
-				E0CBEA34246A025800204538 /* Embed Carthage Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,6 +222,7 @@
 				E06F5B2128AAE2EC00673DCD /* LocationPicker */,
 				E06F5B2328AAE30200673DCD /* FirebaseAnalytics */,
 				E03B831129EB253A007FF40B /* Kingfisher */,
+				A01FEA0228BD159B0013AA77 /* GoogleMobileAds */,
 			);
 			productName = LunarTimes;
 			productReference = 443B8DD01D09FE2F00F5CDBB /* Sunrise & Sunset.app */;
@@ -334,6 +281,7 @@
 				E043563028AAC25E00DA86CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				E06F5B2028AAE01000673DCD /* XCRemoteSwiftPackageReference "LocationPicker" */,
 				E03B831029EB253A007FF40B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				A01FEA0328BD159B0013AA77 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 443B8DD11D09FE2F00F5CDBB /* Products */;
 			projectDirPath = "";
@@ -366,45 +314,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		E066E3BE23B5389C00F489A1 /* Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Crashlytics;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# TODO :(\n";
-		};
-		E0CBEA34246A025800204538 /* Embed Carthage Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Carthage Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		443B8DCC1D09FE2F00F5CDBB /* Sources */ = {
@@ -516,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -569,7 +478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -587,12 +496,9 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 56NQ7Z9L75;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)/**",
-					"$(PROJECT_DIR)/../Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = LunarTimes/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -619,12 +525,9 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 56NQ7Z9L75;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)/**",
-					"$(PROJECT_DIR)/../Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = LunarTimes/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -712,12 +615,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A01FEA0328BD159B0013AA77 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
 		E03B831029EB253A007FF40B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
 			};
 		};
 		E043563028AAC25E00DA86CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
@@ -725,7 +636,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				kind = exactVersion;
-				version = 8.15.0;
+				version = 11.13.0;
 			};
 		};
 		E06F5B2028AAE01000673DCD /* XCRemoteSwiftPackageReference "LocationPicker" */ = {
@@ -747,6 +658,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A01FEA0228BD159B0013AA77 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A01FEA0328BD159B0013AA77 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
 		E03B831129EB253A007FF40B /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E03B831029EB253A007FF40B /* XCRemoteSwiftPackageReference "Kingfisher" */;

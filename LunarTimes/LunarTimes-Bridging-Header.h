@@ -10,9 +10,5 @@
 #define Header_h
 
 #import <UIKit/UIKit.h>
-#import <AmazonAd/AmazonAdRegistration.h>
-#import <AmazonAd/AmazonAdView.h>
-#import <AmazonAd/AmazonAdError.h>
-#import <AmazonAd/AmazonAdOptions.h>
 
 #endif /* Header_h */
