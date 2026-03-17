@@ -35,6 +35,12 @@
 		E0D5A44A232D191A00E10FE0 /* SunriseSunsetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */; };
 		E0D60DD723D1E6A500911765 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D60DD623D1E6A500911765 /* NumberExtensions.swift */; };
 		E0DB54B725DB13850004149B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0DB54B625DB13850004149B /* Alamofire */; };
+		E1F1000124A1000100010001 /* LocationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1000224A1000100010002 /* LocationStore.swift */; };
+		E1F1000324A1000100010003 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1000424A1000100010004 /* BannerAdView.swift */; };
+		E1F1000524A1000100010005 /* LocationPickerHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1000624A1000100010006 /* LocationPickerHostingView.swift */; };
+		E1F1000724A1000100010007 /* SunriseSunsetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1000824A1000100010008 /* SunriseSunsetView.swift */; };
+		E1F1000924A1000100010009 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1000A24A100010001000A /* WeatherView.swift */; };
+		E1F1000C24A100010001000C /* LaunchLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1000B24A100010001000B /* LaunchLoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 443B8DCF1D09FE2F00F5CDBB;
 			remoteInfo = LunarTimes;
+		};
+		E0CBEA01246A020000204538 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0CBEA00246A020000204538 /* lh-helpers.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E09D5CD721AAFF8E0010CD7F;
+			remoteInfo = "lh-helpers";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -84,9 +97,16 @@
 		E094B75523B29B64002AACA6 /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 		E094B75723B29EF2002AACA6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E0C2974E2403247900F2B9C3 /* DailyWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherViewController.swift; sourceTree = "<group>"; };
+		E0CBEA00246A020000204538 /* lh-helpers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "lh-helpers.xcodeproj"; path = "../lh-helpers/lh-helpers.xcodeproj"; sourceTree = "<group>"; };
 		E0CBE9FC246A013500204538 /* lh_helpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = lh_helpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D5A449232D191A00E10FE0 /* SunriseSunsetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunsetRequest.swift; sourceTree = "<group>"; };
 		E0D60DD623D1E6A500911765 /* NumberExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
+		E1F1000224A1000100010002 /* LocationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStore.swift; sourceTree = "<group>"; };
+		E1F1000424A1000100010004 /* BannerAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdView.swift; sourceTree = "<group>"; };
+		E1F1000624A1000100010006 /* LocationPickerHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerHostingView.swift; sourceTree = "<group>"; };
+		E1F1000824A1000100010008 /* SunriseSunsetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunsetView.swift; sourceTree = "<group>"; };
+		E1F1000A24A100010001000A /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		E1F1000B24A100010001000B /* LaunchLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchLoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +140,7 @@
 				443B8DE71D09FE2F00F5CDBB /* LunarTimesTests */,
 				443B8DD11D09FE2F00F5CDBB /* Products */,
 				E0CBE9EA246A00D100204538 /* Frameworks */,
+				E0CBEA00246A020000204538 /* lh-helpers.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,6 +159,12 @@
 				E06F4D2923C0DF640018BAD8 /* Components */,
 				E0660B0323B5881200A19E07 /* Weather */,
 				E075347A1ED89BFF007D372B /* Extras */,
+				E1F1000224A1000100010002 /* LocationStore.swift */,
+				E1F1000424A1000100010004 /* BannerAdView.swift */,
+				E1F1000624A1000100010006 /* LocationPickerHostingView.swift */,
+				E1F1000824A1000100010008 /* SunriseSunsetView.swift */,
+				E1F1000A24A100010001000A /* WeatherView.swift */,
+				E1F1000B24A100010001000B /* LaunchLoadingView.swift */,
 				443B8DD51D09FE2F00F5CDBB /* SunriseViewController.swift */,
 				4401C5921D156D8800700CE3 /* Main.storyboard */,
 				99172427242FE1CF0039B067 /* AddLocationTableViewController.swift */,
@@ -215,6 +242,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E0CBEA02246A020000204538 /* PBXTargetDependency */,
 			);
 			name = "Sunrise & Sunset";
 			packageProductDependencies = (
@@ -285,6 +313,12 @@
 			);
 			productRefGroup = 443B8DD11D09FE2F00F5CDBB /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E0CBE9EA246A00D100204538 /* Frameworks */;
+					ProjectRef = E0CBEA00246A020000204538 /* lh-helpers.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				443B8DCF1D09FE2F00F5CDBB /* Sunrise & Sunset */,
@@ -335,6 +369,12 @@
 				E02793A2241D2F200061F560 /* ShadowView.swift in Sources */,
 				E0D60DD723D1E6A500911765 /* NumberExtensions.swift in Sources */,
 				443B8DD41D09FE2F00F5CDBB /* AppDelegate.swift in Sources */,
+				E1F1000124A1000100010001 /* LocationStore.swift in Sources */,
+				E1F1000324A1000100010003 /* BannerAdView.swift in Sources */,
+				E1F1000524A1000100010005 /* LocationPickerHostingView.swift in Sources */,
+				E1F1000724A1000100010007 /* SunriseSunsetView.swift in Sources */,
+				E1F1000924A1000100010009 /* WeatherView.swift in Sources */,
+				E1F1000C24A100010001000C /* LaunchLoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +393,10 @@
 			isa = PBXTargetDependency;
 			target = 443B8DCF1D09FE2F00F5CDBB /* Sunrise & Sunset */;
 			targetProxy = 443B8DE51D09FE2F00F5CDBB /* PBXContainerItemProxy */;
+		};
+		E0CBEA02246A020000204538 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			targetProxy = E0CBEA01246A020000204538 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -498,12 +542,12 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = LunarTimes/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0.0;
+				MARKETING_VERSION = 6.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",
@@ -527,12 +571,12 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = LunarTimes/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0.0;
+				MARKETING_VERSION = 6.0.0;
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",
 					"-ObjC",

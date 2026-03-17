@@ -193,10 +193,7 @@ struct WeatherRequest: Request {
     let longitude: Double
     
     var endpoint: String {
-        let url = "https://api.openweathermap.org/data/2.5/onecall?lat=\(latitude)&lon=\(longitude)&appid=\(key)&exclude=minutely&units=imperial"
-        //return "https://api.darksky.net/forecast/\(key)/\(latitude),\(longitude)"
-        print(url)
-        return url
+        "https://api.openweathermap.org/data/3.0/onecall?lat=\(latitude)&lon=\(longitude)&appid=\(key)&exclude=minutely&units=imperial"
     }
 }
 

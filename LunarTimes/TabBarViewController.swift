@@ -2,86 +2,112 @@
 //  TabBarViewController.swift
 //  Sunrise & Sunset
 //
-//  Created by Carl Burnham on 12/24/19.
-//  Copyright © 2019 LetsHangLLC. All rights reserved.
-//
 
 import UIKit
-import LocationPicker
+import SwiftUI
 import lh_helpers
 import CoreLocation
 
-protocol LocationChangedDelegate {
+protocol LocationChangedDelegate: AnyObject {
     func locationUpdated(selectedLocation: SunriseLocation)
 }
 
-protocol LocationSelectedDelegate {
+protocol LocationSelectedDelegate: AnyObject {
     func locationSelected(selectedLocation: SunriseLocation)
 }
 
-
 class TabBarViewController: UITabBarController {
+
+    let locationStore: LocationStore
     var activityIndicatorView: UIView?
-    var locationManager = CLLocationManager()
-    let defaults = UserDefaults.standard
-    let savedLocal = "savedLocal"
-    
-    
+    private let locationManager = CLLocationManager()
+
+    init(locationStore: LocationStore) {
+        self.locationStore = locationStore
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Added to set background a certain color
-        let numberOfItems = CGFloat(tabBar.items!.count)
-        let tabBarItemSize = CGSize(width: (tabBar.frame.width + 30) / numberOfItems, height: tabBar.frame.height)
-        
-        //tabBar.selectionIndicatorImage = UIImage.imageWithColor(color: UIColor(red: 2, green: 17, blue: 62), size: tabBarItemSize)
-        tabBar.tintColor = UIColor(red: 2, green: 17, blue: 62)
-        
-        // remove default border
-        tabBar.frame.size.width = self.view.frame.width + 4
-        tabBar.frame.origin.x = -2
-        
-        
-        NotificationCenter.default.addObserver(self, selector:#selector(onAppear), name: UIApplication.willEnterForegroundNotification, object: nil)
-        
-        /* Get the location of the user */
+
+        // Match container backgrounds to the app gradient so tab switches don’t flash white
+        view.backgroundColor = ColorsConfig.backgroundGradientTop
+
+        let sunriseHost = UIHostingController(rootView: SunriseSunsetView(locationStore: locationStore))
+        sunriseHost.view.backgroundColor = ColorsConfig.backgroundGradientTop
+        sunriseHost.tabBarItem = UITabBarItem(
+            title: "Sunrise & Sunset",
+            image: UIImage(named: "tab-bar-sunrise-icon-32x32"),
+            tag: 0
+        )
+        let sunriseNav = UINavigationController(rootViewController: sunriseHost)
+        sunriseNav.view.backgroundColor = ColorsConfig.backgroundGradientTop
+
+        let weatherHost = UIHostingController(rootView: WeatherView(locationStore: locationStore))
+        weatherHost.view.backgroundColor = ColorsConfig.backgroundGradientTop
+        weatherHost.tabBarItem = UITabBarItem(
+            title: "Weather",
+            image: UIImage(named: "tab-bar-weather-icon-32x32"),
+            tag: 1
+        )
+        let weatherNav = UINavigationController(rootViewController: weatherHost)
+        weatherNav.view.backgroundColor = ColorsConfig.backgroundGradientTop
+
+        viewControllers = [sunriseNav, weatherNav]
+
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = ColorsConfig.tabBarBackground
+
+        // Make tab titles white on iPad and iPhone (selected & unselected)
+        let normalTitleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white
+        ]
+        let selectedTitleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white
+        ]
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = normalTitleAttributes
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = selectedTitleAttributes
+        appearance.inlineLayoutAppearance.normal.titleTextAttributes = normalTitleAttributes
+        appearance.inlineLayoutAppearance.selected.titleTextAttributes = selectedTitleAttributes
+        appearance.compactInlineLayoutAppearance.normal.titleTextAttributes = normalTitleAttributes
+        appearance.compactInlineLayoutAppearance.selected.titleTextAttributes = selectedTitleAttributes
+
+        tabBar.standardAppearance = appearance
+        tabBar.scrollEdgeAppearance = appearance
+        tabBar.tintColor = ColorsConfig.tabBarSelected
+        tabBar.unselectedItemTintColor = ColorsConfig.tabBarUnselected
+        tabBar.isTranslucent = false
+
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(onAppear),
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
     }
-    
-    @objc func onAppear() {
+
+    @objc private func onAppear() {
         locationManager.startUpdatingLocation()
     }
-    
-    
-    func updateChildren(selectedLocation: SunriseLocation) {
-        guard let viewControllers = viewControllers else { return }
-        for viewController in viewControllers {
-            if let navController = viewController as? UINavigationController,
-                let viewController = navController.viewControllers.first as? LocationChangedDelegate {
-                viewController.locationUpdated(selectedLocation: selectedLocation)
-            }
-        }
-    }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
 }
 
-extension TabBarViewController: LocationSelectedDelegate {
-    func locationSelected(selectedLocation: SunriseLocation) {
-        updateChildren(selectedLocation: selectedLocation)
-    }
-}
-
 extension TabBarViewController: CLLocationManagerDelegate {
-    
+
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            activityIndicatorView = showActivityIndicator()
+            showLaunchLoading()
             locationManager.startUpdatingLocation()
         case .denied:
             AlertUtils.createAlert(view: self, title: "Location Permissions", message: "Enable location permissions to view data for current location")
@@ -89,55 +115,29 @@ extension TabBarViewController: CLLocationManagerDelegate {
             activityIndicatorView?.removeFromSuperview()
         }
     }
-    
+
+    private func showLaunchLoading() {
+        let loading = UIHostingController(rootView: LaunchLoadingView())
+        loading.view.backgroundColor = .clear
+        loading.view.frame = view.bounds
+        loading.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(loading.view)
+        activityIndicatorView = loading.view
+    }
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        /* Stop getting user location once the first location is recieved */
-        locationManager.stopUpdatingLocation();
-        
-        /* get the longitude and latitude of the user */
-        guard let locationlast = locations.last else {
-            return
-        }
-        let latitude = locationlast.coordinate.latitude
-        let longitude = locationlast.coordinate.longitude
-        
-        /* Get the address from the long and lat */
-        CLGeocoder().reverseGeocodeLocation(locationlast, completionHandler: { [weak self] (placemarks, error) -> Void in
-            if let error = error {
-                print("Reverse geocoder failed with error" + error.localizedDescription)
-                return
-            }
-            
-            var placemark: CLPlacemark?
-            if placemarks!.count > 0 {
-                placemark = placemarks![0]
-            } else {
-                print("Problem with the data received from geocoder")
-            }
-            
+        locationManager.stopUpdatingLocation()
+        guard let location = locations.last else { return }
+        CLGeocoder().reverseGeocodeLocation(location) { [weak self] placemarks, error in
+            if error != nil { return }
             self?.activityIndicatorView?.removeFromSuperview()
-            let sunriseLocation = SunriseLocation(latitude: latitude, longitude: longitude, sunrisePlacemark: placemark)
-            self?.updateChildren(selectedLocation: sunriseLocation)
-        })
-
-        handleLocationUpdate(sunriseLocation: SunriseLocation(latitude: latitude, longitude: longitude))
-    }
-
-    func handleLocationUpdate(sunriseLocation: SunriseLocation) {
-        activityIndicatorView?.removeFromSuperview()
-        updateChildren(selectedLocation: sunriseLocation)
-    }
-}
-
-extension UIImage {
-    
-    class func imageWithColor(color: UIColor, size: CGSize) -> UIImage {
-        let rect: CGRect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        color.setFill()
-        UIRectFill(rect)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return image
+            let placemark = placemarks?.first
+            let sunriseLocation = SunriseLocation(
+                latitude: location.coordinate.latitude,
+                longitude: location.coordinate.longitude,
+                sunrisePlacemark: placemark
+            )
+            self?.locationStore.currentLocation = sunriseLocation
+        }
     }
 }
