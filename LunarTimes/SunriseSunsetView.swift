@@ -13,6 +13,7 @@ struct SunriseSunsetView: View {
     @State private var showLocationPicker = false
     @State private var rows: [SunriseRow] = []
     @State private var isLoading = false
+    @State private var errorMessage: String?
 
     private let c = ColorsConfig.self
     private let dateFormatter: DateFormatter = {
@@ -45,6 +46,14 @@ struct SunriseSunsetView: View {
                     VStack(spacing: 0) {
                         locationPill
                         dateBar
+                        if let errorMessage, !isLoading {
+                            Text(errorMessage)
+                                .font(.system(size: 14, weight: .medium))
+                                .foregroundColor(.red.opacity(0.9))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal, 20)
+                                .padding(.top, 4)
+                        }
                         VStack(spacing: 8) {
                             if isLoading {
                                 ForEach(0..<9) { index in
@@ -113,6 +122,7 @@ struct SunriseSunsetView: View {
         }
         .onAppear { fetchSunriseSunset() }
         .onChange(of: locationStore.currentLocation?.latitude) { _ in fetchSunriseSunset() }
+        .onChange(of: locationStore.currentLocation?.longitude) { _ in fetchSunriseSunset() }
     }
 
     private var locationPill: some View {
@@ -164,7 +174,13 @@ struct SunriseSunsetView: View {
 
     private func fetchSunriseSunset() {
         isLoading = true
-        guard let loc = locationStore.currentLocation else { return }
+        errorMessage = nil
+        guard let loc = locationStore.currentLocation else {
+            isLoading = false
+            rows = []
+            errorMessage = "Unable to get your location. Please try again."
+            return
+        }
         let destFormat = DateFormatter()
         destFormat.dateFormat = "yyyy-MM-dd"
         destFormat.timeZone = TimeZone.current
@@ -174,8 +190,11 @@ struct SunriseSunsetView: View {
             DispatchQueue.main.async {
                 isLoading = false
                 switch response {
-                case .failure: break
-                case .success(let data): parseResult(data)
+                case .failure:
+                    rows = []
+                    errorMessage = "Couldn’t load sunrise/sunset right now. Please try again."
+                case .success(let data):
+                    parseResult(data)
                 }
             }
         }
@@ -193,7 +212,11 @@ struct SunriseSunsetView: View {
               let nauticalDawnDate = sourceFormat.date(from: result.nauticalDawn),
               let nauticalDuskDate = sourceFormat.date(from: result.nauticalDusk),
               let astronomicalDawnDate = sourceFormat.date(from: result.astronomicalDawn),
-              let astronomicalDuskDate = sourceFormat.date(from: result.astronomicalDusk) else { return }
+              let astronomicalDuskDate = sourceFormat.date(from: result.astronomicalDusk) else {
+            rows = []
+            errorMessage = "Sunrise/sunset data format was unexpected. Please try again."
+            return
+        }
         let diff = sunsetDate.timeIntervalSince(sunriseDate)
         let timeDiff = stringFromTimeInterval(diff)
         rows = [
@@ -207,6 +230,7 @@ struct SunriseSunsetView: View {
             SunriseRow(title: "Nautical Dawn", value: timeFormatter.string(from: nauticalDawnDate)),
             SunriseRow(title: "Civil Dawn", value: timeFormatter.string(from: dawnDate))
         ]
+        errorMessage = nil
     }
 
     private func stringFromTimeInterval(_ interval: TimeInterval) -> String {
