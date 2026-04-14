@@ -1,5 +1,5 @@
 app_identifier("us.letshang.lunartimes") # The bundle identifier of your app
-apple_id("cburnham@letshang.us") # Your Apple email address
+apple_id("cburnhamiv@gmail.com") # Your Apple email address
 
 itc_team_id("117916506") # App Store Connect Team ID
 team_id("56NQ7Z9L75") # Developer Portal Team ID
