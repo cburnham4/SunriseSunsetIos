@@ -1,1 +1,5 @@
-Added date picker when date is selected.
+What's new in 6.1.0:
+
+- Sunrise & sunset times refresh reliably when your location is available
+- Clear messages when location or sunrise data cannot be loaded (no more blank screen)
+- Stability improvements and bug fixes

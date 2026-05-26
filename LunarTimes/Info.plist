@@ -24,6 +24,8 @@
 	<string>ca-app-pub-8223005482588566~5783734330</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
