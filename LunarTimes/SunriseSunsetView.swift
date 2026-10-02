@@ -43,10 +43,10 @@ struct SunriseSunsetView: View {
             .ignoresSafeArea()
 
             VStack(spacing: 0) {
+                locationPill
+                savedLocationsBar
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0) {
-                        locationPill
-                        savedLocationsBar
                         dateBar
                         if let errorMessage, !isLoading {
                             Text(errorMessage)
@@ -161,7 +161,9 @@ struct SunriseSunsetView: View {
                     ForEach(Array(saved.enumerated()), id: \.offset) { _, location in
                         let selected = isSelected(location)
                         Button {
+                            guard !selected else { return }
                             locationStore.selectSaved(location)
+                            fetchSunriseSunset()
                         } label: {
                             Text(shortLabel(for: location))
                                 .font(.system(size: 13, weight: .semibold))
@@ -173,7 +175,7 @@ struct SunriseSunsetView: View {
                                         .fill(selected ? Color(uiColor: c.primary) : Color(uiColor: c.cardBackground))
                                 )
                         }
-                        .buttonStyle(.plain)
+                        .buttonStyle(.borderless)
                     }
                 }
                 .padding(.horizontal, 16)

@@ -12,17 +12,23 @@ struct WeatherView: View {
     @State private var weather: WeatherResponse?
     @State private var selectedSegment = 0
     @State private var showLocationPicker = false
+    @State private var isLoading = false
 
     private let c = ColorsConfig.self
+
+    private var locationKey: String {
+        guard let loc = locationStore.currentLocation else { return "" }
+        return String(format: "%.5f,%.5f", loc.latitude, loc.longitude)
+    }
 
     var body: some View {
         ZStack {
             background
             VStack(spacing: 0) {
+                locationPill
+                savedLocationsBar
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0) {
-                        locationPill
-                        savedLocationsBar
                         heroSection
                         segmentBar
                         if selectedSegment == 0 {
@@ -57,8 +63,7 @@ struct WeatherView: View {
             }
         }
         .onAppear { fetchWeather() }
-        .onChange(of: locationStore.currentLocation?.latitude) { _ in fetchWeather() }
-        .onChange(of: locationStore.currentLocation?.longitude) { _ in fetchWeather() }
+        .onChange(of: locationKey) { _ in fetchWeather() }
     }
 
     @ViewBuilder
@@ -70,7 +75,9 @@ struct WeatherView: View {
                     ForEach(Array(saved.enumerated()), id: \.offset) { _, location in
                         let selected = isSelected(location)
                         Button {
+                            guard !selected else { return }
                             locationStore.selectSaved(location)
+                            fetchWeather()
                         } label: {
                             Text(shortLabel(for: location))
                                 .font(.system(size: 13, weight: .semibold))
@@ -82,7 +89,7 @@ struct WeatherView: View {
                                         .fill(selected ? Color(uiColor: c.primary) : Color(uiColor: c.cardBackground))
                                 )
                         }
-                        .buttonStyle(.plain)
+                        .buttonStyle(.borderless)
                     }
                 }
                 .padding(.horizontal, 16)
@@ -143,7 +150,7 @@ struct WeatherView: View {
 
     private var heroSection: some View {
         VStack(spacing: 12) {
-            if let w = weather {
+            if let w = weather, !isLoading {
                 HStack(alignment: .top, spacing: 20) {
                     if let url = w.current.iconURL {
                         KFImage(url)
@@ -322,15 +329,21 @@ struct WeatherView: View {
 
     private func fetchWeather(completion: (() -> Void)? = nil) {
         guard let loc = locationStore.currentLocation else {
+            weather = nil
+            isLoading = false
             completion?()
             return
         }
+        isLoading = true
         let request = WeatherRequest(latitude: loc.latitude, longitude: loc.longitude)
         request.makeRequest { response in
             DispatchQueue.main.async {
+                isLoading = false
                 switch response {
-                case .failure: break
-                case .success(let w): weather = w
+                case .failure:
+                    break
+                case .success(let w):
+                    weather = w
                 }
                 completion?()
             }
