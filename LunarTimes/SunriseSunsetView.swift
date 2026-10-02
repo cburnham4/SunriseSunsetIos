@@ -12,6 +12,7 @@ struct SunriseSunsetView: View {
     @State private var showDatePicker = false
     @State private var showLocationPicker = false
     @State private var rows: [SunriseRow] = []
+    @State private var snapshot: DaylightSnapshot?
     @State private var isLoading = false
     @State private var errorMessage: String?
 
@@ -45,6 +46,7 @@ struct SunriseSunsetView: View {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0) {
                         locationPill
+                        savedLocationsBar
                         dateBar
                         if let errorMessage, !isLoading {
                             Text(errorMessage)
@@ -54,9 +56,13 @@ struct SunriseSunsetView: View {
                                 .padding(.horizontal, 20)
                                 .padding(.top, 4)
                         }
+                        if let snapshot, !isLoading {
+                            todayHero(snapshot)
+                            goldenHourSection(snapshot)
+                        }
                         VStack(spacing: 8) {
                             if isLoading {
-                                ForEach(0..<9) { index in
+                                ForEach(0..<9, id: \.self) { index in
                                     SunriseRowView(
                                         title: "Loading",
                                         value: "00:00",
@@ -86,6 +92,7 @@ struct SunriseSunsetView: View {
                         .padding(.bottom, 24)
                     }
                 }
+                .refreshable { await refreshAsync() }
                 .frame(maxHeight: .infinity)
 
                 BannerAdView(adUnitID: "ca-app-pub-8223005482588566/7260467533")
@@ -95,7 +102,12 @@ struct SunriseSunsetView: View {
         .navigationTitle("Sunrise & Sunset")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .primaryAction) {
+            ToolbarItemGroup(placement: .primaryAction) {
+                if let snapshot {
+                    ShareLink(item: shareText(for: snapshot)) {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                }
                 Button { showLocationPicker = true } label: {
                     Image(systemName: "location.fill")
                 }
@@ -141,6 +153,37 @@ struct SunriseSunsetView: View {
         .background(Color(uiColor: c.surfaceBar))
     }
 
+    @ViewBuilder
+    private var savedLocationsBar: some View {
+        let saved = locationStore.savedLocations
+        if !saved.isEmpty {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(Array(saved.enumerated()), id: \.offset) { _, location in
+                        let selected = isSelected(location)
+                        Button {
+                            locationStore.selectSaved(location)
+                        } label: {
+                            Text(shortLabel(for: location))
+                                .font(.system(size: 13, weight: .semibold))
+                                .foregroundColor(selected ? .white : Color(uiColor: c.textPrimary))
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 8)
+                                .background(
+                                    Capsule()
+                                        .fill(selected ? Color(uiColor: c.primary) : Color(uiColor: c.cardBackground))
+                                )
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 10)
+            }
+            .background(Color(uiColor: c.surfaceBar).opacity(0.55))
+        }
+    }
+
     private var dateBar: some View {
         HStack(spacing: 16) {
             Button {
@@ -172,16 +215,139 @@ struct SunriseSunsetView: View {
         .padding(.vertical, 14)
     }
 
-    private func fetchSunriseSunset() {
+    private func todayHero(_ snap: DaylightSnapshot) -> some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Text(snap.nextEventTitle)
+                .font(.system(size: 13, weight: .semibold))
+                .foregroundColor(Color(uiColor: c.textSecondary))
+                .textCase(.uppercase)
+
+            HStack(alignment: .firstTextBaseline, spacing: 8) {
+                Image(systemName: snap.nextEventIsSunrise ? "sunrise.fill" : "sunset.fill")
+                    .font(.system(size: 28))
+                    .foregroundColor(Color(uiColor: c.accent))
+                Text(timeFormatter.string(from: snap.nextEventDate))
+                    .font(.system(size: 40, weight: .thin, design: .rounded))
+                    .foregroundColor(Color(uiColor: c.textPrimary))
+                Spacer(minLength: 0)
+            }
+
+            HStack(spacing: 16) {
+                heroStat(title: "Sunrise", value: timeFormatter.string(from: snap.sunrise))
+                heroStat(title: "Sunset", value: timeFormatter.string(from: snap.sunset))
+                heroStat(title: "Daylight", value: snap.dayLengthText)
+            }
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(
+            RoundedRectangle(cornerRadius: 22)
+                .fill(Color(uiColor: c.surfaceBar))
+                .shadow(color: .black.opacity(0.06), radius: 14, x: 0, y: 6)
+        )
+        .padding(.horizontal, 20)
+        .padding(.top, 8)
+    }
+
+    private func heroStat(title: String, value: String) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(title)
+                .font(.system(size: 12, weight: .medium))
+                .foregroundColor(Color(uiColor: c.textSecondary))
+            Text(value)
+                .font(.system(size: 15, weight: .semibold, design: .rounded))
+                .foregroundColor(Color(uiColor: c.textPrimary))
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private func goldenHourSection(_ snap: DaylightSnapshot) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Golden & blue hour")
+                .font(.system(size: 17, weight: .semibold))
+                .foregroundColor(Color(uiColor: c.textPrimary))
+                .padding(.horizontal, 20)
+                .padding(.top, 20)
+
+            VStack(spacing: 8) {
+                SunriseRowView(
+                    title: "Morning golden",
+                    value: rangeText(snap.morningGoldenStart, snap.morningGoldenEnd),
+                    isAlt: false
+                )
+                SunriseRowView(
+                    title: "Evening golden",
+                    value: rangeText(snap.eveningGoldenStart, snap.eveningGoldenEnd),
+                    isAlt: true
+                )
+                SunriseRowView(
+                    title: "Morning blue",
+                    value: rangeText(snap.dawn, snap.sunrise),
+                    isAlt: false
+                )
+                SunriseRowView(
+                    title: "Evening blue",
+                    value: rangeText(snap.sunset, snap.dusk),
+                    isAlt: true
+                )
+            }
+            .padding(.horizontal, 20)
+        }
+    }
+
+    private func rangeText(_ start: Date, _ end: Date) -> String {
+        "\(timeFormatter.string(from: start)) – \(timeFormatter.string(from: end))"
+    }
+
+    private func shortLabel(for location: SunriseLocation) -> String {
+        let address = location.address
+        if address.isEmpty { return "Saved" }
+        return address.components(separatedBy: ",").first?.trimmingCharacters(in: .whitespaces) ?? address
+    }
+
+    private func isSelected(_ location: SunriseLocation) -> Bool {
+        guard let current = locationStore.currentLocation else { return false }
+        return abs(current.latitude - location.latitude) < 0.0001 &&
+            abs(current.longitude - location.longitude) < 0.0001
+    }
+
+    private func shareText(for snap: DaylightSnapshot) -> String {
+        let place = locationStore.currentLocation?.address ?? "Current location"
+        return """
+        Sunrise & Sunset — \(dateFormatter.string(from: date))
+        \(place)
+        Sunrise: \(timeFormatter.string(from: snap.sunrise))
+        Sunset: \(timeFormatter.string(from: snap.sunset))
+        Daylight: \(snap.dayLengthText)
+        Morning golden: \(rangeText(snap.morningGoldenStart, snap.morningGoldenEnd))
+        Evening golden: \(rangeText(snap.eveningGoldenStart, snap.eveningGoldenEnd))
+        """
+    }
+
+    @MainActor
+    private func refreshAsync() async {
+        await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
+            fetchSunriseSunset {
+                continuation.resume()
+            }
+        }
+    }
+
+    private func fetchSunriseSunset(completion: (() -> Void)? = nil) {
         isLoading = true
         errorMessage = nil
         guard let loc = locationStore.currentLocation else {
             isLoading = false
             rows = []
+            snapshot = nil
             errorMessage = "Unable to get your location. Please try again."
+            completion?()
             return
         }
         let destFormat = DateFormatter()
+        destFormat.locale = Locale(identifier: "en_US_POSIX")
         destFormat.dateFormat = "yyyy-MM-dd"
         destFormat.timeZone = TimeZone.current
         let dateString = destFormat.string(from: date)
@@ -192,37 +358,54 @@ struct SunriseSunsetView: View {
                 switch response {
                 case .failure:
                     rows = []
+                    snapshot = nil
                     errorMessage = "Couldn’t load sunrise/sunset right now. Please try again."
                 case .success(let data):
                     parseResult(data)
                 }
+                completion?()
             }
         }
     }
 
     private func parseResult(_ response: SunriseSunsetResponse) {
         let result = response.results
-        let sourceFormat = DateFormatter()
-        sourceFormat.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        sourceFormat.timeZone = TimeZone(identifier: "UTC")
-        guard let sunriseDate = sourceFormat.date(from: result.sunriseString),
-              let sunsetDate = sourceFormat.date(from: result.sunsetString),
-              let dawnDate = sourceFormat.date(from: result.dawnString),
-              let duskDate = sourceFormat.date(from: result.duskString),
-              let nauticalDawnDate = sourceFormat.date(from: result.nauticalDawn),
-              let nauticalDuskDate = sourceFormat.date(from: result.nauticalDusk),
-              let astronomicalDawnDate = sourceFormat.date(from: result.astronomicalDawn),
-              let astronomicalDuskDate = sourceFormat.date(from: result.astronomicalDusk) else {
+        guard let sunriseDate = Self.parseAPIDate(result.sunriseString),
+              let sunsetDate = Self.parseAPIDate(result.sunsetString),
+              let dawnDate = Self.parseAPIDate(result.dawnString),
+              let duskDate = Self.parseAPIDate(result.duskString),
+              let nauticalDawnDate = Self.parseAPIDate(result.nauticalDawn),
+              let nauticalDuskDate = Self.parseAPIDate(result.nauticalDusk),
+              let astronomicalDawnDate = Self.parseAPIDate(result.astronomicalDawn),
+              let astronomicalDuskDate = Self.parseAPIDate(result.astronomicalDusk) else {
             rows = []
+            snapshot = nil
             errorMessage = "Sunrise/sunset data format was unexpected. Please try again."
             return
         }
-        let diff = sunsetDate.timeIntervalSince(sunriseDate)
-        let timeDiff = stringFromTimeInterval(diff)
+
+        let dayLength = sunsetDate.timeIntervalSince(sunriseDate)
+        let dayLengthText = stringFromTimeInterval(dayLength)
+        let morningGoldenEnd = sunriseDate.addingTimeInterval(60 * 60)
+        let eveningGoldenStart = sunsetDate.addingTimeInterval(-60 * 60)
+
+        let snap = DaylightSnapshot(
+            sunrise: sunriseDate,
+            sunset: sunsetDate,
+            dawn: dawnDate,
+            dusk: duskDate,
+            dayLengthText: dayLengthText,
+            morningGoldenStart: sunriseDate,
+            morningGoldenEnd: morningGoldenEnd,
+            eveningGoldenStart: eveningGoldenStart,
+            eveningGoldenEnd: sunsetDate
+        )
+        snapshot = snap
+
         rows = [
             SunriseRow(title: "Sunrise", value: timeFormatter.string(from: sunriseDate)),
             SunriseRow(title: "Sunset", value: timeFormatter.string(from: sunsetDate)),
-            SunriseRow(title: "Daytime", value: timeDiff),
+            SunriseRow(title: "Daytime", value: dayLengthText),
             SunriseRow(title: "Astronomical Dusk", value: timeFormatter.string(from: astronomicalDuskDate)),
             SunriseRow(title: "Nautical Dusk", value: timeFormatter.string(from: nauticalDuskDate)),
             SunriseRow(title: "Dusk", value: timeFormatter.string(from: duskDate)),
@@ -233,11 +416,64 @@ struct SunriseSunsetView: View {
         errorMessage = nil
     }
 
+    /// Parse sunrise-sunset.org ISO timestamps robustly across locales.
+    private static func parseAPIDate(_ string: String) -> Date? {
+        let iso = ISO8601DateFormatter()
+        iso.formatOptions = [.withInternetDateTime]
+        if let date = iso.date(from: string) { return date }
+
+        iso.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        if let date = iso.date(from: string) { return date }
+
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        if let date = formatter.date(from: string) { return date }
+
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return formatter.date(from: string)
+    }
+
     private func stringFromTimeInterval(_ interval: TimeInterval) -> String {
-        let total = Int(interval)
+        let total = max(0, Int(interval))
         let minutes = (total / 60) % 60
         let hours = total / 3600
         return String(format: "%dh %02dm", hours, minutes)
+    }
+}
+
+struct DaylightSnapshot {
+    let sunrise: Date
+    let sunset: Date
+    let dawn: Date
+    let dusk: Date
+    let dayLengthText: String
+    let morningGoldenStart: Date
+    let morningGoldenEnd: Date
+    let eveningGoldenStart: Date
+    let eveningGoldenEnd: Date
+
+    var nextEventIsSunrise: Bool {
+        let now = Date()
+        if now < sunrise { return true }
+        if now < sunset { return false }
+        return true
+    }
+
+    var nextEventDate: Date {
+        nextEventIsSunrise ? sunrise : sunset
+    }
+
+    var nextEventTitle: String {
+        let calendar = Calendar.current
+        let now = Date()
+        if calendar.isDateInToday(sunrise) || calendar.isDateInToday(sunset) {
+            if now < sunrise { return "Next up · Sunrise" }
+            if now < sunset { return "Next up · Sunset" }
+            return "Tomorrow’s first light · Sunrise"
+        }
+        return nextEventIsSunrise ? "Sunrise" : "Sunset"
     }
 }
 
@@ -261,6 +497,7 @@ struct SunriseRowView: View {
             Text(value)
                 .font(.system(size: 16, weight: .semibold, design: .rounded))
                 .foregroundColor(Color(uiColor: c.textPrimary))
+                .multilineTextAlignment(.trailing)
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 8)

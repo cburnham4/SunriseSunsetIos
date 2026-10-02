@@ -22,6 +22,7 @@ struct WeatherView: View {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0) {
                         locationPill
+                        savedLocationsBar
                         heroSection
                         segmentBar
                         if selectedSegment == 0 {
@@ -32,6 +33,7 @@ struct WeatherView: View {
                     }
                     .padding(.bottom, 24)
                 }
+                .refreshable { await refreshAsync() }
                 .frame(maxHeight: .infinity)
 
                 BannerAdView(adUnitID: "ca-app-pub-8223005482588566/3396819721")
@@ -56,6 +58,59 @@ struct WeatherView: View {
         }
         .onAppear { fetchWeather() }
         .onChange(of: locationStore.currentLocation?.latitude) { _ in fetchWeather() }
+        .onChange(of: locationStore.currentLocation?.longitude) { _ in fetchWeather() }
+    }
+
+    @ViewBuilder
+    private var savedLocationsBar: some View {
+        let saved = locationStore.savedLocations
+        if !saved.isEmpty {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(Array(saved.enumerated()), id: \.offset) { _, location in
+                        let selected = isSelected(location)
+                        Button {
+                            locationStore.selectSaved(location)
+                        } label: {
+                            Text(shortLabel(for: location))
+                                .font(.system(size: 13, weight: .semibold))
+                                .foregroundColor(selected ? .white : Color(uiColor: c.textPrimary))
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 8)
+                                .background(
+                                    Capsule()
+                                        .fill(selected ? Color(uiColor: c.primary) : Color(uiColor: c.cardBackground))
+                                )
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 10)
+            }
+            .background(Color(uiColor: c.surfaceBar).opacity(0.55))
+        }
+    }
+
+    private func shortLabel(for location: SunriseLocation) -> String {
+        let address = location.address
+        if address.isEmpty { return "Saved" }
+        return address.components(separatedBy: ",").first?.trimmingCharacters(in: .whitespaces) ?? address
+    }
+
+    private func isSelected(_ location: SunriseLocation) -> Bool {
+        guard let current = locationStore.currentLocation else { return false }
+        return abs(current.latitude - location.latitude) < 0.0001 &&
+            abs(current.longitude - location.longitude) < 0.0001
+    }
+
+    @MainActor
+    private func refreshAsync() async {
+        await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
+            fetchWeather {
+                continuation.resume()
+            }
+        }
     }
 
     private var background: some View {
@@ -265,13 +320,19 @@ struct WeatherView: View {
         }
     }
 
-    private func fetchWeather() {
-        guard let loc = locationStore.currentLocation else { return }
+    private func fetchWeather(completion: (() -> Void)? = nil) {
+        guard let loc = locationStore.currentLocation else {
+            completion?()
+            return
+        }
         let request = WeatherRequest(latitude: loc.latitude, longitude: loc.longitude)
         request.makeRequest { response in
-            switch response {
-            case .failure: break
-            case .success(let w): weather = w
+            DispatchQueue.main.async {
+                switch response {
+                case .failure: break
+                case .success(let w): weather = w
+                }
+                completion?()
             }
         }
     }
