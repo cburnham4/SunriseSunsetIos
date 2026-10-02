@@ -1,5 +1,5 @@
-What's new in 6.1.1:
+What's new in 6.1.2:
 
-- Sunrise & sunset times refresh reliably when your location is available
-- Clear messages when location or sunrise data cannot be loaded (no more blank screen)
+- Weather now loads correctly in rainy and snowy conditions
+- Sunrise screen improvements: clearer hero times and UX polish
 - Stability improvements and bug fixes

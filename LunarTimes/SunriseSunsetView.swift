@@ -61,7 +61,7 @@ struct SunriseSunsetView: View {
                         }
                         VStack(spacing: 8) {
                             if isLoading {
-                                ForEach(0..<9, id: \.self) { index in
+                                ForEach(0..<6, id: \.self) { index in
                                     SunriseRowView(
                                         title: "Loading",
                                         value: "00:00",
@@ -69,7 +69,7 @@ struct SunriseSunsetView: View {
                                     )
                                     .redacted(reason: .placeholder)
                                     .shimmering()
-                                    if (index + 1) % 3 == 0 && index + 1 != 9 {
+                                    if (index + 1) % 3 == 0 && index + 1 != 6 {
                                         Spacer().frame(height: 20)
                                     }
                                 }
@@ -355,9 +355,6 @@ struct SunriseSunsetView: View {
         )
 
         rows = [
-            SunriseRow(title: "Sunrise", value: timeFormatter.string(from: sunriseDate)),
-            SunriseRow(title: "Sunset", value: timeFormatter.string(from: sunsetDate)),
-            SunriseRow(title: "Daytime", value: dayLengthText),
             SunriseRow(title: "Astronomical Dusk", value: timeFormatter.string(from: astronomicalDuskDate)),
             SunriseRow(title: "Nautical Dusk", value: timeFormatter.string(from: nauticalDuskDate)),
             SunriseRow(title: "Dusk", value: timeFormatter.string(from: duskDate)),
