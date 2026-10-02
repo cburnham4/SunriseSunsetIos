@@ -13,6 +13,8 @@ struct WeatherView: View {
     @State private var selectedSegment = 0
     @State private var showLocationPicker = false
     @State private var isLoading = false
+    @State private var errorMessage: String?
+    @State private var fetchGeneration = 0
 
     private let c = ColorsConfig.self
 
@@ -29,6 +31,14 @@ struct WeatherView: View {
                 savedLocationsBar
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0) {
+                        if let errorMessage, !isLoading {
+                            Text(errorMessage)
+                                .font(.system(size: 14, weight: .medium))
+                                .foregroundColor(.red.opacity(0.9))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal, 20)
+                                .padding(.top, 12)
+                        }
                         heroSection
                         segmentBar
                         if selectedSegment == 0 {
@@ -331,19 +341,29 @@ struct WeatherView: View {
         guard let loc = locationStore.currentLocation else {
             weather = nil
             isLoading = false
+            errorMessage = "Unable to get your location. Please try again."
             completion?()
             return
         }
+        fetchGeneration += 1
+        let generation = fetchGeneration
         isLoading = true
+        errorMessage = nil
         let request = WeatherRequest(latitude: loc.latitude, longitude: loc.longitude)
         request.makeRequest { response in
             DispatchQueue.main.async {
+                guard generation == fetchGeneration else {
+                    completion?()
+                    return
+                }
                 isLoading = false
                 switch response {
                 case .failure:
-                    break
+                    weather = nil
+                    errorMessage = "Couldn’t load weather for this location. Please try again."
                 case .success(let w):
                     weather = w
+                    errorMessage = nil
                 }
                 completion?()
             }
