@@ -11,7 +11,7 @@ final class LocationStore: ObservableObject {
     @Published var currentLocation: SunriseLocation? {
         didSet {
             guard let currentLocation else { return }
-            remember(currentLocation)
+            rememberIfNeeded(currentLocation)
         }
     }
 
@@ -26,6 +26,7 @@ final class LocationStore: ObservableObject {
     }
 
     func selectSaved(_ location: SunriseLocation) {
+        // Avoid didSet remember path so chip order stays stable while switching.
         currentLocation = location
     }
 
@@ -34,14 +35,15 @@ final class LocationStore: ObservableObject {
         persistSavedLocations()
     }
 
-    private func remember(_ location: SunriseLocation) {
+    /// Append newly picked places without reordering existing chips.
+    private func rememberIfNeeded(_ location: SunriseLocation) {
         let address = location.address.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !address.isEmpty else { return }
+        if savedLocations.contains(where: { samePlace($0, location) }) { return }
 
-        savedLocations.removeAll { samePlace($0, location) }
-        savedLocations.insert(location, at: 0)
+        savedLocations.append(location)
         if savedLocations.count > maxSaved {
-            savedLocations = Array(savedLocations.prefix(maxSaved))
+            savedLocations = Array(savedLocations.suffix(maxSaved))
         }
         persistSavedLocations()
     }

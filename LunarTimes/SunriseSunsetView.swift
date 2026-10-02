@@ -58,7 +58,6 @@ struct SunriseSunsetView: View {
                         }
                         if let snapshot, !isLoading {
                             todayHero(snapshot)
-                            goldenHourSection(snapshot)
                         }
                         VStack(spacing: 8) {
                             if isLoading {
@@ -263,44 +262,6 @@ struct SunriseSunsetView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
-    private func goldenHourSection(_ snap: DaylightSnapshot) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Golden & blue hour")
-                .font(.system(size: 17, weight: .semibold))
-                .foregroundColor(Color(uiColor: c.textPrimary))
-                .padding(.horizontal, 20)
-                .padding(.top, 20)
-
-            VStack(spacing: 8) {
-                SunriseRowView(
-                    title: "Morning golden",
-                    value: rangeText(snap.morningGoldenStart, snap.morningGoldenEnd),
-                    isAlt: false
-                )
-                SunriseRowView(
-                    title: "Evening golden",
-                    value: rangeText(snap.eveningGoldenStart, snap.eveningGoldenEnd),
-                    isAlt: true
-                )
-                SunriseRowView(
-                    title: "Morning blue",
-                    value: rangeText(snap.dawn, snap.sunrise),
-                    isAlt: false
-                )
-                SunriseRowView(
-                    title: "Evening blue",
-                    value: rangeText(snap.sunset, snap.dusk),
-                    isAlt: true
-                )
-            }
-            .padding(.horizontal, 20)
-        }
-    }
-
-    private func rangeText(_ start: Date, _ end: Date) -> String {
-        "\(timeFormatter.string(from: start)) – \(timeFormatter.string(from: end))"
-    }
-
     private func shortLabel(for location: SunriseLocation) -> String {
         let address = location.address
         if address.isEmpty { return "Saved" }
@@ -321,8 +282,6 @@ struct SunriseSunsetView: View {
         Sunrise: \(timeFormatter.string(from: snap.sunrise))
         Sunset: \(timeFormatter.string(from: snap.sunset))
         Daylight: \(snap.dayLengthText)
-        Morning golden: \(rangeText(snap.morningGoldenStart, snap.morningGoldenEnd))
-        Evening golden: \(rangeText(snap.eveningGoldenStart, snap.eveningGoldenEnd))
         """
     }
 
@@ -386,21 +345,12 @@ struct SunriseSunsetView: View {
 
         let dayLength = sunsetDate.timeIntervalSince(sunriseDate)
         let dayLengthText = stringFromTimeInterval(dayLength)
-        let morningGoldenEnd = sunriseDate.addingTimeInterval(60 * 60)
-        let eveningGoldenStart = sunsetDate.addingTimeInterval(-60 * 60)
 
-        let snap = DaylightSnapshot(
+        snapshot = DaylightSnapshot(
             sunrise: sunriseDate,
             sunset: sunsetDate,
-            dawn: dawnDate,
-            dusk: duskDate,
-            dayLengthText: dayLengthText,
-            morningGoldenStart: sunriseDate,
-            morningGoldenEnd: morningGoldenEnd,
-            eveningGoldenStart: eveningGoldenStart,
-            eveningGoldenEnd: sunsetDate
+            dayLengthText: dayLengthText
         )
-        snapshot = snap
 
         rows = [
             SunriseRow(title: "Sunrise", value: timeFormatter.string(from: sunriseDate)),
@@ -446,13 +396,7 @@ struct SunriseSunsetView: View {
 struct DaylightSnapshot {
     let sunrise: Date
     let sunset: Date
-    let dawn: Date
-    let dusk: Date
     let dayLengthText: String
-    let morningGoldenStart: Date
-    let morningGoldenEnd: Date
-    let eveningGoldenStart: Date
-    let eveningGoldenEnd: Date
 
     var nextEventIsSunrise: Bool {
         let now = Date()
