@@ -53,10 +53,14 @@ resize_to "$WEATHER"   "$DEST/iPad Pro (12.9-inch) (3rd generation) ipadPro129-0
 resize_to "$HERO" "$IMESSAGE_DEST/iPhone XS Max (iMessage)-01.png" 2778 1284
 resize_to "$HERO" "$IMESSAGE_DEST/iPad Pro (12.9-inch) (3rd generation) ipadPro129 (iMessage)-01.png" 2732 2048
 
+# Keep promotional creative outside screenshots/ — deliver rejects non-locale dirs there.
 if [[ -f "$CREATIVE" ]]; then
-  mkdir -p "$ROOT/fastlane/screenshots/promotional"
-  cp "$CREATIVE" "$ROOT/fastlane/screenshots/promotional/universal-creative-5244x2950.png"
-  echo "Promotional creative: fastlane/screenshots/promotional/universal-creative-5244x2950.png"
+  mkdir -p "$ROOT/fastlane/promotional"
+  cp "$CREATIVE" "$ROOT/fastlane/promotional/universal-creative-5244x2950.png"
+  echo "Promotional creative: fastlane/promotional/universal-creative-5244x2950.png"
 fi
+
+# Remove stale promotional dir if present (breaks deliver language validation).
+rm -rf "$ROOT/fastlane/screenshots/promotional"
 
 echo "Synced iPhone, iPad, and iMessage screenshots to fastlane/screenshots/"
