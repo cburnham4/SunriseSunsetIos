@@ -1,5 +1,6 @@
-What's new in 6.1.2:
+What's new in 6.1.3:
 
-- Weather now loads correctly in rainy and snowy conditions
-- Sunrise screen improvements: clearer hero times and UX polish
-- Stability improvements and bug fixes
+- New app icon
+- Refreshed App Store screenshots
+- More reliable weather in rainy and snowy conditions
+- Sunrise screen improvements: clearer times and UX polish

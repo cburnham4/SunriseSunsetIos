@@ -1,112 +1,116 @@
 {
-  "images" : [
+  "images": [
     {
-      "idiom" : "iphone",
-      "size" : "20x20",
-      "scale" : "2x"
+      "idiom": "iphone",
+      "size": "20x20",
+      "scale": "2x",
+      "filename": "AppIcon-40.png"
     },
     {
-      "idiom" : "iphone",
-      "size" : "20x20",
-      "scale" : "3x"
+      "idiom": "iphone",
+      "size": "20x20",
+      "scale": "3x",
+      "filename": "AppIcon-60.png"
     },
     {
-      "size" : "29x29",
-      "idiom" : "iphone",
-      "filename" : "ic_brightness_58_ios.png",
-      "scale" : "2x"
+      "idiom": "iphone",
+      "size": "29x29",
+      "scale": "2x",
+      "filename": "AppIcon-58.png"
     },
     {
-      "size" : "29x29",
-      "idiom" : "iphone",
-      "filename" : "ic_brightness_87_ios.png",
-      "scale" : "3x"
+      "idiom": "iphone",
+      "size": "29x29",
+      "scale": "3x",
+      "filename": "AppIcon-87.png"
     },
     {
-      "size" : "40x40",
-      "idiom" : "iphone",
-      "filename" : "ic_brightness_80_ios.png",
-      "scale" : "2x"
+      "idiom": "iphone",
+      "size": "40x40",
+      "scale": "2x",
+      "filename": "AppIcon-80.png"
     },
     {
-      "size" : "40x40",
-      "idiom" : "iphone",
-      "filename" : "ic_brightness_120_ios.png",
-      "scale" : "3x"
+      "idiom": "iphone",
+      "size": "40x40",
+      "scale": "3x",
+      "filename": "AppIcon-120.png"
     },
     {
-      "size" : "60x60",
-      "idiom" : "iphone",
-      "filename" : "ic_brightness_120_ios-1.png",
-      "scale" : "2x"
+      "idiom": "iphone",
+      "size": "60x60",
+      "scale": "2x",
+      "filename": "AppIcon-120.png"
     },
     {
-      "size" : "60x60",
-      "idiom" : "iphone",
-      "filename" : "ic_brightness_180_ios.png",
-      "scale" : "3x"
+      "idiom": "iphone",
+      "size": "60x60",
+      "scale": "3x",
+      "filename": "AppIcon-180.png"
     },
     {
-      "idiom" : "ipad",
-      "size" : "20x20",
-      "scale" : "1x"
+      "idiom": "ipad",
+      "size": "20x20",
+      "scale": "1x",
+      "filename": "AppIcon-20.png"
     },
     {
-      "idiom" : "ipad",
-      "size" : "20x20",
-      "scale" : "2x"
+      "idiom": "ipad",
+      "size": "20x20",
+      "scale": "2x",
+      "filename": "AppIcon-40.png"
     },
     {
-      "size" : "29x29",
-      "idiom" : "ipad",
-      "filename" : "ic_brightness_29_ios.png",
-      "scale" : "1x"
+      "idiom": "ipad",
+      "size": "29x29",
+      "scale": "1x",
+      "filename": "AppIcon-29.png"
     },
     {
-      "size" : "29x29",
-      "idiom" : "ipad",
-      "filename" : "ic_brightness_58_ios-1.png",
-      "scale" : "2x"
+      "idiom": "ipad",
+      "size": "29x29",
+      "scale": "2x",
+      "filename": "AppIcon-58.png"
     },
     {
-      "size" : "40x40",
-      "idiom" : "ipad",
-      "filename" : "ic_brightness_40_ios.png",
-      "scale" : "1x"
+      "idiom": "ipad",
+      "size": "40x40",
+      "scale": "1x",
+      "filename": "AppIcon-40.png"
     },
     {
-      "size" : "40x40",
-      "idiom" : "ipad",
-      "filename" : "ic_brightness_80_ios-1.png",
-      "scale" : "2x"
+      "idiom": "ipad",
+      "size": "40x40",
+      "scale": "2x",
+      "filename": "AppIcon-80.png"
     },
     {
-      "size" : "76x76",
-      "idiom" : "ipad",
-      "filename" : "ic_brightness_76_ios.png",
-      "scale" : "1x"
+      "idiom": "ipad",
+      "size": "76x76",
+      "scale": "1x",
+      "filename": "AppIcon-76.png"
     },
     {
-      "size" : "76x76",
-      "idiom" : "ipad",
-      "filename" : "ic_brightness_152_ios.png",
-      "scale" : "2x"
+      "idiom": "ipad",
+      "size": "76x76",
+      "scale": "2x",
+      "filename": "AppIcon-152.png"
     },
     {
-      "size" : "83.5x83.5",
-      "idiom" : "ipad",
-      "filename" : "ic_brightness_167_ios.png",
-      "scale" : "2x"
+      "idiom": "ipad",
+      "size": "83.5x83.5",
+      "scale": "2x",
+      "filename": "AppIcon-167.png"
     },
     {
-      "size" : "1024x1024",
-      "idiom" : "ios-marketing",
-      "filename" : "ic_brightness_1024_ios.png",
-      "scale" : "1x"
+      "idiom": "ios-marketing",
+      "size": "1024x1024",
+      "scale": "1x",
+      "filename": "AppIcon-1024.png"
     }
   ],
-  "info" : {
-    "version" : 1,
-    "author" : "xcode"
+  "info": {
+    "version": 1,
+    "author": "xcode"
   }
 }

@@ -59,6 +59,10 @@ class TabBarViewController: UITabBarController {
 
         viewControllers = [sunriseNav, weatherNav]
 
+        if ProcessInfo.processInfo.environment["SCREENSHOT_TAB"] == "weather" {
+            selectedIndex = 1
+        }
+
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = ColorsConfig.tabBarBackground

@@ -1,1 +1,15 @@
-Find out what time the sun rises and sets. As well as the times for dawn and dusk. Simple app that is useful when out hunting.
+Know exactly when the sun rises and sets — wherever you are.
+
+Sunrise & Sunset gives you clear daylight times for any location: sunrise, sunset, day length, and the twilight windows hunters and photographers rely on (civil, nautical, and astronomical dawn & dusk).
+
+FEATURES
+• Next-up hero — instantly see the next sunrise or sunset
+• Full twilight list — civil, nautical, and astronomical times
+• Saved places — switch cities with a tap
+• Local weather — hourly and weekly forecast for the same spot
+• Share today’s times with friends
+• Pull to refresh
+
+Perfect for hunting, fishing, photography, camping, or just planning your day around the light.
+
+Simple. Accurate. Built for the outdoors.

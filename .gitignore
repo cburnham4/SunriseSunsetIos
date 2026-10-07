@@ -97,3 +97,7 @@ AuthKey_*.p8
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+# App Store screenshot generator
+marketing/app-store-screenshots/node_modules/
+marketing/app-store-screenshots/.next/
